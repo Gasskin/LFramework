@@ -3,15 +3,17 @@
 # 0.文件结构
 ```c#
 ├── Core // 框架总入口
-├──────LFramework           // 自己扩展的框架
-|      ├── Editor            
-|      └── Runtime          
-├──────Library              // 第三方库，GameFramwork源码也在里面
-|      ├── Editor      
-|      └── Runtime      
-└──────UnityGameFramewokr   // UGF源码
-       ├── Editor      
-       └── Runtime       
+    ├────LFramework           // 自己扩展的框架
+    |    ├── Editor            
+    |    └── Runtime
+    |          
+    ├────Library              // 第三方库，GameFramwork源码也在里面
+    |    ├── Editor      
+    |    └── Runtime
+    |      
+    └────UnityGameFramewokr   // UGF源码
+         ├── Editor      
+         └── Runtime       
 ```
 
 
