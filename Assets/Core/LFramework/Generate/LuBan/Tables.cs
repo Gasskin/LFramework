@@ -6,33 +6,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using Bright.Serialization;
-
+using System.Threading.Tasks;
 
 
 namespace cfg
-{ 
-public partial class Tables
 {
-    public AITable AITable {get; }
+   
+public sealed class Tables
+{
+    public AITable AITable {get; private set; }
 
-    public Tables(System.Func<string, ByteBuf> loader)
+    public Tables() { }
+    
+    public async Task LoadAsync(System.Func<string, Task<ByteBuf>> loader)
     {
         var tables = new System.Collections.Generic.Dictionary<string, object>();
-        AITable = new AITable(loader("aitable")); 
+        AITable = new AITable(await loader("aitable")); 
         tables.Add("AITable", AITable);
 
-        PostInit();
         AITable.Resolve(tables); 
-        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
     {
         AITable.TranslateText(translator); 
     }
-    
-    partial void PostInit();
-    partial void PostResolve();
 }
 
 }
