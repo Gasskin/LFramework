@@ -1,5 +1,5 @@
 set TOOL=dotnet .\Tools\Luban.ClientServer\Luban.ClientServer.dll
-set CLIENT_CODE=..\Assets\Core\LFramework\Generate\LuBan
+set CLIENT_CODE=..\Assets\Core\LFramework\Runtime\Generate\LuBan
 set CLIENT_DATA=..\Assets\AssetsPackage\LuBan
 
 %TOOL% -j cfg --^
