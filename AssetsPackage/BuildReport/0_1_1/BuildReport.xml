@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<UnityGameFramework>
+  <BuildReport>
+    <Summary>
+      <ProductName>LFrameWork</ProductName>
+      <CompanyName>DefaultCompany</CompanyName>
+      <GameIdentifier>com.DefaultCompany.LFrameWork</GameIdentifier>
+      <GameFrameworkVersion>2021.05.31</GameFrameworkVersion>
+      <UnityVersion>2021.3.6f1</UnityVersion>
+      <ApplicableGameVersion>0.1</ApplicableGameVersion>
+      <InternalResourceVersion>1</InternalResourceVersion>
+      <Platforms>Windows</Platforms>
+      <AssetBundleCompression>LZ4</AssetBundleCompression>
+      <CompressionHelperTypeName>UnityGameFramework.Runtime.DefaultCompressionHelper</CompressionHelperTypeName>
+      <AdditionalCompressionSelected>False</AdditionalCompressionSelected>
+      <ForceRebuildAssetBundleSelected>True</ForceRebuildAssetBundleSelected>
+      <BuildEventHandlerTypeName>
+      </BuildEventHandlerTypeName>
+      <OutputDirectory>D:/__Self_Develop/LFrameWork/AssetsPackage</OutputDirectory>
+      <BuildAssetBundleOptions>DeterministicAssetBundle, ForceRebuildAssetBundle, ChunkBasedCompression</BuildAssetBundleOptions>
+    </Summary>
+    <Resources Count="1">
+      <Resource Name="LuBan" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="1">
+          <Asset Guid="989c580385ecfbd48a87c2de1203961a" Name="Assets/AssetsPackage/LuBan/aitable.json" Length="140" HashCode="1854375237" />
+        </Assets>
+        <Codes>
+          <Windows Length="1296" HashCode="47970773" CompressedLength="1296" CompressedHashCode="47970773" />
+        </Codes>
+      </Resource>
+    </Resources>
+  </BuildReport>
+</UnityGameFramework>

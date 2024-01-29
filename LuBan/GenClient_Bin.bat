@@ -7,6 +7,6 @@ set CLIENT_DATA=..\Assets\AssetsPackage\LuBan
  --input_data_dir Datas ^
  --output_data_dir %CLIENT_DATA% ^
  --output_code_dir %CLIENT_CODE% ^
- --gen_types code_cs_unity_json,data_json ^
+ --gen_types code_cs_bin,data_bin ^
  -s client
 pause

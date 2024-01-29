@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 2650672981
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: luban
+      Dependencies: {}
