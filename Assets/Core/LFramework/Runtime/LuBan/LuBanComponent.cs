@@ -35,7 +35,6 @@ namespace LFramework
             AllTable = new Tables();
             await AllTable.LoadAsync(AsyncLoader);
             Log.Info("====== LuBan Loaded! ======");
-            Log.Error(AllTable.AITable.Get(201).Desc);
         }
 
         private async Task<ByteBuf> AsyncLoader(string s)
