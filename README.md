@@ -1,6 +1,7 @@
 框架本体来自于E大的UGF：https://github.com/EllanJiang/UnityGameFramework
 
 # 0.文件结构
+```c#
 ├── Core // 框架总入口
 ├──────LFramework           // 自己扩展的框架
 |      ├── Editor            
@@ -11,6 +12,7 @@
 └──────UnityGameFramewokr   // UGF源码
        ├── Editor      
        └── Runtime       
+```
 
 
 # 1.替换GameFramwork的DLL为源码
