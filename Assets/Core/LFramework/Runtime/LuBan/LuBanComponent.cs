@@ -2,7 +2,6 @@ using System.Threading.Tasks;
 using Bright.Serialization;
 using cfg;
 using Cysharp.Threading.Tasks;
-using GameFramework.Resource;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 

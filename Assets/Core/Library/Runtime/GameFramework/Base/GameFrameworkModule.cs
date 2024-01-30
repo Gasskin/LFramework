@@ -10,7 +10,7 @@ namespace GameFramework
     /// <summary>
     /// 游戏框架模块抽象类。
     /// </summary>
-    internal abstract class GameFrameworkModule
+    public abstract class GameFrameworkModule
     {
         /// <summary>
         /// 获取游戏框架模块优先级。
