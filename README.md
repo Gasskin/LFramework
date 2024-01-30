@@ -1,32 +1,22 @@
 框架本体来自于E大的UGF：https://github.com/EllanJiang/UnityGameFramework
 
 # 0.文件结构
-```c#
-├── Core // 框架总入口
-    ├────LFramework           // 自己扩展的框架
-    |    ├── Editor            
-    |    └── Runtime
-    |          
-    ├────Library              // 第三方库，GameFramwork源码也在里面
-    |    ├── Editor      
-    |    └── Runtime
-    |      
-    └────UnityGameFramewokr   // UGF源码
-         ├── Editor      
-         └── Runtime       
 ```
-
-//程序集划分设计
-Assets/GameMain/Scripts
-├── Editor              // 编辑器程序集
-├── HotFix              // 游戏热更程序集目录 [Folder]
-|   ├── GameProto       // 游戏配置协议程序集 [Dll]  
-|   ├── BattleCore      // 游戏核心战斗程序集 [Dll] 
-|   └── GameLogic       // 游戏业务逻辑程序集 [Dll]
-|           ├── GameApp.cs                  // 热更主入口
-|           └── GameApp_RegisterSystem.cs   // 热更主入口注册系统
-└── Runtime             // Runtime程序集
-
+Core // 框架总入口
+├────LFramework              // 自己扩展的框架
+|    ├── Editor            
+|    └── Runtime
+|          
+├────Library                 // 第三方库，GameFramwork源码也在里面
+|    ├── Editor      
+|    └── Runtime
+|        ├── GameFramework   // GF的源码
+|        └── LFramework      // 扩展GF源码，写在这里
+|      
+└────UnityGameFramework      // UGF源码
+     ├── Editor      
+     └── Runtime       
+```
 
 # 1.替换GameFramwork的DLL为源码
 源码地址：https://github.com/EllanJiang/GameFramework
