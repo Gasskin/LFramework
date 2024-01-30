@@ -243,14 +243,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11405216, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_EntranceProcedureTypeName
-      value: 
+      value: LFramework.LuBanInitProcedure
       objectReference: {fileID: 0}
     - target: {fileID: 11405216, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_AvailableProcedureTypeNames.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11405216, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_AvailableProcedureTypeNames.Array.data[0]
+      value: LFramework.LuBanInitProcedure
+      objectReference: {fileID: 0}
+    - target: {fileID: 11405216, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
+      propertyPath: m_AvailableProcedureTypeNames.Array.data[1]
       value: LFramework.TestProcedure
       objectReference: {fileID: 0}
     - target: {fileID: 11451924, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
