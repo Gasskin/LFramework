@@ -15,9 +15,16 @@ namespace LFramework
             m_Manager = GameFrameworkEntry.GetModule<ICoroutineLockManager>();
         }
 
-        public async UniTask<CoroutineLock> Wait(int lockType, long key, long lockTime = 60000)
+        /// <summary>
+        /// 协程锁
+        /// </summary>
+        /// <param name="lockType">锁的类型，必须>0</param>
+        /// <param name="key">某把锁的KEY</param>
+        /// <param name="lockTime">加锁时间，毫秒</param>
+        /// <returns></returns>
+        public async UniTask<CoroutineLock> Wait(ECoroutineLockType lockType , long key, long lockTime = 60000)
         {
-            return await m_Manager.Wait(lockType, key, lockTime);
+            return await m_Manager.Wait((int)lockType, key, lockTime);
         }
     }
 }

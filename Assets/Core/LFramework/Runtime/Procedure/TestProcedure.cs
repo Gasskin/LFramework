@@ -1,4 +1,6 @@
+using System;
 using Cysharp.Threading.Tasks;
+using GameFramework;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
 using UnityGameFramework.Runtime;
@@ -10,21 +12,24 @@ namespace LFramework
         protected override async void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
             base.OnEnter(procedureOwner);
-            TestWait("111",3000);
-            TestWait("222");
-            TestWait("333");
-            TestWait("444");
-            TestWait("555", 0, 1000);
+            TestWait("111", 1000);
+            TestWait("222", 2000);
+            TestWait("333", 0);
+            TestWait("444", 2000);
+            TestWait("555", 1000);
         }
 
-        public async void TestWait(string tag, int time = 0, long outTime = 60000)
+        public async void TestWait(string tag, int delayTime)
         {
             var comp = GameEntry.GetComponent<CoroutineLockComponent>();
-            using (await comp.Wait(1, 1,outTime))
+            using (var clock = await comp.Wait(ECoroutineLockType.Test, 1))
             {
-                Log.Error($"before {tag}");
-                await UniTask.Delay(time);
-                Log.Error($"after {tag}");
+                Log.Error($"before {tag} {DateTime.UtcNow.Ticks/10000}");
+                if (delayTime > 0) 
+                {
+                    await UniTask.Delay(delayTime);
+                }
+                Log.Error($"after {tag} {DateTime.UtcNow.Ticks/10000}");
             }
         }
     }
