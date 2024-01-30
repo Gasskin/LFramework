@@ -2,7 +2,7 @@
 
 # 0.文件结构
 ```
-Core // 框架总入口
+Core 
 ├────LFramework              // 自己扩展的框架
 |    ├── Editor            
 |    └── Runtime
