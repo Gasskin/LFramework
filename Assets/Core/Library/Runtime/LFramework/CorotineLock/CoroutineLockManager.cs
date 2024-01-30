@@ -86,6 +86,7 @@ namespace GameFramework
             var tcs = AutoResetUniTaskCompletionSource<CoroutineLock>.Create();
             var coroutineLock = ReferencePool.Acquire<CoroutineLock>();
             coroutineLock.Init(lockType, key, 1, 0, tcs);
+            lockQueue.Enqueue(coroutineLock);
             return await tcs.Task;
         }
 
@@ -105,7 +106,7 @@ namespace GameFramework
             {
                 GameFrameworkLog.Error($"Maybe too much coroutine lock [{lockType}][{key}][{level}]");
             }
-
+            GameFrameworkLog.Error(level);
             m_RunNextFrame.Enqueue((lockType, key, level));
         }
 

@@ -42,7 +42,7 @@ namespace GameFramework
             // 如果是被动Dispose，那么正常走if，但也有可能超时了被主动释放了
             if (LockType > 0) 
             {
-                GameFrameworkEntry.GetModule<CoroutineLockManager>().RunNextCoroutine(LockType, Key, Level + 1);
+                GameFrameworkEntry.GetModule<ICoroutineLockManager>().RunNextCoroutine(LockType, Key, Level + 1);
             }
             Clear();
             ReferencePool.Release(this);
