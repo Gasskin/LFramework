@@ -5,7 +5,7 @@ namespace GameFramework
     public class CoroutineLockTimer: IReference
     {
         public long m_LockTime;
-        public AutoResetUniTaskCompletionSource<CoroutineLock> m_Tcs;
+        public AutoResetUniTaskCompletionSource<CoroutineLockInfo> m_Tcs;
         
         public void Clear()
         {

@@ -7,18 +7,19 @@ namespace GameFramework
     public class CoroutineLockManager : GameFrameworkModule, ICoroutineLockManager
     {
         // 所有的锁，第一层的键是LockType，第二层的键是Key
-        // 
         private readonly Dictionary<int, Dictionary<long, Queue<CoroutineLockTimer>>> m_AllLockDic = new();
 
         // 记录锁的过期时间，KEY就是过期时间，不同锁的过期时间是可以重复的
-        private readonly GameFrameworkMultiDictionary<long, CoroutineLock> m_LockTimerDic = new();
+        private readonly GameFrameworkMultiDictionary<long, CoroutineLockInfo> m_LockTimerDic = new();
+        // 最接近的过期时间
+        private long m_ClosetOutTime = long.MaxValue;
 
-        // 下一帧释放的锁
-        private readonly Queue<CoroutineLock> m_RunNextFrameQueue = new();
+        // 下一帧释放的锁的信息，LockType,Key,Level
+        private readonly Queue<(int,long,int)> m_RunNextFrameQueue = new();
 
         // 记录已经过期的锁
         private readonly Queue<long> m_OutTimerIdQueue = new();
-        private readonly Queue<CoroutineLock> m_OutTimeLockQueue = new();
+        private readonly Queue<CoroutineLockInfo> m_OutTimeLockQueue = new();
 
         internal override void Update(float elapseSeconds, float realElapseSeconds)
         {
@@ -29,19 +30,30 @@ namespace GameFramework
             }
 
             var now = DateTime.UtcNow.Ticks / 10000;
+            if (now > m_ClosetOutTime)
+            {
+                return;
+            }
 
             // 遍历所有锁，检查时间
             m_OutTimerIdQueue.Clear();
             using (var t = m_LockTimerDic.GetEnumerator())
             {
+                var min = long.MaxValue;
                 while (t.MoveNext())
                 {
                     var outTime = t.Current.Key;
-                    if (outTime < now)
+                    if (outTime <= now)
                     {
                         m_OutTimerIdQueue.Enqueue(outTime);
                     }
+                    // 没过期的锁里头，最早的过期时间
+                    else if (outTime < min)
+                    {
+                        min = outTime;
+                    }
                 }
+                m_ClosetOutTime = min;
             }
 
             // 找到所有过期的锁
@@ -77,9 +89,8 @@ namespace GameFramework
 
             while (m_RunNextFrameQueue.Count > 0)
             {
-                var coroutineLock = m_RunNextFrameQueue.Dequeue();
-                SetResult(coroutineLock.m_LockType, coroutineLock.m_Key, coroutineLock.m_Level);
-                ReferencePool.Release(coroutineLock);
+                var (lockType,key,level) = m_RunNextFrameQueue.Dequeue();
+                SetResult(lockType, key, level);
             }
         }
 
@@ -87,7 +98,7 @@ namespace GameFramework
         {
         }
 
-        public async UniTask<CoroutineLock> Wait(int lockType, long key, long lockTime = 60000)
+        public async UniTask<CoroutineLockInfo> Wait(int lockType, long key, long lockTime = 60000)
         {
             if (!m_AllLockDic.TryGetValue(lockType, out var lockKeyDic))
             {
@@ -107,7 +118,7 @@ namespace GameFramework
             // 否则，说明已经有进行中的任务了，此时不会直接创建锁，而是创建等待的Task
             var lockTimer = ReferencePool.Acquire<CoroutineLockTimer>();
             lockTimer.m_LockTime = lockTime;
-            lockTimer.m_Tcs = AutoResetUniTaskCompletionSource<CoroutineLock>.Create();
+            lockTimer.m_Tcs = AutoResetUniTaskCompletionSource<CoroutineLockInfo>.Create();
 
             lockTimerQueue.Enqueue(lockTimer);
 
@@ -136,17 +147,12 @@ namespace GameFramework
                 GameFrameworkLog.Error($"maybe too much lock [{lockType}][{key}][{level}]");
             }
 
-            var coroutineLock = ReferencePool.Acquire<CoroutineLock>();
-            coroutineLock.m_LockType = lockType;
-            coroutineLock.m_Key = key;
-            coroutineLock.m_Level = level;
-
-            m_RunNextFrameQueue.Enqueue(coroutineLock);
+            m_RunNextFrameQueue.Enqueue((lockType,key,level));
         }
 
-        private CoroutineLock CreateCoroutineLock(int lockType, long key, long lockTime, int level)
+        private CoroutineLockInfo CreateCoroutineLock(int lockType, long key, long lockTime, int level)
         {
-            var coroutineLock = ReferencePool.Acquire<CoroutineLock>();
+            var coroutineLock = ReferencePool.Acquire<CoroutineLockInfo>();
             coroutineLock.m_LockType = lockType;
             coroutineLock.m_Key = key;
             coroutineLock.m_Level = level;
@@ -155,6 +161,10 @@ namespace GameFramework
             {
                 var time = DateTime.UtcNow.Ticks / 10000 + lockTime;
                 m_LockTimerDic.Add(time, coroutineLock);
+                if (time < m_ClosetOutTime)
+                {
+                    m_ClosetOutTime = time;
+                }
             }
 
             return coroutineLock;

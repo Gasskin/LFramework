@@ -11,7 +11,7 @@ namespace GameFramework
         /// <param name="key">关键字</param>
         /// <param name="lockTime">锁的时间，超时自动失效</param>
         /// <returns></returns>
-        UniTask<CoroutineLock> Wait(int lockType, long key, long lockTime = 60000);
+        UniTask<CoroutineLockInfo> Wait(int lockType, long key, long lockTime = 60000);
 
         /// <summary>
         /// 执行下一个任务

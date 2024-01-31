@@ -22,7 +22,7 @@ namespace LFramework
         /// <param name="key">某把锁的KEY</param>
         /// <param name="lockTime">加锁时间，毫秒</param>
         /// <returns></returns>
-        public async UniTask<CoroutineLock> Wait(ECoroutineLockType lockType , long key, long lockTime = 60000)
+        public async UniTask<CoroutineLockInfo> Wait(ECoroutineLockType lockType , long key, long lockTime = 60000)
         {
             return await m_Manager.Wait((int)lockType, key, lockTime);
         }

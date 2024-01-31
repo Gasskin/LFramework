@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 
 namespace GameFramework
 {
-    public class CoroutineLock : IDisposable, IReference
+    public class CoroutineLockInfo : IDisposable, IReference
     {
         public int m_LockType;
         public long m_Key;
