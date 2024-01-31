@@ -21,7 +21,7 @@ Core
 # 1.替换GameFramwork的DLL为源码
 源码地址：https://github.com/EllanJiang/GameFramework
 
-# 2.引入配表工具LuBan
+# 2.配表工具LuBan
 LuBan修改过源码，导出的Tables可以异步初始胡
 源码仓库：https://github.com/Me-Maped/Gameframework-at-FairyGUI
 ```c#
@@ -33,8 +33,16 @@ var comp = GameEntry.GetComponent<LuBanComponent>();
 comp.AllTabls.XXX
 ```
 
-# 3.引入异步框架UniTask
+# 3.异步库UniTask
 扩展了一些异步接口，比如资源加载
 ```c#
 var asset = await comp.LoadAssetAsync<TextAsset>("xxx");
+```
+
+# 4.ET的协程锁机制
+参考ET实现了一遍，加入了GF的一些池子做缓存，使用方法和ET一致
+```c#
+var comp = GameEntry.GetComponent<CoroutineLockComponent>();
+using(var coroutineLock = await comp.Wait(ECoroutineLockType.Test,1))
+...
 ```
