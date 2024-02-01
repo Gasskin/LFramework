@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using Bright.Serialization;
 using cfg;
 using Cysharp.Threading.Tasks;
+using Luban;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 

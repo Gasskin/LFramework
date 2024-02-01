@@ -1,13 +1,14 @@
 {
-    "name": "Library.Editor",
+    "name": "Luban.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:5796a4f593192714cbff2c4360722388",
-        "GUID:ff82682c77ea6a34f8d3b21a32da8e31"
+        "Luban.Runtime"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
-    "allowUnsafeCode": false,
+    "allowUnsafeCode": true,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
