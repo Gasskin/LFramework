@@ -21,9 +21,8 @@ Core
 # 1.替换GameFramwork的DLL为源码
 源码地址：https://github.com/EllanJiang/GameFramework
 
-# 2.配表工具LuBan
-LuBan修改过源码，导出的Tables可以异步初始胡
-源码仓库：https://github.com/Me-Maped/Gameframework-at-FairyGUI
+# 2.配表工具LuBan7（next版）
+LuBan修改过导表模板，导出的Tables可以异步初始化
 ```c#
 // 首先需要在LuBanInitProcedure中初始化
 var comp = GameEntry.GetComponent<LuBanComponent>();
