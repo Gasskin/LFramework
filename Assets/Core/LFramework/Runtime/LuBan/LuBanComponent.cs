@@ -9,10 +9,9 @@ namespace LFramework
 {
     public class LuBanComponent : GameFrameworkComponent
     {
-
-        public Tables AllTable { get; private set; }
-
-
+        public Tables AllTable => m_AllTable;
+        private Tables m_AllTable;
+        private bool m_IsInit;
         private void Start()
         {
             // var comp = GameEntry.GetComponent<ResourceComponent>();
@@ -30,10 +29,23 @@ namespace LFramework
 
         public async UniTask InitAsync()
         {
+            if (m_IsInit)
+                return;
             // 必须延一帧
-            AllTable = new Tables();
-            await AllTable.LoadAsync(AsyncLoader);
+            m_AllTable = new Tables();
+            await m_AllTable.LoadAsync(AsyncLoader);
+            m_IsInit = true;
             Log.Info("====== LuBan Loaded! ======");
+        }
+
+        public GlobalConfig GetGlobalConfig(string key)
+        {
+            if (m_AllTable.GlobalTable.DataMap.TryGetValue(key, out var config))
+            {
+                return config;
+            }
+            Log.Error("GlobalTable no exit key: {0}", key);
+            return null;
         }
 
         private async Task<ByteBuf> AsyncLoader(string s)

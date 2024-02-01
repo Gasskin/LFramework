@@ -14,19 +14,19 @@ namespace cfg
 {
 public partial class Tables
 {
-    public item.TbItem TbItem {get;private set;}
+    public GlobalTable GlobalTable {get;private set;}
 
     public Tables() { }
 
     public async Task LoadAsync(System.Func<string, Task<ByteBuf>> loader)
     {
-        TbItem = new item.TbItem(await loader("item_tbitem"));
+        GlobalTable = new GlobalTable(await loader("globaltable"));
         ResolveRef();
     }
     
     private void ResolveRef()
     {
-        TbItem.ResolveRef(this);
+        GlobalTable.ResolveRef(this);
     }
 }
 

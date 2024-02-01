@@ -10,35 +10,32 @@
 using Luban;
 
 
-namespace cfg.item
+namespace cfg
 {
-public sealed partial class ItemExchange : Luban.BeanBase
+public sealed partial class GlobalConfig : Luban.BeanBase
 {
-    public ItemExchange(ByteBuf _buf) 
+    public GlobalConfig(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        Num = _buf.ReadInt();
+        Name = _buf.ReadString();
+        ValueStr = _buf.ReadString();
+        ValueInt = _buf.ReadInt();
     }
 
-    public static ItemExchange DeserializeItemExchange(ByteBuf _buf)
+    public static GlobalConfig DeserializeGlobalConfig(ByteBuf _buf)
     {
-        return new item.ItemExchange(_buf);
+        return new GlobalConfig(_buf);
     }
 
-    /// <summary>
-    /// 道具id
-    /// </summary>
-    public readonly int Id;
-    /// <summary>
-    /// 道具数量
-    /// </summary>
-    public readonly int Num;
+    public readonly string Name;
+    public readonly string ValueStr;
+    public readonly int ValueInt;
    
-    public const int __ID__ = 1814660465;
+    public const int __ID__ = -958250779;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
+        
         
         
     }
@@ -46,8 +43,9 @@ public sealed partial class ItemExchange : Luban.BeanBase
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "num:" + Num + ","
+        + "Name:" + Name + ","
+        + "ValueStr:" + ValueStr + ","
+        + "ValueInt:" + ValueInt + ","
         + "}";
     }
 }
