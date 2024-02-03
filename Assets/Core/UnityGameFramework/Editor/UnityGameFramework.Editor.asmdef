@@ -3,8 +3,7 @@
     "rootNamespace": "",
     "references": [
         "UnityGameFramework.Runtime",
-        "GameFramework",
-        "LFramework.Runtime"
+        "GameFramework"
     ],
     "includePlatforms": [
         "Editor"

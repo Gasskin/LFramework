@@ -11,6 +11,10 @@ namespace LFramework
     {
         protected override async void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
+            LFrameworkEntry.GetModule<PlayerInputModule>();
+
+            await LFrameworkEntry.InitAsync();
+
             base.OnEnter(procedureOwner);
         }
     }
