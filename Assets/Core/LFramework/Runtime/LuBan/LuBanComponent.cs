@@ -12,30 +12,18 @@ namespace LFramework
         public Tables AllTable => m_AllTable;
         private Tables m_AllTable;
         private bool m_IsInit;
-        private void Start()
-        {
-            // var comp = GameEntry.GetComponent<ResourceComponent>();
-            // var call = new LoadAssetCallbacks(((assetName, asset, duration, data) =>
-            // {
-            //     var v = asset as TextAsset;
-            //     Log.Error(v.bytes);
-            // }),((assetName, status, message, data) =>
-            // {
-            //     Log.Error(message);
-            // }));
-            // comp.LoadAsset($"Assets/AssetsPackage/LuBan/aitable.bytes", call);
-            // InitAsync();
-        }
 
         public async UniTask InitAsync()
         {
             if (m_IsInit)
+            {
+                Log.Warning("luban is already initialized");
                 return;
-            // 必须延一帧
+            }
             m_AllTable = new Tables();
             await m_AllTable.LoadAsync(AsyncLoader);
             m_IsInit = true;
-            Log.Info("====== LuBan Loaded! ======");
+            Log.Info("====== luban initialize success ======");
         }
 
         public GlobalConfig GetGlobalConfig(string key)
