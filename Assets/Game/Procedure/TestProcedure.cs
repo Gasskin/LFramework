@@ -8,7 +8,8 @@ namespace LFramework.LProcedure
     {
         protected override async void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
-            LFrameworkEntry.GetModule<PlayerInputModule>();
+            LFrameworkEntry.GetModule<LInputModule>();
+            LFrameworkEntry.GetModule<LConfigModule>();
 
             await LFrameworkEntry.InitAsync();
 

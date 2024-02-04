@@ -3,7 +3,9 @@
     "rootNamespace": "",
     "references": [
         "UnityGameFramework.Runtime",
-        "GameFramework"
+        "GameFramework",
+        "UniTask.Editor",
+        "Luban.Editor"
     ],
     "includePlatforms": [
         "Editor"
