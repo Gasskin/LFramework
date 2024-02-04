@@ -6,7 +6,7 @@ dotnet %LUBAN_DLL% ^
     -c cs-simple-json ^
     -d json  ^
     --conf %CONF_ROOT%\luban.conf ^
-    -x outputCodeDir=..\Assets\Game\Generate\LuBan ^
+    -x outputCodeDir=..\Assets\Game\Module\Config\Generate ^
     -x outputDataDir=..\Assets\AssetsPackage\LuBan
 
 pause
