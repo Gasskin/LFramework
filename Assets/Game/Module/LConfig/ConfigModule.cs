@@ -9,7 +9,7 @@ using UnityGameFramework.Runtime;
 
 namespace LFramework
 {
-    public class LConfigModule : LFrameworkModule
+    public class ConfigModule : LFrameworkModule
     {
         public Tables AllTable => m_AllTable;
         private Tables m_AllTable;
