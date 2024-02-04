@@ -8,6 +8,7 @@
 //------------------------------------------------------------------------------
 
 using Luban;
+using SimpleJSON;
 using System.Threading.Tasks;
 
 namespace cfg
@@ -18,7 +19,7 @@ public partial class Tables
 
     public Tables() { }
 
-    public async Task LoadAsync(System.Func<string, Task<ByteBuf>> loader)
+    public async Task LoadAsync(System.Func<string, Task<JSONNode>> loader)
     {
         GlobalTable = new GlobalTable(await loader("globaltable"));
         ResolveRef();

@@ -8,6 +8,7 @@
 //------------------------------------------------------------------------------
 
 using Luban;
+using SimpleJSON;
 
 
 namespace cfg
@@ -17,15 +18,15 @@ public partial class GlobalTable
     private readonly System.Collections.Generic.Dictionary<string, GlobalConfig> _dataMap;
     private readonly System.Collections.Generic.List<GlobalConfig> _dataList;
     
-    public GlobalTable(ByteBuf _buf)
+    public GlobalTable(JSONNode _buf)
     {
         _dataMap = new System.Collections.Generic.Dictionary<string, GlobalConfig>();
         _dataList = new System.Collections.Generic.List<GlobalConfig>();
         
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        foreach(JSONNode _ele in _buf.Children)
         {
             GlobalConfig _v;
-            _v = GlobalConfig.DeserializeGlobalConfig(_buf);
+            { if(!_ele.IsObject) { throw new SerializationException(); }  _v = GlobalConfig.DeserializeGlobalConfig(_ele);  }
             _dataList.Add(_v);
             _dataMap.Add(_v.Name, _v);
         }

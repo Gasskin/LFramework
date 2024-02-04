@@ -8,20 +8,21 @@
 //------------------------------------------------------------------------------
 
 using Luban;
+using SimpleJSON;
 
 
 namespace cfg
 {
 public sealed partial class GlobalConfig : Luban.BeanBase
 {
-    public GlobalConfig(ByteBuf _buf) 
+    public GlobalConfig(JSONNode _buf) 
     {
-        Name = _buf.ReadString();
-        ValueStr = _buf.ReadString();
-        ValueInt = _buf.ReadInt();
+        { if(!_buf["Name"].IsString) { throw new SerializationException(); }  Name = _buf["Name"]; }
+        { if(!_buf["ValueStr"].IsString) { throw new SerializationException(); }  ValueStr = _buf["ValueStr"]; }
+        { if(!_buf["ValueInt"].IsNumber) { throw new SerializationException(); }  ValueInt = _buf["ValueInt"]; }
     }
 
-    public static GlobalConfig DeserializeGlobalConfig(ByteBuf _buf)
+    public static GlobalConfig DeserializeGlobalConfig(JSONNode _buf)
     {
         return new GlobalConfig(_buf);
     }
