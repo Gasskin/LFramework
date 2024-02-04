@@ -2,7 +2,7 @@ using GameFramework.Fsm;
 using GameFramework.Procedure;
 using UnityGameFramework.Runtime;
 
-namespace LFramework
+namespace LFramework.LProcedure
 {
     public class LuBanInitProcedure : ProcedureBase
     {
