@@ -1,11 +1,8 @@
-using System;
-using Cysharp.Threading.Tasks;
-using GameFramework;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
-using UnityGameFramework.Runtime;
+using LFramework.LInput;
 
-namespace LFramework
+namespace LFramework.LProcedure
 {
     public class TestProcedure : ProcedureBase
     {
