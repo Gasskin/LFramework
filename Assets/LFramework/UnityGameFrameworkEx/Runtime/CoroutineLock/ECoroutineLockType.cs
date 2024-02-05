@@ -1,4 +1,4 @@
-﻿namespace LFramework
+﻿namespace UnityGameFramework.Runtime
 {
     public enum ECoroutineLockType
     {

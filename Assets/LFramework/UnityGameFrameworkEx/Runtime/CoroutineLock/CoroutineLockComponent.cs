@@ -1,8 +1,8 @@
 ﻿using Cysharp.Threading.Tasks;
 using GameFramework;
-using UnityGameFramework.Runtime;
+using GameFramework.CoroutineLock;
 
-namespace LFramework
+namespace UnityGameFramework.Runtime
 {
     
     public class CoroutineLockComponent : GameFrameworkComponent

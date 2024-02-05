@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
-namespace GameFramework
+namespace GameFramework.CoroutineLock
 {
     public class CoroutineLockManager : GameFrameworkModule, ICoroutineLockManager
     {

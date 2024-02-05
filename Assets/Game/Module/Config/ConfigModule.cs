@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using cfg;
 using Cysharp.Threading.Tasks;
+using GameFramework.GameUpdater;
 using Luban;
 using SimpleJSON;
 using UnityEngine;
@@ -9,22 +10,16 @@ using UnityGameFramework.Runtime;
 
 namespace LFramework
 {
-    public class ConfigModule : LFrameworkModule
+    public class ConfigModule : GameModuleBase
     {
         public Tables AllTable => m_AllTable;
         private Tables m_AllTable;
-        private bool m_IsInit;
         private ELuBanLoadType m_ELuBanLoadType = ELuBanLoadType.Json;
 
         public override int Priority => (int)EModulePriority.None;
 
         public override async UniTask InitAsync()
         {
-            if (m_IsInit)
-            {
-                Log.Warning("luban is already initialized");
-                return;
-            }
             m_AllTable = new Tables();
 
             var tableType = m_AllTable.GetType();
@@ -64,7 +59,6 @@ namespace LFramework
                     await (Task)loadMethodInfo.Invoke(m_AllTable, new object[] { func2 });
                     break;
             }
-            m_IsInit = true;
             Log.Info("====== luban initialize success ======");
         }
 
@@ -87,10 +81,6 @@ namespace LFramework
 
         public GlobalConfig GetGlobalConfig(string key)
         {
-            if (!m_IsInit)
-            {
-                return null;
-            }
             if (m_AllTable.GlobalTable.DataMap.TryGetValue(key, out var config))
             {
                 return config;

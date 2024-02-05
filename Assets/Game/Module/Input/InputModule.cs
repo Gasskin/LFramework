@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using GameFramework.GameUpdater;
 using Rewired;
 using UnityEngine;
 using UnityGameFramework.Runtime;
@@ -6,9 +7,9 @@ using Object = UnityEngine.Object;
 
 namespace LFramework.LInput
 {
-    public class InputModule : LFrameworkModule
+    public class InputModule : GameModuleBase
     {
-        private const string RewiredPath = "Assets/AssetsPackage/Core/Rewired.prefab";
+        private const string DefaultRewiredPath = "Assets/AssetsPackage/Core/Rewired.prefab";
         public override int Priority => (int)EModulePriority.None;
         private InputManager m_InputManager;
         private Player m_Player;
@@ -17,7 +18,7 @@ namespace LFramework.LInput
         public override async UniTask InitAsync()
         {
             var comp = GameEntry.GetComponent<ResourceComponent>();
-            var asset = await comp.LoadAssetAsync<GameObject>(RewiredPath);
+            var asset = await comp.LoadAssetAsync<GameObject>(DefaultRewiredPath);
             var inst = Object.Instantiate(asset);
             Object.DontDestroyOnLoad(inst);
 

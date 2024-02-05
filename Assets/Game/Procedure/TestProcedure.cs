@@ -1,6 +1,7 @@
 using GameFramework.Fsm;
 using GameFramework.Procedure;
 using LFramework.LInput;
+using UnityGameFramework.Runtime;
 
 namespace LFramework.LProcedure
 {
@@ -8,10 +9,11 @@ namespace LFramework.LProcedure
     {
         protected override async void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
-            LFrameworkEntry.GetModule<InputModule>();
-            LFrameworkEntry.GetModule<ConfigModule>();
+            var comp = GameEntry.GetComponent<GameUpdaterComponent>();
+            comp.GetModule<InputModule>();
+            comp.GetModule<ConfigModule>();
 
-            await LFrameworkEntry.InitAsync();
+            await comp.InitAsync();
 
             base.OnEnter(procedureOwner);
         }

@@ -1,7 +1,7 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 
-namespace GameFramework
+namespace GameFramework.CoroutineLock
 {
     public class CoroutineLockInfo : IDisposable, IReference
     {

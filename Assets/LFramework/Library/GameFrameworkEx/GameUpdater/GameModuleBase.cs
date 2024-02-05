@@ -1,11 +1,8 @@
 using Cysharp.Threading.Tasks;
 
-namespace LFramework
+namespace GameFramework.GameUpdater
 {
-    /// <summary>
-    /// 业务层模块的抽象
-    /// </summary>
-    public abstract class LFrameworkModule
+    public abstract class GameModuleBase
     {
         public abstract int Priority { get; }
 
