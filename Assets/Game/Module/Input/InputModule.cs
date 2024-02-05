@@ -1,36 +1,39 @@
 using Cysharp.Threading.Tasks;
 using GameFramework.GameUpdater;
+using LFramework;
+using LFramework.LInput;
 using Rewired;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 using Object = UnityEngine.Object;
 
-namespace LFramework.LInput
+namespace Game.InputModule
 {
-    public class InputModule : GameModuleBase
+    public partial class InputModule : GameModuleBase
     {
         private const string DefaultRewiredPath = "Assets/AssetsPackage/Core/Rewired.prefab";
         public override int Priority => (int)EModulePriority.None;
         private InputManager m_InputManager;
         private Player m_Player;
-        private Player m_System;
 
+        private ControllerMapEnabler.RuleSet rule1;
+        
         public override async UniTask InitAsync()
         {
             var comp = GameEntry.GetComponent<ResourceComponent>();
             var asset = await comp.LoadAssetAsync<GameObject>(DefaultRewiredPath);
             var inst = Object.Instantiate(asset);
-            Object.DontDestroyOnLoad(inst);
 
             await UniTask.Yield();
+            comp.UnloadAsset(asset);
 
             m_InputManager = inst.GetComponent<InputManager>();
             m_Player = ReInput.players.GetPlayer(RewiredConsts.Player.Player0);
-            m_System = ReInput.players.GetPlayer(RewiredConsts.Player.UI);
 
             ReInput.InputSourceUpdateEvent += OnInputSourceUpdateEvent;
 
-            comp.UnloadAsset(asset);
+
+            await InitMapEnabler();
         }
 
         private void OnInputSourceUpdateEvent()
@@ -39,6 +42,25 @@ namespace LFramework.LInput
 
         public override void Update()
         {
+            if (m_Player.GetButton("Jump"))
+            {
+                Log.Error("Jump");
+            }
+
+            if (m_Player.GetButton("Down"))
+            {
+                Log.Error("Down");
+            }
+
+            if (m_Player.GetButton("Map"))
+            {
+                Log.Error("Map");
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                ChangeMapEnabler();
+            }
         }
 
         public override void LateUpdate()
@@ -52,10 +74,8 @@ namespace LFramework.LInput
         public override void ShutDown()
         {
             ReInput.InputSourceUpdateEvent -= OnInputSourceUpdateEvent;
-            Object.Destroy(m_InputManager.gameObject);
             m_InputManager = null;
             m_Player = null;
-            m_System = null;
         }
     }
 }

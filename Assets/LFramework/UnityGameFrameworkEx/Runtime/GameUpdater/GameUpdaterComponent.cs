@@ -6,8 +6,14 @@ namespace UnityGameFramework.Runtime
 {
     public class GameUpdaterComponent: GameFrameworkComponent
     {
-        private IGameUpdater m_GameUpdaterManager;
+        private IGameUpdaterManager m_GameUpdaterManagerManager;
         private bool m_Initialized;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            m_GameUpdaterManagerManager = GameFrameworkEntry.GetModule<IGameUpdaterManager>();
+        }
 
         public async UniTask InitAsync()
         {
@@ -15,21 +21,20 @@ namespace UnityGameFramework.Runtime
             {
                 return;
             }
-            m_GameUpdaterManager = GameFrameworkEntry.GetModule<IGameUpdater>();
-            await m_GameUpdaterManager.InitAsync();
+            await m_GameUpdaterManagerManager.InitAsync();
             m_Initialized = true;
         }
 
         public T GetModule<T>() where T : GameModuleBase
         {
-            return m_GameUpdaterManager.GetModule<T>();
+            return m_GameUpdaterManagerManager.GetModule<T>();
         }
         
         private void Update()
         {
             if (m_Initialized)
             {
-                m_GameUpdaterManager.Update();
+                m_GameUpdaterManagerManager.Update();
             }
         }
 
@@ -37,7 +42,7 @@ namespace UnityGameFramework.Runtime
         {
             if (m_Initialized)
             {
-                m_GameUpdaterManager.LateUpdate();
+                m_GameUpdaterManagerManager.LateUpdate();
             }
         }
 
@@ -45,7 +50,7 @@ namespace UnityGameFramework.Runtime
         {
             if (m_Initialized)
             {
-                m_GameUpdaterManager.FixedUpdate();
+                m_GameUpdaterManagerManager.FixedUpdate();
             }
         }
     }

@@ -1,17 +1,16 @@
 using GameFramework.Fsm;
 using GameFramework.Procedure;
-using LFramework.LInput;
 using UnityGameFramework.Runtime;
 
-namespace LFramework.LProcedure
+namespace Game.Procedure
 {
     public class TestProcedure : ProcedureBase
     {
         protected override async void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
             var comp = GameEntry.GetComponent<GameUpdaterComponent>();
-            comp.GetModule<InputModule>();
-            comp.GetModule<ConfigModule>();
+            comp.GetModule<InputModule.InputModule>();
+            comp.GetModule<ConfigModule.ConfigModule>();
 
             await comp.InitAsync();
 

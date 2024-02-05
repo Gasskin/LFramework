@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 
 namespace GameFramework.GameUpdater
 {
-    public interface IGameUpdater
+    public interface IGameUpdaterManager
     {
         public UniTask InitAsync();
 

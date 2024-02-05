@@ -222,7 +222,7 @@ MonoBehaviour:
       - _enabled: 1
         _categoryId: 1
         _layoutId: 0
-      - _enabled: 1
+      - _enabled: 0
         _categoryId: 2
         _layoutId: 0
       _defaultCustomControllerMaps: []
@@ -236,29 +236,9 @@ MonoBehaviour:
         _ruleSets: []
       _controllerMapEnablerSettings:
         _enabled: 1
-        _ruleSets: []
-    - _id: 9
-      _name: UI
-      _descriptiveName: UI
-      _startPlaying: 1
-      _defaultJoystickMaps: []
-      _defaultMouseMaps: []
-      _defaultKeyboardMaps:
-      - _enabled: 1
-        _categoryId: 2
-        _layoutId: 0
-      _defaultCustomControllerMaps: []
-      _startingCustomControllers: []
-      _assignMouseOnStart: 0
-      _assignKeyboardOnStart: 1
-      _excludeFromControllerAutoAssignment: 0
-      _controllerMapLayoutManagerSettings:
-        _enabled: 1
-        _loadFromUserDataStore: 1
-        _ruleSets: []
-      _controllerMapEnablerSettings:
-        _enabled: 1
-        _ruleSets: []
+        _ruleSets:
+        - _enabled: 1
+          _id: 3
     actions:
     - _id: 0
       _name: Move Horizontal
@@ -287,28 +267,10 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 0
-    - _id: 3
-      _name: Move_Forward
-      _type: 0
-      _descriptiveName: Move_Forward
-      _positiveDescriptiveName: Move_Forward
-      _negativeDescriptiveName: Move_Forward
-      _behaviorId: 0
-      _userAssignable: 1
-      _categoryId: 1
-    - _id: 4
-      _name: Move_Back
-      _type: 0
-      _descriptiveName: Move_Back
-      _positiveDescriptiveName: Move_Back
-      _negativeDescriptiveName: Move_Back
-      _behaviorId: 0
-      _userAssignable: 1
-      _categoryId: 1
     - _id: 5
       _name: Move_Left
       _type: 0
-      _descriptiveName: Move_Left
+      _descriptiveName: "\u5DE6\u79FB"
       _positiveDescriptiveName: Move_Left
       _negativeDescriptiveName: Move_Left
       _behaviorId: 0
@@ -317,7 +279,7 @@ MonoBehaviour:
     - _id: 6
       _name: Move_Right
       _type: 0
-      _descriptiveName: Move_Right
+      _descriptiveName: "\u53F3\u79FB"
       _positiveDescriptiveName: Move_Right
       _negativeDescriptiveName: Move_Right
       _behaviorId: 0
@@ -326,7 +288,34 @@ MonoBehaviour:
     - _id: 7
       _name: Map
       _type: 1
-      _descriptiveName: Map
+      _descriptiveName: "\u5730\u56FE"
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 2
+    - _id: 8
+      _name: Jump
+      _type: 1
+      _descriptiveName: "\u8DF3"
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 1
+    - _id: 9
+      _name: Down
+      _type: 1
+      _descriptiveName: "\u8E72"
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 1
+    - _id: 10
+      _name: Setting
+      _type: 1
+      _descriptiveName: "\u8BBE\u7F6E"
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
       _behaviorId: 0
@@ -338,8 +327,8 @@ MonoBehaviour:
       _tag: 
       _id: 0
       _userAssignable: 1
-    - _name: Player
-      _descriptiveName: Player
+    - _name: Battle
+      _descriptiveName: Battle
       _tag: 
       _id: 1
       _userAssignable: 1
@@ -353,9 +342,9 @@ MonoBehaviour:
       - categoryId: 0
         actionIds: 000000000100000002000000
       - categoryId: 1
-        actionIds: 03000000040000000500000006000000
+        actionIds: 05000000060000000800000009000000
       - categoryId: 2
-        actionIds: 07000000
+        actionIds: 070000000a000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -388,8 +377,8 @@ MonoBehaviour:
       _userAssignable: 1
       _checkConflictsWithAllCategories: 1
       _checkConflictsCategoryIds: 
-    - _name: Player
-      _descriptiveName: Player
+    - _name: Battle
+      _descriptiveName: Battle
       _tag: 
       _id: 1
       _userAssignable: 1
@@ -475,28 +464,6 @@ MonoBehaviour:
       customControllerUid: 0
       actionElementMaps:
       - _actionCategoryId: 0
-        _actionId: 3
-        _elementType: 1
-        _elementIdentifierId: -1
-        _axisRange: 0
-        _invert: 0
-        _axisContribution: 0
-        _keyboardKeyCode: 119
-        _modifierKey1: 0
-        _modifierKey2: 0
-        _modifierKey3: 0
-      - _actionCategoryId: 0
-        _actionId: 4
-        _elementType: 1
-        _elementIdentifierId: -1
-        _axisRange: 0
-        _invert: 0
-        _axisContribution: 0
-        _keyboardKeyCode: 115
-        _modifierKey1: 0
-        _modifierKey2: 0
-        _modifierKey3: 0
-      - _actionCategoryId: 0
         _actionId: 5
         _elementType: 1
         _elementIdentifierId: -1
@@ -515,6 +482,39 @@ MonoBehaviour:
         _invert: 0
         _axisContribution: 0
         _keyboardKeyCode: 100
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 8
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 119
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 9
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 115
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 8
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 107
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
@@ -540,9 +540,69 @@ MonoBehaviour:
     customControllerMaps: []
     customControllers: []
     controllerMapLayoutManagerRuleSets: []
-    controllerMapEnablerRuleSets: []
+    controllerMapEnablerRuleSets:
+    - _id: 5
+      _name: DisableAll
+      _tag: "\u7981\u7528\u6240\u6709\u8F93\u5165"
+      _rules:
+      - _tag: 
+        _enable: 1
+        _categoryIds: 01000000
+        _layoutIds: 
+        _controllerSetSelector:
+          _type: 1
+          _controllerType: 0
+          _hardwareTypeGuidString: 
+          _hardwareIdentifier: 
+          _controllerTemplateTypeGuidString: 
+          _deviceInstanceGuidString: 
+          _customControllerSourceId: -1
+          _controllerId: -1
+      - _tag: 
+        _enable: 0
+        _categoryIds: 02000000
+        _layoutIds: 
+        _controllerSetSelector:
+          _type: 1
+          _controllerType: 0
+          _hardwareTypeGuidString: 00000000-0000-0000-0000-000000000000
+          _hardwareIdentifier: 
+          _controllerTemplateTypeGuidString: 
+          _deviceInstanceGuidString: 
+          _customControllerSourceId: -1
+          _controllerId: -1
+    - _id: 3
+      _name: Normal
+      _tag: test
+      _rules:
+      - _tag: 
+        _enable: 0
+        _categoryIds: 01000000
+        _layoutIds: 
+        _controllerSetSelector:
+          _type: 1
+          _controllerType: 0
+          _hardwareTypeGuidString: 00000000-0000-0000-0000-000000000000
+          _hardwareIdentifier: 
+          _controllerTemplateTypeGuidString: 
+          _deviceInstanceGuidString: 
+          _customControllerSourceId: -1
+          _controllerId: -1
+      - _tag: 
+        _enable: 1
+        _categoryIds: 02000000
+        _layoutIds: 
+        _controllerSetSelector:
+          _type: 1
+          _controllerType: 0
+          _hardwareTypeGuidString: 00000000-0000-0000-0000-000000000000
+          _hardwareIdentifier: 
+          _controllerTemplateTypeGuidString: 
+          _deviceInstanceGuidString: 
+          _customControllerSourceId: -1
+          _controllerId: -1
     playerIdCounter: 10
-    actionIdCounter: 8
+    actionIdCounter: 11
     actionCategoryIdCounter: 3
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 3
@@ -556,5 +616,5 @@ MonoBehaviour:
     customControllerMapIdCounter: 0
     customControllerIdCounter: 0
     controllerMapLayoutManagerSetIdCounter: 0
-    controllerMapEnablerSetIdCounter: 1
+    controllerMapEnablerSetIdCounter: 7
   _controllerDataFiles: {fileID: 11400000, guid: d21d2b20df8369642b76aafbb2576ba7, type: 2}

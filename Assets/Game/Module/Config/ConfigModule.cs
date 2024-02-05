@@ -3,12 +3,13 @@ using System.Threading.Tasks;
 using cfg;
 using Cysharp.Threading.Tasks;
 using GameFramework.GameUpdater;
+using LFramework;
 using Luban;
 using SimpleJSON;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-namespace LFramework
+namespace Game.ConfigModule
 {
     public class ConfigModule : GameModuleBase
     {

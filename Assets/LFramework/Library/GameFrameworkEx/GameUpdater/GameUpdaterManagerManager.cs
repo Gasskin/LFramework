@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 
 namespace GameFramework.GameUpdater
 {
-    public class GameUpdaterManager : GameFrameworkModule, IGameUpdater
+    internal sealed class GameUpdaterManager : GameFrameworkModule, IGameUpdaterManager
     {
         internal override void Update(float elapseSeconds, float realElapseSeconds)
         {
