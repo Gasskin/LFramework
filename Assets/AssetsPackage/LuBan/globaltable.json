@@ -1,0 +1,12 @@
+[
+  {
+    "Name": "Key1",
+    "ValueStr": "测试1",
+    "ValueInt": 111
+  },
+  {
+    "Name": "Key2",
+    "ValueStr": "测试2",
+    "ValueInt": 222
+  }
+]

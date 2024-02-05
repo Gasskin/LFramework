@@ -1,19 +1,19 @@
-using System;
-using Cysharp.Threading.Tasks;
-using GameFramework;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
+using LFramework.LInput;
 using UnityGameFramework.Runtime;
 
-namespace LFramework
+namespace LFramework.LProcedure
 {
     public class TestProcedure : ProcedureBase
     {
         protected override async void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
-            LFrameworkEntry.GetModule<PlayerInputModule>();
+            var comp = GameEntry.GetComponent<GameUpdaterComponent>();
+            comp.GetModule<InputModule>();
+            comp.GetModule<ConfigModule>();
 
-            await LFrameworkEntry.InitAsync();
+            await comp.InitAsync();
 
             base.OnEnter(procedureOwner);
         }
