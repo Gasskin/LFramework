@@ -1,11 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using GameFramework;
 using GameFramework.Resource;
-using UnityEngine;
-using UnityGameFramework.Runtime;
 
 namespace UnityGameFramework.Runtime
 {
@@ -42,24 +37,6 @@ namespace UnityGameFramework.Runtime
             ));
 
             return tcs.Task;
-        }
-        
-        /// <summary>
-        /// 加载多个资源（可等待）
-        /// </summary>
-        public static async UniTask<T[]> LoadAssetsAsync<T>(this ResourceComponent resourceComponent, string[] assetName) where T : UnityEngine.Object
-        {
-            if (assetName == null)
-            {
-                return null;
-            }
-            var assets = new T[assetName.Length];
-            var tasks = new UniTask<T>[assets.Length];
-            for (int i = 0; i < tasks.Length; i++)
-            {
-                tasks[i] = resourceComponent.LoadAssetAsync<T>(assetName[i]);
-            }
-            return await UniTask.WhenAll(tasks);
         }
     }
 }
