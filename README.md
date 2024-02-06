@@ -3,21 +3,24 @@
 # 0.文件结构
 ```
 Assets
-├────Core                         // 框架代码
-|    ├────LFramework              // 自己扩展的框架
-|    |    ├── Editor            
-|    |    └── Runtime
-|    |          
-|    ├────Library                 // 第三方库，GameFramwork源码也在里面
+├────LFramework
+|    ├────Library                       // 框架层的第三方库，GameFramwork源码也在里面
 |    |    ├── Editor      
 |    |    └── Runtime
-|    |        ├── GameFramework   // GF的源码
-|    |        └── LFramework      // 扩展GF源码，写在这里
-|    |      
-|    └────UnityGameFramework      // UGF源码
+|    |        ├── GameFramework         // GF的源码
+|    |        └── GameFrameworkEx       // 扩展GF源码，写在这里
+|    |                   
+|    ├────UnityGameFramework            // UGF
+|    |    ├── Editor            
+|    |    └── Runtime
+|    |                
+|    └────UnityGameFramework            // UGF扩展
 |         ├── Editor      
 |         └── Runtime
-└────Game                         // 业务代码
+|
+└────Game                               // 业务层
+     ├── Library                        // 业务层的第三方库
+     └── ...
 ```
 
 # 1.替换GameFramwork的DLL为源码
