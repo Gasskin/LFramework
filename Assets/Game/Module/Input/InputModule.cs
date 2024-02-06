@@ -9,7 +9,6 @@ namespace Game.InputModule
 {
     public partial class InputModule : GameModuleBase
     {
-        private const string DefaultRewiredPath = "Assets/AssetsPackage/Core/Rewired.prefab";
         public override int Priority => (int)EModulePriority.None;
         private InputManager m_InputManager;
         private Player m_Player;
@@ -19,7 +18,7 @@ namespace Game.InputModule
         public override async UniTask InitAsync()
         {
             var comp = GameEntry.GetComponent<ResourceComponent>();
-            var asset = await comp.LoadAssetAsync<GameObject>(DefaultRewiredPath);
+            var asset = await comp.LoadAssetAsync<GameObject>(ResourcesPathConfig.Core.Rewired);
             var inst = Object.Instantiate(asset);
 
             await UniTask.Yield();

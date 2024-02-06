@@ -18,8 +18,7 @@ namespace Game.Procedure
             await comp.InitAsync();
 
             var scene = GameEntry.GetComponent<SceneComponent>();
-            var result = await scene.LoadSceneAsync("Assets/AssetsPackage/Scene/SampleScene.unity");
-            Log.Error("load scene? {0}",result);
+            var result = await scene.LoadSceneAsync(ResourcesPathConfig.Scene.SampleScene);
         }
     }
 }
