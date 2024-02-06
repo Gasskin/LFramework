@@ -3,7 +3,7 @@ using GameFramework;
 using UnityEngine;
 using UnityGameFramework.Editor.ResourceTools;
 
-namespace LFramework
+namespace UnityGameFramework.Editor
 {
     public static class ResourcesConfig
     {

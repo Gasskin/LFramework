@@ -7,7 +7,7 @@ using GameFramework.Resource;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-namespace LFramework
+namespace UnityGameFramework.Runtime
 {
     public static partial class AwaitableExtension
     {
