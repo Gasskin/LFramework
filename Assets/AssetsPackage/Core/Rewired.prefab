@@ -170,7 +170,7 @@ MonoBehaviour:
         exportConsts_useParentClass: 1
         exportConsts_parentClassName: RewiredConsts
         exportConsts_useNamespace: 1
-        exportConsts_namespace: LFramework.LInput
+        exportConsts_namespace: Game.InputModule
         exportConsts_actions: 1
         exportConsts_actionsClassName: Action
         exportConsts_actionsIncludeActionCategory: 0
@@ -237,8 +237,12 @@ MonoBehaviour:
       _controllerMapEnablerSettings:
         _enabled: 1
         _ruleSets:
-        - _enabled: 1
+        - _enabled: 0
           _id: 3
+        - _enabled: 1
+          _id: 5
+        - _enabled: 0
+          _id: 7
     actions:
     - _id: 0
       _name: Move Horizontal
@@ -541,25 +545,25 @@ MonoBehaviour:
     customControllers: []
     controllerMapLayoutManagerRuleSets: []
     controllerMapEnablerRuleSets:
-    - _id: 5
-      _name: DisableAll
-      _tag: "\u7981\u7528\u6240\u6709\u8F93\u5165"
+    - _id: 3
+      _name: UI
+      _tag: UITag
       _rules:
       - _tag: 
-        _enable: 1
+        _enable: 0
         _categoryIds: 01000000
         _layoutIds: 
         _controllerSetSelector:
           _type: 1
           _controllerType: 0
-          _hardwareTypeGuidString: 
+          _hardwareTypeGuidString: 00000000-0000-0000-0000-000000000000
           _hardwareIdentifier: 
           _controllerTemplateTypeGuidString: 
           _deviceInstanceGuidString: 
           _customControllerSourceId: -1
           _controllerId: -1
       - _tag: 
-        _enable: 0
+        _enable: 1
         _categoryIds: 02000000
         _layoutIds: 
         _controllerSetSelector:
@@ -571,12 +575,29 @@ MonoBehaviour:
           _deviceInstanceGuidString: 
           _customControllerSourceId: -1
           _controllerId: -1
-    - _id: 3
-      _name: Normal
-      _tag: test
+    - _id: 5
+      _name: DisableAll
+      _tag: DisableAllTag
       _rules:
       - _tag: 
         _enable: 0
+        _categoryIds: 
+        _layoutIds: 
+        _controllerSetSelector:
+          _type: 0
+          _controllerType: 0
+          _hardwareTypeGuidString: 
+          _hardwareIdentifier: 
+          _controllerTemplateTypeGuidString: 
+          _deviceInstanceGuidString: 
+          _customControllerSourceId: -1
+          _controllerId: -1
+    - _id: 7
+      _name: Battle
+      _tag: BattleTag
+      _rules:
+      - _tag: 
+        _enable: 1
         _categoryIds: 01000000
         _layoutIds: 
         _controllerSetSelector:
@@ -589,7 +610,7 @@ MonoBehaviour:
           _customControllerSourceId: -1
           _controllerId: -1
       - _tag: 
-        _enable: 1
+        _enable: 0
         _categoryIds: 02000000
         _layoutIds: 
         _controllerSetSelector:
@@ -616,5 +637,5 @@ MonoBehaviour:
     customControllerMapIdCounter: 0
     customControllerIdCounter: 0
     controllerMapLayoutManagerSetIdCounter: 0
-    controllerMapEnablerSetIdCounter: 7
+    controllerMapEnablerSetIdCounter: 8
   _controllerDataFiles: {fileID: 11400000, guid: d21d2b20df8369642b76aafbb2576ba7, type: 2}

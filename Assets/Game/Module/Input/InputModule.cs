@@ -1,7 +1,6 @@
 using Cysharp.Threading.Tasks;
 using GameFramework.GameUpdater;
 using LFramework;
-using LFramework.LInput;
 using Rewired;
 using UnityEngine;
 using UnityGameFramework.Runtime;
@@ -59,7 +58,7 @@ namespace Game.InputModule
 
             if (Input.GetMouseButtonDown(0))
             {
-                ChangeMapEnabler();
+                ChangeInputMap(7);
             }
         }
 

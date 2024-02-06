@@ -4,13 +4,13 @@ using UnityGameFramework.Runtime;
 
 namespace Game.Procedure
 {
-    public class TestProcedure : ProcedureBase
+    public class CreateModuleProcedure : ProcedureBase
     {
         protected override async void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
             var comp = GameEntry.GetComponent<GameUpdaterComponent>();
-            comp.GetModule<InputModule.InputModule>();
             comp.GetModule<ConfigModule.ConfigModule>();
+            comp.GetModule<InputModule.InputModule>();
 
             await comp.InitAsync();
 
