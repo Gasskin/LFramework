@@ -3,6 +3,8 @@
     public enum ECoroutineLockType
     {
         None = 0,
-        LoadScene = 1,
+        LoadAsset = 1,
+        LoadScene = 2,
+        OpenUI = 3,
     }
 }

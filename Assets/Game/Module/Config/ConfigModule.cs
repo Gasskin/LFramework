@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using cfg;
 using Cysharp.Threading.Tasks;
+using Game.Utility;
 using GameFramework.GameUpdater;
 using Luban;
 using SimpleJSON;
@@ -14,6 +15,7 @@ namespace Game.ConfigModule
     {
         public Tables AllTable => m_AllTable;
         private Tables m_AllTable;
+
         private ELuBanLoadType m_ELuBanLoadType = ELuBanLoadType.Json;
 
         public override int Priority => (int)EModulePriority.None;
@@ -33,14 +35,13 @@ namespace Game.ConfigModule
             var loaderReturnType = loadMethodInfo.GetParameters()[0].ParameterType.GetGenericArguments()[1];
             m_ELuBanLoadType = loaderReturnType == typeof(Task<ByteBuf>) ? ELuBanLoadType.Byte : ELuBanLoadType.Json;
             
-            var comp = GameEntry.GetComponent<ResourceComponent>();
             switch (m_ELuBanLoadType)
             {
                 case ELuBanLoadType.Byte:
 
                     async Task<ByteBuf> ByteLoader(string s)
                     {
-                        TextAsset textAsset = await comp.LoadAssetAsync<TextAsset>($"Assets/AssetsPackage/LuBan/{s}.bytes");
+                        TextAsset textAsset = await GameComponent.Resource.LoadAssetAsync<TextAsset>($"Assets/AssetsPackage/LuBan/{s}.bytes");
                         return new ByteBuf(textAsset.bytes);
                     }
 
@@ -51,7 +52,7 @@ namespace Game.ConfigModule
 
                     async Task<JSONNode> JsonLoader(string s)
                     {
-                        TextAsset textAsset = await comp.LoadAssetAsync<TextAsset>($"Assets/AssetsPackage/LuBan/{s}.json");
+                        TextAsset textAsset = await GameComponent.Resource.LoadAssetAsync<TextAsset>($"Assets/AssetsPackage/LuBan/{s}.json");
                         return JSON.Parse(textAsset.text);
                     }
 
@@ -59,7 +60,8 @@ namespace Game.ConfigModule
                     await (Task)loadMethodInfo.Invoke(m_AllTable, new object[] { func2 });
                     break;
             }
-            Log.Info("====== luban initialize success ======");
+            Log.Info("====== config initialize success ======");
+            
         }
 
         public override void Update()

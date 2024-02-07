@@ -1,10 +1,14 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using GameFramework;
 using GameFramework.Event;
 
 namespace UnityGameFramework.Runtime
 {
     public static partial class AwaitableExtension
     {
+        private static readonly Dictionary<string, AutoResetUniTaskCompletionSource<bool>> LoadSceneTcs = new();
+
         private static void RegisterSceneEvent()
         {
             var comp = GameEntry.GetComponent<EventComponent>();
@@ -12,29 +16,37 @@ namespace UnityGameFramework.Runtime
             comp.Subscribe(LoadSceneFailureEventArgs.EventId, OnLoadSceneFailed);
         }
         
-        public static async UniTask<bool> LoadSceneAsync(this SceneComponent sceneComponent, string sceneAssetName)
+
+        public static async UniTask<bool> LoadSceneAsync(this SceneComponent sceneComponent, string sceneAssetName, int priority)
         {
             var comp = GameEntry.GetComponent<CoroutineLockComponent>();
             var tcs = AutoResetUniTaskCompletionSource<bool>.Create();
-            
+
             using var coroutineLock = await comp.Wait(ECoroutineLockType.LoadScene, sceneAssetName.GetHashCode());
-            sceneComponent.LoadScene(sceneAssetName, tcs);
+            sceneComponent.LoadScene(sceneAssetName, priority);
+            LoadSceneTcs.Add(sceneAssetName, tcs);
             return await tcs.Task;
         }
-        
+
         private static void OnLoadSceneSuccess(object sender, GameEventArgs e)
         {
-            var param = (LoadSceneSuccessEventArgs)e;
-            var tcs = param.UserData as AutoResetUniTaskCompletionSource<bool>;
-            tcs?.TrySetResult(true);
+            var ne = (LoadSceneSuccessEventArgs)e;
+            if (LoadSceneTcs.TryGetValue(ne.SceneAssetName,out var tcs))
+            {
+                tcs.TrySetResult(true);
+                LoadSceneTcs.Remove(ne.SceneAssetName);
+            }
         }
-        
+
         private static void OnLoadSceneFailed(object sender, GameEventArgs e)
         {
-            var param = (LoadSceneFailureEventArgs)e;
-            Log.Error(param.ErrorMessage);
-            var tcs = param.UserData as AutoResetUniTaskCompletionSource<bool>;
-            tcs?.TrySetResult(false);
+            var ne = (LoadSceneFailureEventArgs)e;
+            if (LoadSceneTcs.TryGetValue(ne.SceneAssetName,out var tcs))
+            {
+                Log.Error(ne.ErrorMessage);
+                tcs.TrySetException(new GameFrameworkException(ne.ErrorMessage));
+                LoadSceneTcs.Remove(ne.SceneAssetName);
+            }
         }
     }
 }

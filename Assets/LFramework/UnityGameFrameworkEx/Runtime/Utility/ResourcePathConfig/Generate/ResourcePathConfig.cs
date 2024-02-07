@@ -15,6 +15,8 @@ namespace UnityGameFramework.Runtime
 		public static class Scene
 		{
 			public static readonly string Example = "Assets/AssetsPackage/Scene/Example.unity";
+			public static readonly string Main = "Assets/AssetsPackage/Scene/Main.unity";
+			public static readonly string Menu = "Assets/AssetsPackage/Scene/Menu.unity";
 			public static readonly string SampleScene = "Assets/AssetsPackage/Scene/SampleScene.unity";
 		}
 

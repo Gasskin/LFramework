@@ -5,6 +5,7 @@
         static AwaitableExtension()
         {
             RegisterSceneEvent();
+            RegisterOpenUIEvent();
         }
     }
 }

@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Game.Utility;
 using GameFramework.GameUpdater;
 using Rewired;
 using UnityEngine;
@@ -17,12 +18,11 @@ namespace Game.InputModule
         
         public override async UniTask InitAsync()
         {
-            var comp = GameEntry.GetComponent<ResourceComponent>();
-            var asset = await comp.LoadAssetAsync<GameObject>(ResourcesPathConfig.Core.Rewired);
+            var asset = await GameComponent.Resource.LoadAssetAsync<GameObject>(ResourcesPathConfig.Core.Rewired);
             var inst = Object.Instantiate(asset);
 
             await UniTask.Yield();
-            comp.UnloadAsset(asset);
+            GameComponent.Resource.UnloadAsset(asset);
 
             m_InputManager = inst.GetComponent<InputManager>();
             m_Player = ReInput.players.GetPlayer(RewiredConsts.Player.Player0);

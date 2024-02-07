@@ -1,7 +1,6 @@
+using Game.Utility;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
-using UnityEngine;
-using UnityGameFramework.Runtime;
 
 namespace Game.Procedure
 {
@@ -11,14 +10,13 @@ namespace Game.Procedure
         {
             base.OnEnter(procedureOwner);
 
-            var comp = GameEntry.GetComponent<GameUpdaterComponent>();
-            comp.GetModule<ConfigModule.ConfigModule>();
-            comp.GetModule<InputModule.InputModule>();
+            GameComponent.GameUpdater.GetModule<ConfigModule.ConfigModule>();
+            GameComponent.GameUpdater.GetModule<ConfigModule.LocalizationModule>();
+            GameComponent.GameUpdater.GetModule<InputModule.InputModule>();
 
-            await comp.InitAsync();
+            await GameComponent.GameUpdater.InitAsync();
 
-            var scene = GameEntry.GetComponent<SceneComponent>();
-            var result = await scene.LoadSceneAsync(ResourcesPathConfig.Scene.SampleScene);
+            ChangeState<LaunchProcedure>(procedureOwner);
         }
     }
 }

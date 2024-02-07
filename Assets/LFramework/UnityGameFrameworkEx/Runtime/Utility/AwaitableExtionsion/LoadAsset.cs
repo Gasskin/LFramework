@@ -9,9 +9,12 @@ namespace UnityGameFramework.Runtime
         /// <summary>
         /// 加载资源（可等待）
         /// </summary>
-        public static UniTask<T> LoadAssetAsync<T>(this ResourceComponent resourceComponent, string assetName) where T : UnityEngine.Object
+        public static async UniTask<T> LoadAssetAsync<T>(this ResourceComponent resourceComponent, string assetName) where T : UnityEngine.Object
         {
+            var comp = GameEntry.GetComponent<CoroutineLockComponent>();
+            using var coroutine = await comp.Wait(ECoroutineLockType.LoadAsset, assetName.GetHashCode());
             var tcs = AutoResetUniTaskCompletionSource<T>.Create();
+            
             resourceComponent.LoadAsset(assetName, typeof(T), new LoadAssetCallbacks(
                 (_, asset, _, _) =>
                 {
@@ -36,7 +39,7 @@ namespace UnityGameFramework.Runtime
                 }
             ));
 
-            return tcs.Task;
+            return await tcs.Task;
         }
     }
 }
