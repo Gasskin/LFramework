@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Game.Entitas.GameObjectComponent gameObjectComponent = new Game.Entitas.GameObjectComponent();
+    public Game.Entitas.GameObjectComponent gameObject { get { return (Game.Entitas.GameObjectComponent)GetComponent(GameComponentsLookup.GameObject); } }
+    public bool hasGameObject { get { return HasComponent(GameComponentsLookup.GameObject); } }
 
-    public bool isGameObject {
-        get { return HasComponent(GameComponentsLookup.GameObject); }
-        set {
-            if (value != isGameObject) {
-                var index = GameComponentsLookup.GameObject;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : gameObjectComponent;
+    public void AddGameObject(UnityGameFramework.Runtime.GameObjectInstance newM_GameObject) {
+        var index = GameComponentsLookup.GameObject;
+        var component = (Game.Entitas.GameObjectComponent)CreateComponent(index, typeof(Game.Entitas.GameObjectComponent));
+        component.m_GameObject = newM_GameObject;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceGameObject(UnityGameFramework.Runtime.GameObjectInstance newM_GameObject) {
+        var index = GameComponentsLookup.GameObject;
+        var component = (Game.Entitas.GameObjectComponent)CreateComponent(index, typeof(Game.Entitas.GameObjectComponent));
+        component.m_GameObject = newM_GameObject;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveGameObject() {
+        RemoveComponent(GameComponentsLookup.GameObject);
     }
 }
 

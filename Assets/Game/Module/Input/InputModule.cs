@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Game.Utility;
 using GameFramework.GameUpdater;
@@ -56,9 +57,23 @@ namespace Game.InputModule
 
             if (Input.GetMouseButtonDown(0))
             {
-                ChangeInputMap(7);
+                var t = Contexts.sharedInstance.game.CreateEntity();
+                t.AddGameObject(null);
+                test.Add(t);
+            }
+            
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (test.Count > 0)
+                {
+                    var t = test[0];
+                    t.RemoveGameObject();
+                    test.RemoveAt(0);
+                }
             }
         }
+
+        public List<GameEntity> test=new List<GameEntity>();
 
         public override void LateUpdate()
         {

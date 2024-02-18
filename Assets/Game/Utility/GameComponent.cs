@@ -34,5 +34,8 @@ namespace Game.Utility
         
         private static UIComponent s_UI;
         public static UIComponent UI => s_UI ??= GameEntry.GetComponent<UIComponent>();
+        
+        private static ObjectPoolComponent s_ObjectPool;
+        public static ObjectPoolComponent ObjectPool => s_ObjectPool ??= GameEntry.GetComponent<ObjectPoolComponent>();
     }
 }
