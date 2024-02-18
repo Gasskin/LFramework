@@ -1,18 +1,22 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
+using Entitas.CodeGeneration.Plugins;
 using GameFramework;
 using UnityEditor;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 namespace UnityGameFramework.Editor
 {
     public static class ResourcesPathTool
     {
-        private static readonly string[] Filter = new[]
+        private static readonly string[] Filter =
         {
             "AssetsPackage\\Core",
             "AssetsPackage\\Scene",
+            "AssetsPackage\\ModelPrefabs",
         };
         
         private static readonly string SearchPath = Utility.Path.GetRegularPath(Path.Combine(Application.dataPath, "AssetsPackage"));
@@ -51,7 +55,13 @@ namespace UnityGameFramework.Editor
 
 
                 var fileName = Path.GetFileName(filePath);
-
+                var pattern = @"[-.]";
+                if (Regex.Match(fileName.Split(".")[0],pattern).Success)
+                {
+                    Debug.LogError($"不符合要求的命名：{fileName}");
+                    continue;
+                }
+                
                 var className = filePath.Replace($"{SearchPath}\\", "");
                 if (className == fileName)
                 {
@@ -60,7 +70,7 @@ namespace UnityGameFramework.Editor
                 else
                 {
                     className = className.Replace($"\\{fileName}", "");
-                    className = className.Replace("\\", "_");
+                    className = className.Replace("\\", ".");
                 }
 
                 if (Classify.TryGetValue(className,out var list))
