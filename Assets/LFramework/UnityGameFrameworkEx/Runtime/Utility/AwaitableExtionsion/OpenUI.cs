@@ -2,7 +2,6 @@
 using Cysharp.Threading.Tasks;
 using GameFramework;
 using GameFramework.Event;
-using Rewired;
 
 namespace UnityGameFramework.Runtime
 {
