@@ -77,11 +77,11 @@ namespace GameFramework.GameUpdater
             return module;
         }
 
-        public void Update()
+        public void Update(float delta)
         {
             foreach (var module in m_LFrameworkModules)
             {
-                module.Update();
+                module.Update(delta);
             }
         }
 

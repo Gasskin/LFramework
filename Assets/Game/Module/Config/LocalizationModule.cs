@@ -17,7 +17,7 @@ namespace Game.ConfigModule
             await UniTask.CompletedTask;
         }
 
-        public override void Update()
+        public override void Update(float delta)
         {
         }
 

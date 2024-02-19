@@ -8,15 +8,27 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int GameObject = 0;
+    public const int EntityType = 0;
+    public const int MoveDir = 1;
+    public const int MoveMode = 2;
+    public const int MoveSpeed = 3;
+    public const int View = 4;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 5;
 
     public static readonly string[] componentNames = {
-        "GameObject"
+        "EntityType",
+        "MoveDir",
+        "MoveMode",
+        "MoveSpeed",
+        "View"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Game.Entitas.GameObjectComponent)
+        typeof(Game.Entitas.EntityTypeComponent),
+        typeof(Game.Entitas.MoveDirComponent),
+        typeof(Game.Entitas.MoveModeComponent),
+        typeof(Game.Entitas.MoveSpeedComponent),
+        typeof(Game.Entitas.ViewComponent)
     };
 }

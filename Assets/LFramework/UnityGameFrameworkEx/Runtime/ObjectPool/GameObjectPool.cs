@@ -6,10 +6,10 @@ namespace UnityGameFramework.Runtime
 {
     public class GameObjectInstance : ObjectBase
     {
-        public static GameObjectInstance Create(GameObject target)
+        public static GameObjectInstance Create(string name, GameObject target)
         {
             var instance = ReferencePool.Acquire<GameObjectInstance>();
-            instance.Initialize(target);
+            instance.Initialize(name, target);
             return instance;
         }
 
@@ -34,11 +34,11 @@ namespace UnityGameFramework.Runtime
         protected override void Release(bool isShutdown)
         {
             var target = Target as GameObject;
-            if (target == null) 
+            if (target == null)
             {
                 return;
             }
-            
+
             Object.Destroy(target);
         }
     }

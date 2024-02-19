@@ -8,7 +8,7 @@ namespace GameFramework.GameUpdater
 
         public abstract UniTask InitAsync();
 
-        public abstract void Update();
+        public abstract void Update(float delta);
 
         public abstract void LateUpdate();
 

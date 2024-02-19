@@ -9,7 +9,7 @@ namespace GameFramework.GameUpdater
 
         public T GetModule<T>() where T : GameModuleBase;
         
-        public void Update();
+        public void Update(float delta);
 
         public void LateUpdate();
 

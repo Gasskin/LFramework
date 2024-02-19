@@ -20,7 +20,7 @@ namespace Game.InputModule
             m_Player.controllers.maps.mapEnabler.ruleSets.Add(m_Battle);
             m_Player.controllers.maps.mapEnabler.ruleSets.Add(m_UI);
 
-            ChangeInputMap(RewiredConsts.MapEnablerRuleSet.UI);
+            ChangeInputMap(RewiredConsts.MapEnablerRuleSet.Battle);
             
             await UniTask.CompletedTask;
         }

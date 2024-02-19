@@ -1,5 +1,6 @@
-using System.Collections.Generic;
+using System;
 using Cysharp.Threading.Tasks;
+using Game.Entitas;
 using Game.Utility;
 using GameFramework.GameUpdater;
 using Rewired;
@@ -11,11 +12,8 @@ namespace Game.InputModule
 {
     public partial class InputModule : GameModuleBase
     {
+    #region Override
         public override int Priority => (int)EModulePriority.None;
-        private InputManager m_InputManager;
-        private Player m_Player;
-
-        private ControllerMapEnabler.RuleSet rule1;
         
         public override async UniTask InitAsync()
         {
@@ -30,50 +28,24 @@ namespace Game.InputModule
 
             ReInput.InputSourceUpdateEvent += OnInputSourceUpdateEvent;
 
-
             await InitMapEnabler();
         }
 
-        private void OnInputSourceUpdateEvent()
+        public override void Update(float delta)
         {
-        }
-
-        public override void Update()
-        {
-            if (m_Player.GetButton("Jump"))
-            {
-                Log.Error("Jump");
-            }
-
-            if (m_Player.GetButton("Down"))
-            {
-                Log.Error("Down");
-            }
-
-            if (m_Player.GetButton("Map"))
-            {
-                Log.Error("Map");
-            }
+            var dir = GetMoveDir();
+            Move(dir);
 
             if (Input.GetMouseButtonDown(0))
             {
-                var t = Contexts.sharedInstance.game.CreateEntity();
-                t.AddGameObject(null);
-                test.Add(t);
+                GameModule.EntitasModule.PlayerEntity.ReplaceView(ResourcesPathConfig.ModelPrefabs.Player, null);
             }
-            
+
             if (Input.GetMouseButtonDown(1))
             {
-                if (test.Count > 0)
-                {
-                    var t = test[0];
-                    t.RemoveGameObject();
-                    test.RemoveAt(0);
-                }
+                GameModule.EntitasModule.PlayerEntity.ReplaceView(ResourcesPathConfig.ModelPrefabs.RPG_Character, null);
             }
         }
-
-        public List<GameEntity> test=new List<GameEntity>();
 
         public override void LateUpdate()
         {
@@ -88,6 +60,39 @@ namespace Game.InputModule
             ReInput.InputSourceUpdateEvent -= OnInputSourceUpdateEvent;
             m_InputManager = null;
             m_Player = null;
+        }
+    #endregion
+
+        public EMoveDir MoveDir { get; private set; }
+        
+        private InputManager m_InputManager;
+        private Player m_Player;
+        private EMoveMode m_MoveMode = EMoveMode.None;
+        
+        private void OnInputSourceUpdateEvent()
+        {
+        }
+
+        
+        private EMoveDir GetMoveDir()
+        {
+            EMoveDir dir = EMoveDir.None;
+            var left = m_Player.GetAxis(RewiredConsts.Action.Move_Left);
+            var right = m_Player.GetAxis(RewiredConsts.Action.Move_Right);
+            // 同时按键时保持之前的输入
+            if (left > 0 && right > 0)
+            {
+                dir = MoveDir;
+            }
+            else if (left > 0)
+            {
+                dir = EMoveDir.Left;
+            }
+            else if (right > 0)
+            {
+                dir = EMoveDir.Right;
+            }
+            return dir;
         }
     }
 }

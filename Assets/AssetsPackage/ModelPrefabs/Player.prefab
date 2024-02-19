@@ -1919,7 +1919,7 @@ GameObject:
   - component: {fileID: 7472171447100202854}
   - component: {fileID: 3553991579524171036}
   m_Layer: 0
-  m_Name: 00_T-pose
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

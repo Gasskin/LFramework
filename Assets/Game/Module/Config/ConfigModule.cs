@@ -64,7 +64,7 @@ namespace Game.ConfigModule
             
         }
 
-        public override void Update()
+        public override void Update(float delta)
         {
             
         }

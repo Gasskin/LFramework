@@ -1,11 +1,14 @@
 using Cysharp.Threading.Tasks;
 using GameFramework;
 using GameFramework.GameUpdater;
+using UnityEngine;
 
 namespace UnityGameFramework.Runtime
 {
     public class GameUpdaterComponent: GameFrameworkComponent
     {
+        public float DeltaTime { get; private set; }
+        
         private IGameUpdaterManager m_GameUpdaterManagerManager;
         private bool m_Initialized;
 
@@ -34,7 +37,8 @@ namespace UnityGameFramework.Runtime
         {
             if (m_Initialized)
             {
-                m_GameUpdaterManagerManager.Update();
+                DeltaTime = Time.deltaTime;
+                m_GameUpdaterManagerManager.Update(DeltaTime);
             }
         }
 
