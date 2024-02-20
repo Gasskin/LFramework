@@ -25,7 +25,7 @@ namespace Game.Procedure
             {
                 // 编辑器模式
                 Log.Info("Editor resource mode detected.");
-                procedureOwner.SetData<VarString>("NextScene", ResourcesPathConfig.Scene.Menu);
+                procedureOwner.SetData<VarString>("NextScene", ResourcesPathConfig.Scene.SampleScene);
                 ChangeState<ChangeSceneProcedure>(procedureOwner);
             }
             else if (GameComponent.Resource.ResourceMode == ResourceMode.Package)

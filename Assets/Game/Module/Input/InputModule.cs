@@ -1,6 +1,4 @@
-using System;
 using Cysharp.Threading.Tasks;
-using Game.Entitas;
 using Game.Utility;
 using GameFramework.GameUpdater;
 using Rewired;
@@ -35,16 +33,6 @@ namespace Game.InputModule
         {
             var dir = GetMoveDir();
             Move(dir);
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                GameModule.EntitasModule.PlayerEntity.ReplaceView(ResourcesPathConfig.ModelPrefabs.Player, null);
-            }
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                GameModule.EntitasModule.PlayerEntity.ReplaceView(ResourcesPathConfig.ModelPrefabs.RPG_Character, null);
-            }
         }
 
         public override void LateUpdate()
@@ -67,7 +55,6 @@ namespace Game.InputModule
         
         private InputManager m_InputManager;
         private Player m_Player;
-        private EMoveMode m_MoveMode = EMoveMode.None;
         
         private void OnInputSourceUpdateEvent()
         {

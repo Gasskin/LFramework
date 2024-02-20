@@ -34,17 +34,16 @@ namespace Game.Procedure
             {
                 return;
             }
-            
-            await UniTask.Yield();
-
-            if (scene == ResourcesPathConfig.Scene.Main)
-            {
-                Log.Error("Main");
-            }
-            else if (scene == ResourcesPathConfig.Scene.Menu)
-            {
-                ChangeState<MenuProcedure>(procedureOwner);
-            }
+            // await UniTask.Yield();
+            //
+            // if (scene == ResourcesPathConfig.Scene.Main)
+            // {
+            //     Log.Error("Main");
+            // }
+            // else if (scene == ResourcesPathConfig.Scene.Menu)
+            // {
+            //     ChangeState<MenuProcedure>(procedureOwner);
+            // }
         }
     }
 }

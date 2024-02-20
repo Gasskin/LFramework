@@ -1,6 +1,3 @@
-
-using Game.Entitas;
-
 namespace Game.Utility
 {
     public static class GameModule
@@ -13,8 +10,5 @@ namespace Game.Utility
         
         private static ConfigModule.LocalizationModule s_Localization;
         public static ConfigModule.LocalizationModule Localization => s_Localization ??= GameComponent.GameUpdater.GetModule<ConfigModule.LocalizationModule>();
-
-        private static EntitasModule s_EntitasModule;
-        public static EntitasModule EntitasModule => s_EntitasModule ??= GameComponent.GameUpdater.GetModule<EntitasModule>();
     }
 }

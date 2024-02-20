@@ -1,4 +1,3 @@
-using Game.Entitas;
 using Game.Utility;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
@@ -14,7 +13,6 @@ namespace Game.Procedure
             GameComponent.GameUpdater.GetModule<ConfigModule.ConfigModule>();
             GameComponent.GameUpdater.GetModule<ConfigModule.LocalizationModule>();
             GameComponent.GameUpdater.GetModule<InputModule.InputModule>();
-            GameComponent.GameUpdater.GetModule<EntitasModule>();
 
             await GameComponent.GameUpdater.InitAsync();
 

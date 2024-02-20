@@ -2,11 +2,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
-using Entitas.CodeGeneration.Plugins;
 using GameFramework;
 using UnityEditor;
 using UnityEngine;
-using UnityGameFramework.Runtime;
 
 namespace UnityGameFramework.Editor
 {
