@@ -1,4 +1,4 @@
-﻿namespace Game.InputModule
+﻿namespace Game.Module.Input
 {
     public partial class InputModule
     {

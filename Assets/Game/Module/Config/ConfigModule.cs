@@ -2,14 +2,14 @@ using System;
 using System.Threading.Tasks;
 using cfg;
 using Cysharp.Threading.Tasks;
-using Game.Utility;
+using Game.Logic.Utility;
 using GameFramework.GameUpdater;
 using Luban;
 using SimpleJSON;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-namespace Game.ConfigModule
+namespace Game.Module.Config
 {
     public class ConfigModule : GameModuleBase
     {

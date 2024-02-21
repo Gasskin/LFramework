@@ -7,7 +7,7 @@
 // need to regenerate this list.
 // </auto-generated>
 
-namespace Game.InputModule {
+namespace Game.Module.Input {
     public static partial class RewiredConsts {
         public static partial class Action {
             // Default
