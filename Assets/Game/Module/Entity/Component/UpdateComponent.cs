@@ -8,5 +8,10 @@
         {
             Entity.Update();
         }
+
+        public override void LateUpdate()
+        {
+            Entity.LateUpdate();
+        }
     }
 }

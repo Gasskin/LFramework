@@ -35,6 +35,7 @@ namespace Game.Logic
             {
                 return;
             }
+            Entity.Create<PlayerEntity>();
             // await UniTask.Yield();
             //
             // if (scene == ResourcesPathConfig.Scene.Main)

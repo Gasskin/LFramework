@@ -2,6 +2,7 @@
 
 namespace Game.Module.Entity
 {
+#if UNITY_EDITOR
     public class GameObjectComponent : EntityComponent
     {
         public GameObject GameObject { get;private set; }
@@ -11,7 +12,7 @@ namespace Game.Module.Entity
             GameObject = new GameObject(Entity.GetType().Name);
             GameObject.AddComponent<ComponentView>();
         }
-        
+
         public override void OnDestroy()
         {
             base.OnDestroy();
@@ -48,4 +49,5 @@ namespace Game.Module.Entity
             return GameObject.name;
         }
     }
+#endif
 }

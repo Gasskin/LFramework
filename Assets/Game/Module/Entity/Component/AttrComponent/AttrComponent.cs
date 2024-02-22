@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GameFramework;
+using UnityEngine;
 using UnityGameFramework.Runtime;
 
 namespace Game.Module.Entity
@@ -8,20 +9,20 @@ namespace Game.Module.Entity
     [DrawEntityProperty]
     public class AttrComponent : EntityComponent
     {
-        private Dictionary<uint, Variable> m_AttrDic = new();
-        private Dictionary<uint, List<AttrWatcher>> m_AttrWatcherDic = new();
-        private Dictionary<Type, AttrWatcher> m_Type2AttrWatcher = new();
+        private readonly Dictionary<uint, Variable> m_AttrDic = new();
+        private readonly Dictionary<uint, List<AttrWatcher>> m_AttrWatcherDic = new();
+        private readonly Dictionary<Type, AttrWatcher> m_Type2AttrWatcher = new();
 
         public void SetAttr<T>(uint index, T value)
         {
             if (!m_AttrDic.TryGetValue(index, out var attr))
             {
-                var attrType = (EAttrType)index;
-                attr = CreateAttr(attrType);
+                attr = CreateAttr<T>();
                 if (attr == null)
                     return;
                 m_AttrDic.Add(index, attr);
             }
+            
             if (attr != null && !Equals(attr.GetValue(), value))
             {
                 attr.SetValue(value);
@@ -37,11 +38,12 @@ namespace Game.Module.Entity
 
         public T GetAttr<T>(uint index)
         {
-            if (m_AttrDic.TryGetValue(index, out var attr))
+            if (!m_AttrDic.TryGetValue(index, out var attr))
             {
-                return (T)attr.GetValue();
+                attr = CreateAttr<T>();
+                m_AttrDic.Add(index, attr);
             }
-            return default;
+            return (T)attr.GetValue();
         }
 
         public void AddAttrWatcher<T>() where T : AttrWatcher
@@ -64,6 +66,9 @@ namespace Game.Module.Entity
                 }
                 watchers.Add(watcher);
             }
+
+            m_Type2AttrWatcher.Add(type, watcher);
+            watcher.OnCreate();
         }
 
         public override void LateUpdate()
@@ -87,13 +92,13 @@ namespace Game.Module.Entity
             var str = "【Attr】";
             foreach (var attr in m_AttrDic)
             {
-                str += "\n" + (EAttrType)attr.Key + " : " + attr.Value;
+                str += "\n" + attr;
             }
             str += "\n\n【AttrWatcher】";
             foreach (var watchers in m_AttrWatcherDic)
             {
                 str += "\n---------------------------------";
-                str += "\n[" + (EAttrType)watchers.Key + "]";
+                str += "\n[" + watchers.Key + "]";
                 foreach (var watcher in watchers.Value)
                 {
                     str += "\n" + watcher;
@@ -103,13 +108,31 @@ namespace Game.Module.Entity
         }
 #endif
 
-        private Variable CreateAttr(EAttrType attrType)
+        private Variable CreateAttr<T>()
         {
-            switch (attrType)
+            var typeCode = Type.GetTypeCode(typeof(T));
+            switch (typeCode)
             {
-                case EAttrType.MoveDir:
+                case TypeCode.Boolean:
+                    return ReferencePool.Acquire<VarBoolean>();
+                case TypeCode.Int16:
+                    return ReferencePool.Acquire<VarInt16>();
+                case TypeCode.Int32:
                     return ReferencePool.Acquire<VarInt32>();
+                case TypeCode.Int64:
+                    return ReferencePool.Acquire<VarInt64>();
+                case TypeCode.Single:
+                    return ReferencePool.Acquire<VarSingle>();
+                case TypeCode.Double:
+                    return ReferencePool.Acquire<VarDouble>();
+                case TypeCode.Object:
+                    if (typeof(T)==typeof(Vector2))
+                        return ReferencePool.Acquire<VarVector2>();
+                    if (typeof(T)==typeof(Vector3))
+                        return ReferencePool.Acquire<VarVector3>();
+                    break;
             }
+            Log.Error($"create type failed: {typeof(T)}  {typeCode}");
             return null;
         }
     }

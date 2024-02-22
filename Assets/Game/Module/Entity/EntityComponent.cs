@@ -1,6 +1,6 @@
 namespace Game.Module.Entity
 {
-    public class EntityComponent
+    public abstract class EntityComponent
     {
         // 持有该组件的实体
         public Entity Entity { get; set; }

@@ -2,8 +2,10 @@
 {
     public enum EAttrType
     {
-        None=0,
+        None = 0,
         VirtualPos,
+        MoveMode,
         MoveDir,
+        MoveVelocity,
     }
 }

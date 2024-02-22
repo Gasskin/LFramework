@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using Game.Logic;
+using Game.Logic.PlayerController;
 using Game.Logic.Utility;
 using Game.Module.Entity;
 using GameFramework.GameUpdater;
@@ -31,27 +32,10 @@ namespace Game.Module.Input
             await InitMapEnabler();
         }
 
-        private Entity.Entity player;
-        private int test = 0;
         public override void Update(float delta)
         {
             var dir = GetMoveDir();
             Move(dir);
-
-            if (UnityEngine.Input.GetMouseButtonDown(0)) 
-            {
-                player = Entity.Entity.Create<PlayerEntity>();
-                player.AddComponent<UpdateComponent>();
-                var comp = player.AddComponent<AttrComponent>();
-                comp.AddAttrWatcher<MoveDirAttrWatcher>();
-                player.AddChild<ModelEntity>(ResourcesPathConfig.ModelPrefabs.RPG_Character);
-            }
-
-            if (UnityEngine.Input.GetMouseButtonDown(1)) 
-            {
-                var comp = player.GetComponent<AttrComponent>();
-                comp.SetAttr((uint)EAttrType.MoveDir, test++);
-            }
         }
 
         public override void LateUpdate()

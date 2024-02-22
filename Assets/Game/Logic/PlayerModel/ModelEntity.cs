@@ -1,15 +1,17 @@
-﻿using Game.Logic.Utility;
+﻿using Game.Logic.PlayerModel;
+using Game.Logic.Utility;
 using Game.Module.Entity;
 using UnityEngine;
 using UnityGameFramework.Runtime;
+using Entity = Game.Module.Entity.Entity;
 
 namespace Game.Logic
 {
     [DrawEntityProperty]
-    public class ModelEntity: Module.Entity.Entity
+    public class ModelEntity: Entity
     {
-        private GameObject model;
-        
+        public GameObject Model { get; private set; }
+
         public override async void Awake(object initData)
         {
             if (initData is not string path)
@@ -20,9 +22,12 @@ namespace Game.Logic
             var asset = await GameComponent.Resource.LoadAssetAsync<GameObject>(path);
             if (asset != null)
             {
-                model = Object.Instantiate(asset);
+                Model = Object.Instantiate(asset);
                 GameComponent.Resource.UnloadAsset(asset);
             }
+
+            var attr = AddComponent<AttrComponent>();
+            attr.AddAttrWatcher<TransformAttrWatcher>();
         }
 
         public override void OnDestroy()
@@ -32,7 +37,7 @@ namespace Game.Logic
 
         public override string ToString()
         {
-            return $"Model: {model.name}";
+            return $"Model: {Model.name}";
         }
     }
 }
