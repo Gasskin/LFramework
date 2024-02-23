@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Module.Entity
+namespace Game.Module
 {
 #if UNITY_EDITOR
     public class GameObjectComponent : EntityComponent

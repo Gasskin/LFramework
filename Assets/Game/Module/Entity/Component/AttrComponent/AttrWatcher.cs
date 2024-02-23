@@ -1,4 +1,4 @@
-﻿namespace Game.Module.Entity
+﻿namespace Game.Module
 {
     public abstract class AttrWatcher
     {

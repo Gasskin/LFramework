@@ -1,16 +1,17 @@
 using System;
 using Cysharp.Threading.Tasks;
+using Game.GlobalDefinition;
 using Game.Logic;
-using Game.Logic.PlayerController;
-using Game.Logic.Utility;
-using Game.Module.Entity;
+using Game.Logic;
+using Game.Logic;
+using Game.Module;
 using GameFramework.GameUpdater;
 using Rewired;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 using Object = UnityEngine.Object;
 
-namespace Game.Module.Input
+namespace Game.Module
 {
     public partial class InputModule : GameModuleBase
     {

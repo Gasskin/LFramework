@@ -1,5 +1,5 @@
 ﻿using Game.GlobalDefinition;
-using Game.Logic.Utility;
+using Game.Logic;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
 using UnityGameFramework.Runtime;

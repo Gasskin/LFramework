@@ -1,4 +1,4 @@
-﻿namespace Game.Logic
+﻿namespace Game.GlobalDefinition
 {
     public enum EModelAttr
     {

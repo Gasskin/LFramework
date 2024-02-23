@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
-namespace Game.Module.Entity
+namespace Game.Module
 {
 #if UNITY_EDITOR
     public class ComponentView : MonoBehaviour

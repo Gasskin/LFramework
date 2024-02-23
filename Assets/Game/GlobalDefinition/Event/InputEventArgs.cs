@@ -1,8 +1,7 @@
-﻿using Game.GlobalDefinition;
-using GameFramework;
+﻿using GameFramework;
 using GameFramework.Event;
 
-namespace Game.Module.Input
+namespace Game.GlobalDefinition
 {
     public class InputEventArgs:GameEventArgs
     {

@@ -1,10 +1,7 @@
-﻿using Game.Logic.PlayerController;
-using Game.Logic.PlayerModel;
-using Game.Logic.Utility;
-using Game.Module.Entity;
+﻿using Game.Module;
 using UnityEngine;
 using UnityGameFramework.Runtime;
-using Entity = Game.Module.Entity.Entity;
+using Entity = Game.Module.Entity;
 
 namespace Game.Logic
 {

@@ -1,11 +1,11 @@
 ﻿using Cysharp.Threading.Tasks;
-using Game.Logic.Utility;
+using Game.Logic;
 using GameFramework.GameUpdater;
 using GameFramework.Localization;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-namespace Game.Module.Config
+namespace Game.Module
 {
     public class LocalizationModule : GameModuleBase
     {

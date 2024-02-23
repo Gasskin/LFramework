@@ -1,4 +1,4 @@
-﻿namespace Game.Logic.PlayerController
+﻿namespace Game.GlobalDefinition
 {
     public enum EMoveMode
     {

@@ -2,7 +2,7 @@
 using Rewired;
 using UnityGameFramework.Runtime;
 
-namespace Game.Module.Input
+namespace Game.Module
 {
     public partial class InputModule
     {

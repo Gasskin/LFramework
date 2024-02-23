@@ -1,6 +1,6 @@
-﻿using Game.Module.Entity;
+﻿using Game.GlobalDefinition;
 
-namespace Game.Logic.PlayerController
+namespace Game.Logic
 {
     public interface IPlayerControllerComponent
     {

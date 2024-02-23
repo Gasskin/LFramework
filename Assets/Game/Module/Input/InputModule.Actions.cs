@@ -1,6 +1,7 @@
-﻿using Game.Logic.Utility;
+﻿using Game.GlobalDefinition;
+using Game.Logic;
 
-namespace Game.Module.Input
+namespace Game.Module
 {
     public partial class InputModule
     {

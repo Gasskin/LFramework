@@ -1,7 +1,7 @@
-using Game.Logic.Utility;
-using Game.Module.Config;
-using Game.Module.Entity;
-using Game.Module.Input;
+using Game.Logic;
+using Game.Module;
+using Game.Module;
+using Game.Module;
 
 using GameFramework.Fsm;
 using GameFramework.Procedure;

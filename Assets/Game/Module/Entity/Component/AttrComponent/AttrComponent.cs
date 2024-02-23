@@ -4,7 +4,7 @@ using GameFramework;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-namespace Game.Module.Entity
+namespace Game.Module
 {
     [DrawEntityProperty]
     public class AttrComponent : EntityComponent

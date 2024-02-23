@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Game.Module.Entity
+namespace Game.Module
 {
     public abstract partial class Entity
     {

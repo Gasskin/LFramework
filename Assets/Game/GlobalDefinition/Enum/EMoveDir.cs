@@ -1,4 +1,4 @@
-﻿namespace Game.Module.Input
+﻿namespace Game.GlobalDefinition
 {
     public enum EMoveDir
     {

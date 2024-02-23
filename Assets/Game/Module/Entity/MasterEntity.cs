@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Object = UnityEngine.Object;
 
-namespace Game.Module.Entity
+namespace Game.Module
 {
     public class MasterEntity : Entity
     {

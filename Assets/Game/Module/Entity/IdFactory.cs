@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Game.Module.Entity
+namespace Game.Module
 {
     public static class IdFactory
     {

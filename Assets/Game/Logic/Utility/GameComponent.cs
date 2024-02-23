@@ -1,6 +1,6 @@
 using UnityGameFramework.Runtime;
 
-namespace Game.Logic.Utility
+namespace Game.Logic
 {
     public static class GameComponent
     {

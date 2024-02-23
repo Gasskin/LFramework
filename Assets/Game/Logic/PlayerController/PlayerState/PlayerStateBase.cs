@@ -1,6 +1,7 @@
-﻿using Game.Module.Entity;
+﻿using Game.GlobalDefinition;
+using Game.Module;
 
-namespace Game.Logic.PlayerController
+namespace Game.Logic
 {
     public abstract class PlayerStateBase
     {

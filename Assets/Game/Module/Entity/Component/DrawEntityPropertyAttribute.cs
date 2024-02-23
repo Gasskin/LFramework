@@ -1,6 +1,6 @@
 using System;
 
-namespace Game.Module.Entity
+namespace Game.Module
 {
     public class DrawEntityPropertyAttribute : Attribute
     {

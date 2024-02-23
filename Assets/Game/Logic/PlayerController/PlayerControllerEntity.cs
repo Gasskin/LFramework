@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using Game.GlobalDefinition;
-using Game.Logic.Utility;
-using Game.Module.Entity;
-using Game.Module.Input;
+using Game.Logic;
+using Game.Module;
+using Game.Module;
 using GameFramework.Event;
-using Entity = Game.Module.Entity.Entity;
+using Entity = Game.Module.Entity;
 
-namespace Game.Logic.PlayerController
+namespace Game.Logic
 {
     public class PlayerControllerEntity : Entity
     {

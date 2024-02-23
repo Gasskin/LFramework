@@ -1,4 +1,6 @@
-﻿namespace Game.Logic.PlayerController
+﻿using Game.GlobalDefinition;
+
+namespace Game.Logic
 {
     /// <summary>
     /// 待机状态，普通移动状态
@@ -9,19 +11,22 @@
         {
             switch (fromState)
             {
-                case EPlayerState.Skill:
+                case EPlayerState.Jump:
+                    return false;
+                case EPlayerState.Fall:
                     return false;
             }
-            return true;
+            return false;
         }
 
         public override void OnEnter(EPlayerState fromState)
         {
-            Host.GetComponent<DefaultComponent>();
+            Host.GetComponent<DefaultComponent>().Enter(fromState);
         }
 
         public override void OnExit(EPlayerState toState)
         {
+            Host.GetComponent<DefaultComponent>().Exit(toState);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using Rewired;
 
-namespace Game.Module.Input
+namespace Game.Module
 {
     public partial class InputModule
     {

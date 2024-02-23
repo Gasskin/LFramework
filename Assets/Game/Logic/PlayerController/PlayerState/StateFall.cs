@@ -1,4 +1,6 @@
-﻿namespace Game.Logic.PlayerController
+﻿using Game.GlobalDefinition;
+
+namespace Game.Logic
 {
     public class StateFall: PlayerStateBase
     {

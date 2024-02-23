@@ -1,11 +1,11 @@
-﻿using Game.Logic.PlayerController;
-using Game.Module.Entity;
+﻿using Game.Module;
 using UnityGameFramework.Runtime;
+using Entity = Game.Module.Entity;
 
 namespace Game.Logic
 {
     [DrawEntityProperty]
-    public class PlayerEntity: Module.Entity.Entity
+    public class PlayerEntity: Entity
     {
         public override void Awake()
         {

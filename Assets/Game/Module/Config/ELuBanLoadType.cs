@@ -1,4 +1,4 @@
-﻿namespace Game.Module.Config
+﻿namespace Game.Module
 {
     public enum ELuBanLoadType
     {

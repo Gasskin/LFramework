@@ -1,9 +1,8 @@
-﻿namespace Game.Module.Entity
+﻿namespace Game.GlobalDefinition
 {
     public enum EAttrType
     {
         None = 0,
-        VirtualPos,
         MoveMode,
         MoveDir,
         MoveVelocity,

@@ -1,4 +1,4 @@
-﻿namespace Game.Logic.PlayerController
+﻿namespace Game.GlobalDefinition
 {
     public enum EPlayerState
     {
@@ -6,6 +6,5 @@
         Default,
         Jump,
         Fall,
-        Skill,
     }
 }

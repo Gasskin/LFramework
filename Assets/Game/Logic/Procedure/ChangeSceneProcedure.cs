@@ -1,10 +1,10 @@
 ﻿using Game.GlobalDefinition;
-using Game.Logic.Utility;
-using Game.Module.Entity;
+using Game.Logic;
+using Game.Module;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
 using UnityGameFramework.Runtime;
-using Entity = Game.Module.Entity.Entity;
+using Entity = Game.Module.Entity;
 
 namespace Game.Logic
 {

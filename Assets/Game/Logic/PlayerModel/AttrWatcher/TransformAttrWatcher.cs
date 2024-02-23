@@ -1,7 +1,8 @@
-﻿using Game.Module.Entity;
+﻿using Game.GlobalDefinition;
+using Game.Module;
 using UnityEngine;
 
-namespace Game.Logic.PlayerModel
+namespace Game.Logic
 {
     public class TransformAttrWatcher : AttrWatcher
     {

@@ -1,8 +1,8 @@
-using Game.Module.Config;
-using Game.Module.Entity;
-using Game.Module.Input;
+using Game.Module;
+using Game.Module;
+using Game.Module;
 
-namespace Game.Logic.Utility
+namespace Game.Logic
 {
     public static class GameModule
     {

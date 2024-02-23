@@ -1,6 +1,6 @@
-﻿using Game.Module.Entity;
+﻿using Game.Module;
 
-namespace Game.Logic.PlayerController
+namespace Game.Logic
 {
     public abstract class MoveModuleBase
     {

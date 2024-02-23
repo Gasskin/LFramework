@@ -9,7 +9,7 @@ using GameFramework.Resource;
 using UnityGameFramework.Runtime;
 
 using Game.GlobalDefinition;
-using Game.Logic.Utility;
+using Game.Logic;
 
 namespace Game.Logic
 {

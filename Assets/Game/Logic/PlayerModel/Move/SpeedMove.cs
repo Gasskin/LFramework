@@ -1,8 +1,9 @@
-﻿using Game.Logic.Utility;
-using Game.Module.Entity;
+﻿using Game.GlobalDefinition;
+using Game.Logic;
+using Game.Module;
 using UnityEngine;
 
-namespace Game.Logic.PlayerController
+namespace Game.Logic
 {
     public class SpeedMove : MoveModuleBase
     {

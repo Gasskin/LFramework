@@ -1,7 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using GameFramework.GameUpdater;
 
-namespace Game.Module.Entity
+namespace Game.Module
 {
     public class EntityModule: GameModuleBase
     {
