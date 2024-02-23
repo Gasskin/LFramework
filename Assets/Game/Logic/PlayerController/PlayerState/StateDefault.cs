@@ -1,5 +1,8 @@
 ﻿namespace Game.Logic.PlayerController
 {
+    /// <summary>
+    /// 待机状态，普通移动状态
+    /// </summary>
     public class StateDefault : PlayerStateBase
     {
         public override bool CanEnterFrom(EPlayerState fromState)
@@ -14,24 +17,11 @@
 
         public override void OnEnter(EPlayerState fromState)
         {
-            var prepareMove = Host.GetComponent<PrepareMoveComponent>();
-            if (prepareMove != null)
-                prepareMove.Enter(fromState);
-
-            var move = Host.GetComponent<MoveComponent>();
-            if (move != null)
-                move.Enter(fromState);
+            Host.GetComponent<DefaultComponent>();
         }
 
         public override void OnExit(EPlayerState toState)
         {
-            var prepareMove = Host.GetComponent<PrepareMoveComponent>();
-            if (prepareMove != null)
-                prepareMove.Exit(toState);
-            
-            var move = Host.GetComponent<MoveComponent>();
-            if (move != null)
-                move.Exit(toState);
         }
     }
 }

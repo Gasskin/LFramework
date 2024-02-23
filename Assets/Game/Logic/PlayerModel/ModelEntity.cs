@@ -1,4 +1,5 @@
-﻿using Game.Logic.PlayerModel;
+﻿using Game.Logic.PlayerController;
+using Game.Logic.PlayerModel;
 using Game.Logic.Utility;
 using Game.Module.Entity;
 using UnityEngine;
@@ -26,7 +27,10 @@ namespace Game.Logic
                 GameComponent.Resource.UnloadAsset(asset);
             }
 
-            var attr = AddComponent<AttrComponent>();
+            AddComponent<MoveComponent>();
+            AddComponent<AttrComponent>();
+
+            var attr = GetComponent<AttrComponent>();
             attr.AddAttrWatcher<TransformAttrWatcher>();
         }
 

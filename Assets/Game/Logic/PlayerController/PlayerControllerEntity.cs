@@ -24,10 +24,9 @@ namespace Game.Logic.PlayerController
 
             AddComponent<UpdateComponent>();
             AddComponent<AttrComponent>();
-            AddComponent<PrepareMoveComponent>();
-            AddComponent<MoveComponent>();
+            AddComponent<DefaultComponent>();
             AddComponent<JumpComponent>();
-
+            
             GameComponent.Event.Subscribe(Const.EventId.Input, OnInputMove);
             GameComponent.Event.Subscribe(Const.EventId.Input, OnInputJump);
         }
