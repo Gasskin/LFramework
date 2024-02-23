@@ -4,7 +4,7 @@
     {
         public static class EventId
         {
-            public const int InputMove = 0;
+            public const int Input = 0;
         }
     }
 }

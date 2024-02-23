@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using Game.Logic;
 using Game.Logic.PlayerController;
@@ -29,6 +30,7 @@ namespace Game.Module.Input
 
             ReInput.InputSourceUpdateEvent += OnInputSourceUpdateEvent;
 
+            RegisterActions();
             await InitMapEnabler();
         }
 
@@ -48,6 +50,7 @@ namespace Game.Module.Input
 
         public override void ShutDown()
         {
+            UnRegisterActions();
             ReInput.InputSourceUpdateEvent -= OnInputSourceUpdateEvent;
             m_InputManager = null;
             m_Player = null;
@@ -62,7 +65,6 @@ namespace Game.Module.Input
         private void OnInputSourceUpdateEvent()
         {
         }
-
         
         private EMoveDir GetMoveDir()
         {

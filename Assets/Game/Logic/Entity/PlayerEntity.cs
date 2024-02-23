@@ -12,10 +12,5 @@ namespace Game.Logic
             AddChild<ModelEntity>(ResourcesPathConfig.ModelPrefabs.RPG_Character);
             AddChild<PlayerControllerEntity>();
         }
-
-        public override string ToString()
-        {
-            return "player entity\nplayer123123";
-        }
     }
 }

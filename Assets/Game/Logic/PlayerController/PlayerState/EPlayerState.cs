@@ -5,6 +5,7 @@
         None = 0,
         Default,
         Jump,
+        Fall,
         Skill,
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Game.Logic.PlayerController
 {
-    public class DefaultState : PlayerStateBase
+    public class StateDefault : PlayerStateBase
     {
         public override bool CanEnterFrom(EPlayerState fromState)
         {

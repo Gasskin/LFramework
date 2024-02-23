@@ -2,6 +2,7 @@
 using Game.GlobalDefinition;
 using Game.Logic.Utility;
 using Game.Module.Entity;
+using Game.Module.Input;
 using GameFramework.Event;
 using Entity = Game.Module.Entity.Entity;
 
@@ -14,24 +15,27 @@ namespace Game.Logic.PlayerController
 
         public override void Awake()
         {
-            m_PlayerStateDic.Add(EPlayerState.Default, new DefaultState());
-
+            m_PlayerStateDic.Add(EPlayerState.Default, new StateDefault());
+            m_PlayerStateDic.Add(EPlayerState.Jump, new StateJump());
+            m_PlayerStateDic.Add(EPlayerState.Fall, new StateFall());
+            
             foreach (var state in m_PlayerStateDic)
-            {
                 state.Value.SetHost(this);
-            }
 
             AddComponent<UpdateComponent>();
             AddComponent<AttrComponent>();
             AddComponent<PrepareMoveComponent>();
             AddComponent<MoveComponent>();
+            AddComponent<JumpComponent>();
 
-            GameComponent.Event.Subscribe(Const.EventId.InputMove, OnInputMove);
+            GameComponent.Event.Subscribe(Const.EventId.Input, OnInputMove);
+            GameComponent.Event.Subscribe(Const.EventId.Input, OnInputJump);
         }
 
         public override void OnDestroy()
         {
-            GameComponent.Event.Unsubscribe(Const.EventId.InputMove, OnInputMove);
+            GameComponent.Event.Unsubscribe(Const.EventId.Input, OnInputMove);
+            GameComponent.Event.Unsubscribe(Const.EventId.Input, OnInputJump);
         }
 
         public override void Update()
@@ -68,12 +72,24 @@ namespace Game.Logic.PlayerController
 
         private void OnInputMove(object sender, GameEventArgs e)
         {
-            if (e is InputMoveEventArgs arg)
+            if (e is InputEventArgs { InputType: EInputType.Move }) 
             {
                 var state = m_PlayerStateDic[EPlayerState.Default];
                 if (state.CanEnterFrom(m_CurrentState)) 
                 {
                     SwitchState(EPlayerState.Default);
+                }
+            }
+        }
+
+        private void OnInputJump(object sender, GameEventArgs e)
+        {
+            if (e is InputEventArgs { InputType: EInputType.Jump }) 
+            {
+                var state = m_PlayerStateDic[EPlayerState.Jump];
+                if (state.CanEnterFrom(m_CurrentState)) 
+                {
+                    SwitchState(EPlayerState.Jump);
                 }
             }
         }

@@ -6,8 +6,6 @@ namespace Game.Logic.PlayerController
     {
         public Entity Host { get; private set; }
 
-
-
         public void SetHost(Entity host)
         {
             Host = host;
