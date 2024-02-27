@@ -51,3 +51,6 @@ var comp = GameEntry.GetComponent<CoroutineLockComponent>();
 using(var coroutineLock = await comp.Wait(ECoroutineLockType.Test,1))
 ...
 ```
+# 5.业务层加入Entity-Component的EC框架
+详见Game/Module/Entity
+组件式编程，AttrCompoent属性系统
