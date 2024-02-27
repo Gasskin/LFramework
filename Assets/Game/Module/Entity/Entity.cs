@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityGameFramework.Runtime;
 
 namespace Game.Module
 {
@@ -102,6 +103,11 @@ namespace Game.Module
         public T AddComponent<T>() where T : EntityComponent
         {
             var component = Activator.CreateInstance<T>();
+            if (component.EntityLimit != null && !component.EntityLimit.Contains(GetType()))
+            {
+                Log.Error($"can not add {typeof(T)} to {GetType()}");
+                return null;
+            }
             component.Entity = this;
             component.IsDisposed = false;
             Components.Add(typeof(T), component);
@@ -118,6 +124,11 @@ namespace Game.Module
         public T AddComponent<T>(object initData) where T : EntityComponent
         {
             var component = Activator.CreateInstance<T>();
+            if (component.EntityLimit != null && !component.EntityLimit.Contains(GetType()))
+            {
+                Log.Error($"can not add {typeof(T)} to {GetType()}");
+                return null;
+            }
             component.Entity = this;
             component.IsDisposed = false;
             Components.Add(typeof(T), component);

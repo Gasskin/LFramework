@@ -22,7 +22,7 @@ namespace Game.Module
                     return;
                 m_AttrDic.Add(index, attr);
             }
-            
+
             if (attr != null && !Equals(attr.GetValue(), value))
             {
                 attr.SetValue(value);
@@ -36,11 +36,12 @@ namespace Game.Module
             }
         }
 
-        public T GetAttr<T>(uint index)
+        public T GetAttr<T>(uint index, T defaultValue = default)
         {
             if (!m_AttrDic.TryGetValue(index, out var attr))
             {
                 attr = CreateAttr<T>();
+                attr.SetValue(defaultValue);
                 m_AttrDic.Add(index, attr);
             }
             return (T)attr.GetValue();
@@ -126,9 +127,9 @@ namespace Game.Module
                 case TypeCode.Double:
                     return ReferencePool.Acquire<VarDouble>();
                 case TypeCode.Object:
-                    if (typeof(T)==typeof(Vector2))
+                    if (typeof(T) == typeof(Vector2))
                         return ReferencePool.Acquire<VarVector2>();
-                    if (typeof(T)==typeof(Vector3))
+                    if (typeof(T) == typeof(Vector3))
                         return ReferencePool.Acquire<VarVector3>();
                     break;
             }

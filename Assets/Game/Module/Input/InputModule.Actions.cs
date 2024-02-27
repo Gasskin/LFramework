@@ -1,13 +1,14 @@
-﻿using Game.GlobalDefinition;
+﻿using System;
+using Game.GlobalDefinition;
 using Game.Logic;
 
 namespace Game.Module
 {
     public partial class InputModule
     {
-        public void Move(EMoveDir dir)
+        public void Move(float dir)
         {
-            if (MoveDir == dir) 
+            if (Math.Abs(MoveDir - dir) < 0.001f) 
                 return;
             MoveDir = dir;
 

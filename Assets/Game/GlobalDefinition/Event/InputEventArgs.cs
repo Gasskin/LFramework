@@ -15,7 +15,7 @@ namespace Game.GlobalDefinition
     #endregion
 
         public EInputType InputType { get; private set; }
-        public EMoveDir m_MoveDir;
+        public float m_MoveDir;
         public bool m_JumpPress;
         
         public static InputEventArgs Create(EInputType type)

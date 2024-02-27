@@ -58,8 +58,7 @@ namespace Game.Module
         }
     #endregion
 
-        public EMoveDir MoveDir { get; private set; }
-        
+        public float MoveDir { get; private set; }
         private InputManager m_InputManager;
         private Player m_Player;
         
@@ -67,9 +66,9 @@ namespace Game.Module
         {
         }
         
-        private EMoveDir GetMoveDir()
+        private float GetMoveDir()
         {
-            EMoveDir dir = EMoveDir.None;
+            var dir = 0f;
             var left = m_Player.GetAxis(RewiredConsts.Action.Move_Left);
             var right = m_Player.GetAxis(RewiredConsts.Action.Move_Right);
             // 同时按键时保持之前的输入
@@ -79,11 +78,11 @@ namespace Game.Module
             }
             else if (left > 0)
             {
-                dir = EMoveDir.Left;
+                dir = -1f;
             }
             else if (right > 0)
             {
-                dir = EMoveDir.Right;
+                dir = 1f;
             }
             return dir;
         }

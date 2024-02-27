@@ -4,6 +4,15 @@
     {
         None = 0,
         Position,
-        Rotation
+        Rotation,
+        IsOnGround,
+    }
+    
+    public static class EModelAttrExtension
+    {
+        public static uint ToUint(this EModelAttr e)
+        {
+            return (uint)e;
+        }
     }
 }

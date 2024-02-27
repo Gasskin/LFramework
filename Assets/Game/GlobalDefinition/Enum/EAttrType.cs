@@ -5,6 +5,16 @@
         None = 0,
         MoveMode,
         MoveDir,
-        MoveVelocity,
+        MoveHorizontalVelocity,
+        MoveVerticalVelocity,
+        CharacterState,
+    }
+    
+    public static class EAttrTypeExtension
+    {
+        public static uint ToUint(this EAttrType e)
+        {
+            return (uint)e;
+        }
     }
 }

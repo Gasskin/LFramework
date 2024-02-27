@@ -1,31 +1,31 @@
 ﻿using System.Collections.Generic;
 using Game.GlobalDefinition;
-using Game.Logic;
-using Game.Module;
 using Game.Module;
 using GameFramework.Event;
 using Entity = Game.Module.Entity;
 
 namespace Game.Logic
 {
-    public class PlayerControllerEntity : Entity
+    public class CharacterControllerEntity : Entity
     {
-        private Dictionary<EPlayerState, PlayerStateBase> m_PlayerStateDic = new();
-        private EPlayerState m_CurrentState = EPlayerState.None;
+        private Dictionary<ECharacterState, CharacterStateBase> m_PlayerStateDic = new();
+        private ECharacterState m_CurrentState = ECharacterState.None;
+        private AttrComponent m_Attr;
 
         public override void Awake()
         {
-            m_PlayerStateDic.Add(EPlayerState.Default, new StateDefault());
-            m_PlayerStateDic.Add(EPlayerState.Jump, new StateJump());
-            m_PlayerStateDic.Add(EPlayerState.Fall, new StateFall());
+            m_PlayerStateDic.Add(ECharacterState.Default, new StateDefault());
+            m_PlayerStateDic.Add(ECharacterState.Jump, new StateJump());
+            m_PlayerStateDic.Add(ECharacterState.Fall, new StateFall());
             
             foreach (var state in m_PlayerStateDic)
                 state.Value.SetHost(this);
 
             AddComponent<UpdateComponent>();
-            AddComponent<AttrComponent>();
-            AddComponent<DefaultComponent>();
-            AddComponent<JumpComponent>();
+            m_Attr = AddComponent<AttrComponent>();
+            
+            AddComponent<DefaultControllerComponent>();
+            AddComponent<JumpControllerComponent>();
             
             GameComponent.Event.Subscribe(Const.EventId.Input, OnInputMove);
             GameComponent.Event.Subscribe(Const.EventId.Input, OnInputJump);
@@ -59,7 +59,7 @@ namespace Game.Logic
             }
         }
 
-        private void SwitchState(EPlayerState toState)
+        private void SwitchState(ECharacterState toState)
         {
             if (!m_PlayerStateDic.TryGetValue(toState,out var state))
                 return;
@@ -67,16 +67,17 @@ namespace Game.Logic
                 current.OnExit(toState);
             state.OnEnter(m_CurrentState);
             m_CurrentState = toState;
+            m_Attr.SetAttr((uint)EAttrType.CharacterState, toState);
         }
 
         private void OnInputMove(object sender, GameEventArgs e)
         {
             if (e is InputEventArgs { InputType: EInputType.Move }) 
             {
-                var state = m_PlayerStateDic[EPlayerState.Default];
+                var state = m_PlayerStateDic[ECharacterState.Default];
                 if (state.CanEnterFrom(m_CurrentState)) 
                 {
-                    SwitchState(EPlayerState.Default);
+                    SwitchState(ECharacterState.Default);
                 }
             }
         }
@@ -85,10 +86,10 @@ namespace Game.Logic
         {
             if (e is InputEventArgs { InputType: EInputType.Jump }) 
             {
-                var state = m_PlayerStateDic[EPlayerState.Jump];
+                var state = m_PlayerStateDic[ECharacterState.Jump];
                 if (state.CanEnterFrom(m_CurrentState)) 
                 {
-                    SwitchState(EPlayerState.Jump);
+                    SwitchState(ECharacterState.Jump);
                 }
             }
         }

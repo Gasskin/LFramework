@@ -6,7 +6,7 @@ using Entity = Game.Module.Entity;
 namespace Game.Logic
 {
     [DrawEntityProperty]
-    public class ModelEntity: Entity
+    public class CharacterModelEntity: Entity
     {
         public GameObject Model { get; private set; }
 
@@ -24,8 +24,11 @@ namespace Game.Logic
                 GameComponent.Resource.UnloadAsset(asset);
             }
 
-            AddComponent<MoveComponent>();
+            
             AddComponent<AttrComponent>();
+
+            AddComponent<MoveComponent>();
+            AddComponent<GroundCheckComponent>();
 
             var attr = GetComponent<AttrComponent>();
             attr.AddAttrWatcher<TransformAttrWatcher>();

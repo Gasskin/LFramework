@@ -1,6 +1,6 @@
 ﻿namespace Game.GlobalDefinition
 {
-    public enum EPlayerState
+    public enum ECharacterState
     {
         None = 0,
         Default,

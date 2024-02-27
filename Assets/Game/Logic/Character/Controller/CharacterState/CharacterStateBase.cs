@@ -3,7 +3,7 @@ using Game.Module;
 
 namespace Game.Logic
 {
-    public abstract class PlayerStateBase
+    public abstract class CharacterStateBase
     {
         public Entity Host { get; private set; }
 
@@ -17,7 +17,7 @@ namespace Game.Logic
         /// </summary>
         /// <param name="fromState">来自哪个状态</param>
         /// <returns></returns>
-        public virtual bool CanEnterFrom(EPlayerState fromState)
+        public virtual bool CanEnterFrom(ECharacterState fromState)
         {
             return false;
         }
@@ -26,7 +26,7 @@ namespace Game.Logic
         /// 自动进入
         /// </summary>
         /// <returns></returns>
-        public virtual bool AutoEnter(EPlayerState currentState)
+        public virtual bool AutoEnter(ECharacterState currentState)
         {
             return false;
         }
@@ -40,19 +40,19 @@ namespace Game.Logic
             return false;
         }
 
-        public virtual void OnEnter(EPlayerState fromState)
+        public virtual void OnEnter(ECharacterState fromState)
         {
             
         }
 
-        public virtual void OnExit(EPlayerState toState)
+        public virtual void OnExit(ECharacterState toState)
         {
             
         }
         
-        public virtual EPlayerState GetAutoExitState()
+        public virtual ECharacterState GetAutoExitState()
         {
-            return EPlayerState.None;
+            return ECharacterState.None;
         }
     }
 }

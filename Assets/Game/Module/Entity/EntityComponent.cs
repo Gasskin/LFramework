@@ -1,10 +1,16 @@
+using System;
+using System.Collections.Generic;
+
 namespace Game.Module
 {
     public abstract class EntityComponent
     {
         // 持有该组件的实体
         public Entity Entity { get; set; }
-        
+
+        // 如果不为空，那么这个组件只能添加到这些Entity上
+        public virtual List<Type> EntityLimit { get; set; }
+
         // 是否释放
         public bool IsDisposed { get; set; }
         
