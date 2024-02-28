@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Game.GlobalDefinition;
 using Game.Module;
 using UnityEngine;
-using UnityGameFramework.Runtime;
 using EntityComponent = Game.Module.EntityComponent;
 
 namespace Game.Logic
@@ -24,7 +23,7 @@ namespace Game.Logic
         private AttrComponent m_ControllerAttr;
 
         private Collider[] m_GroundColliders;
-        
+
         public override void Awake()
         {
             m_ModelEntity = Entity as CharacterModelEntity;
@@ -43,13 +42,12 @@ namespace Game.Logic
             switch (state)
             {
                 case ECharacterState.Fall:
-                case ECharacterState.Jump:
                     break;
                 default:
                     return;
             }
 
-            var isOnGround = Physics.CheckBox(m_GroundCheck.center, m_GroundCheck.size, Quaternion.identity, LayerMask.GetMask("Ground"));
+            var isOnGround = Physics.CheckBox(m_GroundCheck.transform.position, m_GroundCheck.size / 2, Quaternion.identity, LayerMask.GetMask("Ground"));
             m_ModelAttr.SetAttr((uint)EModelAttr.IsOnGround, isOnGround);
         }
     }

@@ -8,12 +8,12 @@ namespace Game.Logic
         public override bool DefaultEnable => false;
         private AttrComponent m_ControllerAttr;
 
-        public void Enter(ECharacterState fromState)
+        public void Start(ECharacterState fromState)
         {
             Enable = true;
         }
 
-        public void Exit(ECharacterState toState)
+        public void Stop(ECharacterState toState)
         {
             Enable = false;
         }

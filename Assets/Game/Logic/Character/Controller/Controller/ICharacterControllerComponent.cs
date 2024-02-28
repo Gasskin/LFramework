@@ -4,7 +4,7 @@ namespace Game.Logic
 {
     public interface ICharacterControllerComponent
     {
-        public void Enter(ECharacterState fromState);
-        public void Exit(ECharacterState toState);
+        public void Start(ECharacterState fromState);
+        public void Stop(ECharacterState toState);
     }
 }

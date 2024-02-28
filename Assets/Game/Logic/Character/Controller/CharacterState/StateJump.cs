@@ -7,12 +7,12 @@ namespace Game.Logic
     {
         public override void OnEnter(ECharacterState fromState)
         {
-            Host.GetComponent<JumpControllerComponent>().Enter(fromState);
+            Host.GetComponent<JumpControllerComponent>().Start(fromState);
         }
 
         public override void OnExit(ECharacterState toState)
         {
-            Host.GetComponent<JumpControllerComponent>().Exit(toState);
+            Host.GetComponent<JumpControllerComponent>().Stop(toState);
         }
 
         public override bool CanEnterFrom(ECharacterState fromState)
@@ -28,17 +28,14 @@ namespace Game.Logic
 
         public override bool AutoExit()
         {
-            // var modelAttr = Host.Parent.GetChild<CharacterModelEntity>().GetComponent<AttrComponent>();
-            // if (modelAttr.GetAttr<bool>(EModelAttr.IsOnGround.ToUint()))
-            // {
-            //     return true;
-            // }
-            return false;
+            var controllerAttr = Host.GetComponent<AttrComponent>();
+            var verticalVelocity = controllerAttr.GetAttr<float>(EAttrType.MoveVerticalVelocity.ToUint());
+            return verticalVelocity <= 0f;
         }
 
         public override ECharacterState GetAutoExitState()
         {
-            return ECharacterState.Default;
+            return ECharacterState.Fall;
         }
     }
 }

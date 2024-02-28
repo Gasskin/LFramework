@@ -26,6 +26,7 @@ namespace Game.Logic
             
             AddComponent<DefaultControllerComponent>();
             AddComponent<JumpControllerComponent>();
+            AddComponent<FallControllerComponent>();
             
             GameComponent.Event.Subscribe(Const.EventId.Input, OnInputMove);
             GameComponent.Event.Subscribe(Const.EventId.Input, OnInputJump);

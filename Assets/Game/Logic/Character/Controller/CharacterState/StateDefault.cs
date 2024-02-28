@@ -21,12 +21,12 @@ namespace Game.Logic
 
         public override void OnEnter(ECharacterState fromState)
         {
-            Host.GetComponent<DefaultControllerComponent>().Enter(fromState);
+            Host.GetComponent<DefaultControllerComponent>().Start(fromState);
         }
 
         public override void OnExit(ECharacterState toState)
         {
-            Host.GetComponent<DefaultControllerComponent>().Exit(toState);
+            Host.GetComponent<DefaultControllerComponent>().Stop(toState);
         }
     }
 }

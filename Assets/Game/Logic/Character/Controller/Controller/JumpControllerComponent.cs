@@ -15,7 +15,7 @@ namespace Game.Logic
             m_ControllerAttr = Entity.GetComponent<AttrComponent>();
         }
 
-        public void Enter(ECharacterState fromState)
+        public void Start(ECharacterState fromState)
         {
             Enable = true;
             var moveDir = GameModule.Input.MoveDir;
@@ -31,7 +31,7 @@ namespace Game.Logic
             m_ControllerAttr.SetAttr(EAttrType.MoveDir.ToUint(), moveDir);
         }
 
-        public void Exit(ECharacterState toState)
+        public void Stop(ECharacterState toState)
         {
             Enable = false;
             m_EnterVelocity = Vector3.zero;
@@ -39,8 +39,10 @@ namespace Game.Logic
 
         public override void Update()
         {
-            var gravity = 10f;
-            m_EnterVelocity.y -= gravity * GameComponent.GameUpdater.DeltaTime;
+            var jumpG = 10f;
+            m_EnterVelocity.y -= jumpG * GameComponent.GameUpdater.DeltaTime;
+            if (m_EnterVelocity.y <= 0f)
+                m_EnterVelocity.y = 0f;
             m_ControllerAttr.SetAttr(EAttrType.MoveMode.ToUint(), EMoveMode.ParabolaMove);
             m_ControllerAttr.SetAttr(EAttrType.MoveHorizontalVelocity.ToUint(), m_EnterVelocity.x);
             m_ControllerAttr.SetAttr(EAttrType.MoveVerticalVelocity.ToUint(), m_EnterVelocity.y);
