@@ -13,7 +13,7 @@ Assets
 |    |    ├── Editor            
 |    |    └── Runtime
 |    |                
-|    └────UnityGameFrameworkEx            // UGF扩展
+|    └────UnityGameFrameworkEx          // UGF扩展
 |         ├── Editor      
 |         └── Runtime
 |
