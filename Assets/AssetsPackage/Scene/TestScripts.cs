@@ -26,10 +26,10 @@ public class TestScripts : MonoBehaviour
     private void Update()
     {
         var deltaTime = Time.deltaTime;
-        float x = Input.GetAxis("Horizontal");
-        // float y = Input.GetAxis("Vertical");
+        // float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
         // var movementInput = new Vector3(x, 0, 0);
-        var dir = (x * transform.forward).normalized;
+        var dir = (y * transform.forward).normalized;
         var velocity = moveSpeed * dir;
         
         overlapCount = capsule.TryResolveOverlap() ? 0 : capsule.CollectOverlaps(overlaps);
