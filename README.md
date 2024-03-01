@@ -13,7 +13,7 @@ Assets
 |    |    ├── Editor            
 |    |    └── Runtime
 |    |                
-|    └────UnityGameFrameworkEx            // UGF扩展
+|    └────UnityGameFrameworkEx          // UGF扩展
 |         ├── Editor      
 |         └── Runtime
 |
@@ -24,13 +24,20 @@ Assets
      └── Logic                          // 业务代码
 ```
 
-# 1.替换GameFramwork的DLL为源码
+# 替换GameFramwork的DLL为源码
+
 源码地址：https://github.com/EllanJiang/GameFramework
 
-# 2.配表工具LuBan7（next版）
+# 配表工具LuBan7（next版）
+
+Game/Module/Config
+
+配表定义在：../Assets/LuBan7
+
 LuBan修改过导表模板，导出的Tables可以异步初始化
+
 ```c#
-// 首先需要在LuBanInitProcedure中初始化
+// 首先需要初始化
 var comp = GameEntry.GetComponent<LuBanComponent>();
 await comp.InitAsync();
 // 之后就可以直接使用了
@@ -38,19 +45,43 @@ var comp = GameEntry.GetComponent<LuBanComponent>();
 comp.AllTabls.XXX
 ```
 
-# 3.异步库UniTask
-扩展了一些异步接口，比如资源加载
+# 引入异步库UniTask
+
+同时扩展了一些异步接口，比如资源加载
+
 ```c#
 var asset = await comp.LoadAssetAsync<TextAsset>("xxx");
 ```
 
-# 4.ET的协程锁机制
+# 协程锁
+
 参考ET实现了一遍，加入了GF的一些池子做缓存，使用方法和ET一致
+
 ```c#
 var comp = GameEntry.GetComponent<CoroutineLockComponent>();
 using(var coroutineLock = await comp.Wait(ECoroutineLockType.Test,1))
 ...
 ```
-# 5.业务层加入Entity-Component的EC框架
+# 配合插件Rewired实现的InputModule
+
+Game/Module/Input
+
+# 实现了一套Entity-Component的EC框架
+
 详见Game/Module/Entity
-组件式编程，AttrCompoent属性系统
+
+组件式编程
+
+同时实现了一个属性系统组件，AttrCompoent
+
+# 引入ScivoloCharacterController插件
+
+一个辅助制作PlayerController的插件
+
+配合EC框架制作角色控制器
+
+# 角色控制器
+
+Game/Logic/Character
+
+## CharacterControllerEntity
