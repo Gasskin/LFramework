@@ -9,26 +9,31 @@ namespace Game.Logic
         public override bool DefaultEnable => false;
         private Vector2 m_EnterVelocity;
         private AttrComponent m_ControllerAttr;
+        private AttrComponent m_ModelAttr;
 
         public override void Awake()
         {
-            m_ControllerAttr = Entity.GetComponent<AttrComponent>();
+            
         }
 
         public void Start(ECharacterState fromState)
         {
+            m_ControllerAttr ??= Entity.GetComponent<AttrComponent>();
+            m_ModelAttr ??= Entity.Parent.GetChild<CharacterModelEntity>().GetComponent<AttrComponent>();
+            
             Enable = true;
             var moveDir = GameModule.Input.MoveDir;
-            var velocityY = 5f;
+            var velocityY = 8f;
             var velocityX = 0f;
 
             if (moveDir > 0f)
-                velocityX = 4f;
+                velocityX = 5f;
             else if (moveDir < 0f)
-                velocityX = -4f;
+                velocityX = -5f;
             
             m_EnterVelocity = new Vector2(velocityX, velocityY);
-            m_ControllerAttr.SetAttr(EAttrType.MoveDir.ToUint(), moveDir);
+            m_ControllerAttr.SetAttr(EControllerAttr.MoveDir.ToUint(), moveDir);
+            m_ModelAttr.SetAttr(EModelAttr.IsOnGround.ToUint(), false);
         }
 
         public void Stop(ECharacterState toState)
@@ -43,9 +48,7 @@ namespace Game.Logic
             m_EnterVelocity.y -= jumpG * GameComponent.GameUpdater.DeltaTime;
             if (m_EnterVelocity.y <= 0f)
                 m_EnterVelocity.y = 0f;
-            m_ControllerAttr.SetAttr(EAttrType.MoveMode.ToUint(), EMoveMode.ParabolaMove);
-            m_ControllerAttr.SetAttr(EAttrType.MoveHorizontalVelocity.ToUint(), m_EnterVelocity.x);
-            m_ControllerAttr.SetAttr(EAttrType.MoveVerticalVelocity.ToUint(), m_EnterVelocity.y);
+            m_ControllerAttr.SetAttr(EControllerAttr.MoveMode.ToUint(), EMoveMode.ParabolaMove);
         }
     }
 }

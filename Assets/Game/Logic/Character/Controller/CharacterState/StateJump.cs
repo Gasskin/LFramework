@@ -28,9 +28,7 @@ namespace Game.Logic
 
         public override bool AutoExit()
         {
-            var controllerAttr = Host.GetComponent<AttrComponent>();
-            var verticalVelocity = controllerAttr.GetAttr<float>(EAttrType.MoveVerticalVelocity.ToUint());
-            return verticalVelocity <= 0f;
+            return false;
         }
 
         public override ECharacterState GetAutoExitState()

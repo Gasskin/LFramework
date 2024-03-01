@@ -68,7 +68,7 @@ namespace Game.Logic
                 current.OnExit(toState);
             state.OnEnter(m_CurrentState);
             m_CurrentState = toState;
-            m_Attr.SetAttr((uint)EAttrType.CharacterState, toState);
+            m_Attr.SetAttr((uint)EControllerAttr.CharacterState, toState);
         }
 
         private void OnInputMove(object sender, GameEventArgs e)

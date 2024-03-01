@@ -16,7 +16,7 @@ namespace Game.Logic
             typeof(CharacterModelEntity),
         };
 
-        private BoxCollider m_GroundCheck;
+        private Transform m_GroundCheck;
         private CharacterModelEntity m_ModelEntity;
         private CharacterControllerEntity m_ControllerEntity;
         private AttrComponent m_ModelAttr;
@@ -29,16 +29,18 @@ namespace Game.Logic
             m_ModelEntity = Entity as CharacterModelEntity;
             if (m_ModelEntity == null)
                 return;
-            m_GroundCheck = m_ModelEntity.Model.transform.Find("GroundCheck").GetComponent<BoxCollider>();
+            m_GroundCheck = m_ModelEntity.Model.transform.Find("GroundCheck");
 
-            m_ModelAttr = Entity.GetComponent<AttrComponent>();
-            m_ControllerEntity = Entity.Parent.GetChild<CharacterControllerEntity>();
-            m_ControllerAttr = m_ControllerEntity.GetComponent<AttrComponent>();
+   
         }
 
         public override void Update()
         {
-            var state = m_ControllerAttr.GetAttr<ECharacterState>((uint)EAttrType.CharacterState);
+            m_ModelAttr ??= Entity.GetComponent<AttrComponent>();
+            m_ControllerEntity ??= Entity.Parent.GetChild<CharacterControllerEntity>();
+            m_ControllerAttr ??= m_ControllerEntity.GetComponent<AttrComponent>();
+            
+            var state = m_ControllerAttr.GetAttr<ECharacterState>((uint)EControllerAttr.CharacterState);
             switch (state)
             {
                 case ECharacterState.Fall:
@@ -47,8 +49,11 @@ namespace Game.Logic
                     return;
             }
 
-            var isOnGround = Physics.CheckBox(m_GroundCheck.transform.position, m_GroundCheck.size / 2, Quaternion.identity, LayerMask.GetMask("Ground"));
-            m_ModelAttr.SetAttr((uint)EModelAttr.IsOnGround, isOnGround);
+            var ray = new Ray(m_GroundCheck.transform.position, Vector3.down);
+            if (Physics.Raycast(ray, out var hit, 1.2f, LayerMask.GetMask("Ground")))
+            {
+                m_ModelAttr.SetAttr((uint)EModelAttr.IsOnGround, true);
+            }
         }
     }
 }

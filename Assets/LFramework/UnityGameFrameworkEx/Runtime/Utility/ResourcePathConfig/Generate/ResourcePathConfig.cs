@@ -20,6 +20,7 @@ namespace UnityGameFramework.Runtime
 			public static readonly string Player = "Assets/AssetsPackage/ModelPrefabs/Player.prefab";
 			public static readonly string Rock = "Assets/AssetsPackage/ModelPrefabs/Rock.prefab";
 			public static readonly string RPG_Character = "Assets/AssetsPackage/ModelPrefabs/RPG_Character.prefab";
+			public static readonly string RPG_Player = "Assets/AssetsPackage/ModelPrefabs/RPG_Player.prefab";
 			public static readonly string Target = "Assets/AssetsPackage/ModelPrefabs/Target.prefab";
 			public static readonly string Tree_Stump = "Assets/AssetsPackage/ModelPrefabs/Tree_Stump.prefab";
 		}
@@ -30,6 +31,7 @@ namespace UnityGameFramework.Runtime
 			public static readonly string Main = "Assets/AssetsPackage/Scene/Main.unity";
 			public static readonly string Menu = "Assets/AssetsPackage/Scene/Menu.unity";
 			public static readonly string SampleScene = "Assets/AssetsPackage/Scene/SampleScene.unity";
+			public static readonly string TestScripts = "Assets/AssetsPackage/Scene/TestScripts.cs";
 		}
 
 	}

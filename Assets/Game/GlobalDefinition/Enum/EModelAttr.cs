@@ -3,9 +3,9 @@
     public enum EModelAttr
     {
         None = 0,
-        Position,
-        Rotation,
-        IsOnGround,
+        Position, // Vector3
+        Rotation, // Vector3
+        IsOnGround, // bool
     }
     
     public static class EModelAttrExtension

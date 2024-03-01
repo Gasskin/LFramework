@@ -72,6 +72,21 @@ namespace Game.Module
             watcher.OnCreate();
         }
 
+        public void RemoveAttrWatcher<T>() where T : AttrWatcher
+        {
+            var type = typeof(T);
+            if (!m_Type2AttrWatcher.TryGetValue(type,out var watcher))
+            {
+                Log.Warning($"no attr watcher: {type}");
+                return;
+            }
+            for (int i = 0; i < watcher.WatchAttrIndex.Length; i++)
+            {
+                var index = watcher.WatchAttrIndex[i];
+                m_AttrWatcherDic.Remove(index, out _);
+            }
+        }
+
         public override void LateUpdate()
         {
             foreach (var watchers in m_AttrWatcherDic)

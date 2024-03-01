@@ -28,12 +28,12 @@ namespace Game.Logic
             var moveDir = GameModule.Input.MoveDir;
             if (moveDir == 0f)
             {
-                m_ControllerAttr.SetAttr(EAttrType.MoveMode.ToUint(), EMoveMode.None);
+                m_ControllerAttr.SetAttr(EControllerAttr.MoveMode.ToUint(), EMoveMode.None);
                 return;
             }
-            m_ControllerAttr.SetAttr(EAttrType.MoveMode.ToUint(), EMoveMode.SpeedMove);
-            m_ControllerAttr.SetAttr(EAttrType.MoveDir.ToUint(), moveDir);
-            m_ControllerAttr.SetAttr(EAttrType.MoveHorizontalVelocity.ToUint(), 4f);
+            m_ControllerAttr.SetAttr(EControllerAttr.MoveMode.ToUint(), EMoveMode.SpeedMove);
+            m_ControllerAttr.SetAttr(EControllerAttr.MoveDir.ToUint(), moveDir);
+            m_ControllerAttr.SetAttr(EControllerAttr.MoveSpeed.ToUint(), 8f);
         }
     }
 }

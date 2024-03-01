@@ -23,15 +23,11 @@ namespace Game.Logic
                 Model = Object.Instantiate(asset);
                 GameComponent.Resource.UnloadAsset(asset);
             }
-
             
             AddComponent<AttrComponent>();
 
             AddComponent<MoveComponent>();
             AddComponent<GroundCheckComponent>();
-
-            var attr = GetComponent<AttrComponent>();
-            attr.AddAttrWatcher<TransformAttrWatcher>();
         }
 
         public override void OnDestroy()

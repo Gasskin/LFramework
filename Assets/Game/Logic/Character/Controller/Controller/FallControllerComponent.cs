@@ -16,8 +16,6 @@ namespace Game.Logic
         public void Stop(ECharacterState toState)
         {
             Enable = false;
-            m_ControllerAttr.SetAttr(EAttrType.MoveHorizontalVelocity.ToUint(), 0f);
-            m_ControllerAttr.SetAttr(EAttrType.MoveVerticalVelocity.ToUint(), 0f);
         }
 
         public override void Awake()
@@ -27,12 +25,6 @@ namespace Game.Logic
 
         public override void Update()
         {
-            var fallGravity = 10f;
-            var vertical = m_ControllerAttr.GetAttr(EAttrType.MoveVerticalVelocity.ToUint(), 0f);
-            vertical -= fallGravity * GameComponent.GameUpdater.DeltaTime;
-            
-            m_ControllerAttr.SetAttr(EAttrType.MoveMode.ToUint(), EMoveMode.ParabolaMove);
-            m_ControllerAttr.SetAttr(EAttrType.MoveVerticalVelocity.ToUint(), vertical);
         }
     }
 }

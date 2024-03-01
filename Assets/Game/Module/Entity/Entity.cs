@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityGameFramework.Runtime;
 
 namespace Game.Module
@@ -63,7 +64,7 @@ namespace Game.Module
         public virtual void Update()
         {
         }
-        
+
         public virtual void LateUpdate()
         {
         }
@@ -99,7 +100,7 @@ namespace Game.Module
                 Master.Entities[GetType()].Remove(this);
             }
         }
-        
+
         public T AddComponent<T>() where T : EntityComponent
         {
             var component = Activator.CreateInstance<T>();
@@ -147,7 +148,7 @@ namespace Game.Module
             if (component.Enable) component.Enable = false;
             EntityComponent.Destroy(component);
             Components.Remove(typeof(T));
-            
+
 #if UNITY_EDITOR
             GetComponent<GameObjectComponent>()?.OnRemoveComponent(component);
 #endif
@@ -183,10 +184,10 @@ namespace Game.Module
         {
             Children.Remove(child);
             Id2Children.Remove(child.Id);
-            if (Type2Children.ContainsKey(child.GetType())) 
+            if (Type2Children.ContainsKey(child.GetType()))
                 Type2Children[child.GetType()].Remove(child);
         }
-        
+
 
         public T AddChild<T>() where T : Entity
         {
@@ -194,14 +195,13 @@ namespace Game.Module
             SetupEntity(entity, this);
             return entity as T;
         }
-        
+
         public T AddChild<T>(object initData) where T : Entity
         {
             var entity = NewEntity(typeof(T));
             SetupEntity(entity, this, initData);
             return entity as T;
         }
-
 
         public T GetChild<T>(int index = 0) where T : Entity
         {

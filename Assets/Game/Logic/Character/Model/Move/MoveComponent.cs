@@ -17,17 +17,22 @@ namespace Game.Logic
             m_MoveModuleDic.Add(EMoveMode.ParabolaMove, new ParabolaMove());
             foreach (var module in m_MoveModuleDic)
                 module.Value.SetHost(Entity);
-            
-            m_ModelAttr = Entity.GetComponent<AttrComponent>();
-            m_ControllerAttr = Entity.Parent.GetChild<CharacterControllerEntity>().GetComponent<AttrComponent>();
         }
 
         public override void Update()
         {
-            var moveMode = m_ControllerAttr.GetAttr<EMoveMode>(EAttrType.MoveMode.ToUint());
+            PrepareComponent();
+            
+            var moveMode = m_ControllerAttr.GetAttr<EMoveMode>(EControllerAttr.MoveMode.ToUint());
             if (!m_MoveModuleDic.TryGetValue(moveMode, out var mode))
                 return;
             mode.Move();
+        }
+
+        private void PrepareComponent()
+        {
+            m_ModelAttr ??= Entity.GetComponent<AttrComponent>();
+            m_ControllerAttr ??= Entity.Parent.GetChild<CharacterControllerEntity>().GetComponent<AttrComponent>();
         }
     }
 }
