@@ -3,68 +3,68 @@ using System.Collections.Generic;
 
 namespace Game.Module
 {
-    public abstract partial class Entity
+    public abstract partial class NodeEntity
     {
-        private static MasterEntity Master => MasterEntity.Instance;
+        private static MasterNodeEntity MasterNode => MasterNodeEntity.Instance;
 
-        private static Entity NewEntity(Type entityType, long id = 0)
+        private static NodeEntity NewEntity(Type entityType, long id = 0)
         {
-            var entity = Activator.CreateInstance(entityType) as Entity;
+            var entity = Activator.CreateInstance(entityType) as NodeEntity;
             if (entity == null)
                 return null;
             entity.InstanceId = IdFactory.NewInstanceId();
             entity.Id = id == 0 ? entity.InstanceId : id;
-            if (!Master.Entities.ContainsKey(entityType))
+            if (!MasterNode.Entities.ContainsKey(entityType))
             {
-                Master.Entities.Add(entityType, new List<Entity>());
+                MasterNode.Entities.Add(entityType, new List<NodeEntity>());
             }
-            Master.Entities[entityType].Add(entity);
+            MasterNode.Entities[entityType].Add(entity);
             return entity;
         }
 
-        public static T Create<T>() where T : Entity
+        public static T Create<T>() where T : NodeEntity
         {
             var entity = NewEntity(typeof(T));
-            SetupEntity(entity, Master);
+            SetupEntity(entity, MasterNode);
             return entity as T;
         }
 
-        public static T Create<T>(object initData) where T : Entity
+        public static T Create<T>(object initData) where T : NodeEntity
         {
             var entity = NewEntity(typeof(T));
-            SetupEntity(entity, Master, initData);
+            SetupEntity(entity, MasterNode, initData);
             return entity as T;
         }
         
-        public static void Destroy(Entity entity)
+        public static void Destroy(NodeEntity nodeEntity)
         {
-            entity.OnDestroy();
-            entity.Dispose();
+            nodeEntity.OnDestroy();
+            nodeEntity.Dispose();
         }
 
-        private static void SetupEntity(Entity entity, Entity parent)
+        private static void SetupEntity(NodeEntity nodeEntity, NodeEntity parent)
         {
-            parent.SetChild(entity);
-            entity.Awake();
+            parent.SetChild(nodeEntity);
+            nodeEntity.Awake();
         }
 
-        private static void SetupEntity(Entity entity, Entity parent, object initData)
+        private static void SetupEntity(NodeEntity nodeEntity, NodeEntity parent, object initData)
         {
-            parent.SetChild(entity);
-            entity.Awake(initData);
+            parent.SetChild(nodeEntity);
+            nodeEntity.Awake(initData);
         }
         
-        private void SetChild(Entity child)
+        private void SetChild(NodeEntity child)
         {
             Children.Add(child);
             Id2Children.Add(child.Id, child);
             if (!Type2Children.ContainsKey(child.GetType())) 
-                Type2Children.Add(child.GetType(), new List<Entity>());
+                Type2Children.Add(child.GetType(), new List<NodeEntity>());
             Type2Children[child.GetType()].Add(child);
             child.SetParent(this);
         }
         
-        private void SetParent(Entity parent)
+        private void SetParent(NodeEntity parent)
         {
             var preParent = Parent;
             preParent?.RemoveChild(this);

@@ -4,22 +4,22 @@ using Object = UnityEngine.Object;
 
 namespace Game.Module
 {
-    public class MasterEntity : Entity
+    public class MasterNodeEntity : NodeEntity
     {
         // 记录所有的实体，和所有的组件
-        public Dictionary<Type, List<Entity>> Entities { get; private set; } = new();
+        public Dictionary<Type, List<NodeEntity>> Entities { get; private set; } = new();
         public List<EntityComponent> AllComponents { get; private set; } = new();
 
         // 单例
-        private static MasterEntity s_Instance;
+        private static MasterNodeEntity s_Instance;
 
-        public static MasterEntity Instance
+        public static MasterNodeEntity Instance
         {
             get
             {
                 if (s_Instance==null)
                 {
-                    s_Instance = new MasterEntity();
+                    s_Instance = new MasterNodeEntity();
                     var go = s_Instance.AddComponent<GameObjectComponent>().GameObject;
                     Object.DontDestroyOnLoad(go);
                 }
@@ -30,7 +30,7 @@ namespace Game.Module
         }
 
         // 禁止实例化
-        private MasterEntity()
+        private MasterNodeEntity()
         {
             
         }

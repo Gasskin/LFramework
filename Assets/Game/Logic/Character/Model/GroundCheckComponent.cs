@@ -13,12 +13,12 @@ namespace Game.Logic
 
         private readonly List<Type> m_EntityLimit = new()
         {
-            typeof(CharacterModelEntity),
+            typeof(CharacterModelNodeEntity),
         };
 
         private Transform m_GroundCheck;
-        private CharacterModelEntity m_ModelEntity;
-        private CharacterControllerEntity m_ControllerEntity;
+        private CharacterModelNodeEntity m_ModelNodeEntity;
+        private CharacterControllerNodeEntity m_ControllerNodeEntity;
         private AttrComponent m_ModelAttr;
         private AttrComponent m_ControllerAttr;
 
@@ -26,19 +26,19 @@ namespace Game.Logic
 
         public override void Awake()
         {
-            m_ModelEntity = Entity as CharacterModelEntity;
-            if (m_ModelEntity == null)
+            m_ModelNodeEntity = NodeEntity as CharacterModelNodeEntity;
+            if (m_ModelNodeEntity == null)
                 return;
-            m_GroundCheck = m_ModelEntity.Model.transform.Find("GroundCheck");
+            m_GroundCheck = m_ModelNodeEntity.Model.transform.Find("GroundCheck");
 
    
         }
 
         public override void Update()
         {
-            m_ModelAttr ??= Entity.GetComponent<AttrComponent>();
-            m_ControllerEntity ??= Entity.Parent.GetChild<CharacterControllerEntity>();
-            m_ControllerAttr ??= m_ControllerEntity.GetComponent<AttrComponent>();
+            m_ModelAttr ??= NodeEntity.GetComponent<AttrComponent>();
+            m_ControllerNodeEntity ??= NodeEntity.Parent.GetChild<CharacterControllerNodeEntity>();
+            m_ControllerAttr ??= m_ControllerNodeEntity.GetComponent<AttrComponent>();
             
             var state = m_ControllerAttr.GetAttr<ECharacterState>((uint)EControllerAttr.CharacterState);
             switch (state)

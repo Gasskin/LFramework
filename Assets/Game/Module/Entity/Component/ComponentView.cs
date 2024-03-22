@@ -90,10 +90,10 @@ namespace Game.Module
             // Go组件展示其Entity的属性，其他组件展示自身的属性
             if (type == typeof(GameObjectComponent))
             {
-                var entityType = component.Entity.GetType();
+                var entityType = component.NodeEntity.GetType();
                 if (entityType.GetCustomAttribute<DrawEntityPropertyAttribute>() != null)
                 {
-                    EditorGUILayout.TextArea(component.Entity.ToString());
+                    EditorGUILayout.TextArea(component.NodeEntity.ToString());
                 }
             }
             else

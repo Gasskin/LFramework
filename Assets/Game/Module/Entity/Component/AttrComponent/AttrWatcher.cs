@@ -4,7 +4,7 @@
     {
         public bool Changed { get; private set; }
         public abstract uint[] WatchAttrIndex { get; }
-        public Entity Host { get; private set; }
+        public NodeEntity Host { get; private set; }
 
         public abstract void OnCreate();
         public abstract void OnAttrChanged();
@@ -14,7 +14,7 @@
             Changed = change;
         }
         
-        public void SetHost(Entity host)
+        public void SetHost(NodeEntity host)
         {
             Host = host;
         }

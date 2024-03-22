@@ -2,13 +2,12 @@
 using MenteBacata.ScivoloCharacterController;
 using UnityEngine;
 using UnityGameFramework.Runtime;
-using Entity = Game.Module.Entity;
 
 namespace Game.Logic
 {
     public abstract class MoveModuleBase
     {
-        protected Entity Host { get; private set; }
+        protected NodeEntity Host { get; private set; }
         protected AttrComponent ModelAttr { get; private set; }
         protected AttrComponent ControllerAttr { get; private set; }
 
@@ -26,11 +25,11 @@ namespace Game.Logic
 
         public abstract void Move();
 
-        public void SetHost(Entity host)
+        public void SetHost(NodeEntity host)
         {
             Host = host;
 
-            if (Host is CharacterModelEntity modelEntity)
+            if (Host is CharacterModelNodeEntity modelEntity)
             {
                 m_CharacterCapsule = modelEntity.Model.GetComponent<CharacterCapsule>();
                 m_CharacterMover = modelEntity.Model.GetComponent<CharacterMover>();
@@ -40,7 +39,7 @@ namespace Game.Logic
                     Log.Error("character prepare failed!");
 
                 ModelAttr = modelEntity.GetComponent<AttrComponent>();
-                ControllerAttr = modelEntity.Parent.GetChild<CharacterControllerEntity>().GetComponent<AttrComponent>();
+                ControllerAttr = modelEntity.Parent.GetChild<CharacterControllerNodeEntity>().GetComponent<AttrComponent>();
             }
             else
             {

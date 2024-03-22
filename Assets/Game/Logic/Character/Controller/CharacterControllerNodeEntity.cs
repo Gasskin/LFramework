@@ -2,11 +2,10 @@
 using Game.GlobalDefinition;
 using Game.Module;
 using GameFramework.Event;
-using Entity = Game.Module.Entity;
 
 namespace Game.Logic
 {
-    public class CharacterControllerEntity : Entity
+    public class CharacterControllerNodeEntity : NodeEntity
     {
         private Dictionary<ECharacterState, CharacterStateBase> m_PlayerStateDic = new();
         private ECharacterState m_CurrentState = ECharacterState.None;

@@ -5,7 +5,7 @@ using UnityGameFramework.Runtime;
 
 namespace Game.Module
 {
-    public abstract partial class Entity
+    public abstract partial class NodeEntity
     {
         // ID
         public long Id { get; set; }
@@ -32,22 +32,22 @@ namespace Game.Module
         public bool IsDispose => InstanceId == 0;
 
         // 父实体
-        public Entity Parent { get; private set; }
+        public NodeEntity Parent { get; private set; }
 
         // 孩子实体
-        public List<Entity> Children { get; private set; } = new List<Entity>();
-        public Dictionary<long, Entity> Id2Children { get; private set; } = new Dictionary<long, Entity>();
+        public List<NodeEntity> Children { get; private set; } = new List<NodeEntity>();
+        public Dictionary<long, NodeEntity> Id2Children { get; private set; } = new Dictionary<long, NodeEntity>();
 
-        public Dictionary<Type, List<Entity>> Type2Children { get; private set; } = new();
+        public Dictionary<Type, List<NodeEntity>> Type2Children { get; private set; } = new();
 
         // 持有的组件
         public Dictionary<Type, EntityComponent> Components { get; private set; } = new Dictionary<Type, EntityComponent>();
 
 
-        public Entity()
+        public NodeEntity()
         {
 #if UNITY_EDITOR
-            if (this is MasterEntity)
+            if (this is MasterNodeEntity)
                 return;
             AddComponent<GameObjectComponent>();
 #endif
@@ -95,9 +95,9 @@ namespace Game.Module
 
             Components.Clear();
             InstanceId = 0;
-            if (Master.Entities.ContainsKey(GetType()))
+            if (MasterNode.Entities.ContainsKey(GetType()))
             {
-                Master.Entities[GetType()].Remove(this);
+                MasterNode.Entities[GetType()].Remove(this);
             }
         }
 
@@ -109,10 +109,10 @@ namespace Game.Module
                 Log.Error($"can not add {typeof(T)} to {GetType()}");
                 return null;
             }
-            component.Entity = this;
+            component.NodeEntity = this;
             component.IsDisposed = false;
             Components.Add(typeof(T), component);
-            Master.AllComponents.Add(component);
+            MasterNode.AllComponents.Add(component);
             component.Awake();
             component.Enable = component.DefaultEnable;
 
@@ -130,10 +130,10 @@ namespace Game.Module
                 Log.Error($"can not add {typeof(T)} to {GetType()}");
                 return null;
             }
-            component.Entity = this;
+            component.NodeEntity = this;
             component.IsDisposed = false;
             Components.Add(typeof(T), component);
-            Master.AllComponents.Add(component);
+            MasterNode.AllComponents.Add(component);
             component.Awake(initData);
             component.Enable = component.DefaultEnable;
 #if UNITY_EDITOR
@@ -169,7 +169,7 @@ namespace Game.Module
             return Components.TryGetValue(typeof(T), out var component);
         }
 
-        public T GetParent<T>() where T : Entity
+        public T GetParent<T>() where T : NodeEntity
         {
             return Parent as T;
         }
@@ -180,7 +180,7 @@ namespace Game.Module
         }
 
 
-        public void RemoveChild(Entity child)
+        public void RemoveChild(NodeEntity child)
         {
             Children.Remove(child);
             Id2Children.Remove(child.Id);
@@ -189,21 +189,21 @@ namespace Game.Module
         }
 
 
-        public T AddChild<T>() where T : Entity
+        public T AddChild<T>() where T : NodeEntity
         {
             var entity = NewEntity(typeof(T));
             SetupEntity(entity, this);
             return entity as T;
         }
 
-        public T AddChild<T>(object initData) where T : Entity
+        public T AddChild<T>(object initData) where T : NodeEntity
         {
             var entity = NewEntity(typeof(T));
             SetupEntity(entity, this, initData);
             return entity as T;
         }
 
-        public T GetChild<T>(int index = 0) where T : Entity
+        public T GetChild<T>(int index = 0) where T : NodeEntity
         {
             if (Type2Children.ContainsKey(typeof(T)) == false)
             {
@@ -218,17 +218,17 @@ namespace Game.Module
             return Type2Children[typeof(T)][index] as T;
         }
 
-        public Entity[] GetChildren()
+        public NodeEntity[] GetChildren()
         {
             return Children.ToArray();
         }
 
-        public T[] GetTypeChildren<T>() where T : Entity
+        public T[] GetTypeChildren<T>() where T : NodeEntity
         {
             return Type2Children[typeof(T)].ConvertAll(x => x.As<T>()).ToArray();
         }
 
-        public Entity Find(string name)
+        public NodeEntity Find(string name)
         {
             foreach (var item in Children)
             {
@@ -238,7 +238,7 @@ namespace Game.Module
             return null;
         }
 
-        public T Find<T>(string name) where T : Entity
+        public T Find<T>(string name) where T : NodeEntity
         {
             if (Type2Children.TryGetValue(typeof(T), out var chidren))
             {

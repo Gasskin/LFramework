@@ -4,7 +4,6 @@ using Game.Module;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
 using UnityGameFramework.Runtime;
-using Entity = Game.Module.Entity;
 
 namespace Game.Logic
 {
@@ -35,7 +34,7 @@ namespace Game.Logic
             {
                 return;
             }
-            Entity.Create<PlayerEntity>();
+            NodeEntity.Create<PlayerNodeEntity>();
             // await UniTask.Yield();
             //
             // if (scene == ResourcesPathConfig.Scene.Main)

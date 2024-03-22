@@ -9,7 +9,7 @@ namespace Game.Module
 
         public override void Awake()
         {
-            GameObject = new GameObject(Entity.GetType().Name);
+            GameObject = new GameObject(NodeEntity.GetType().Name);
             GameObject.AddComponent<ComponentView>();
         }
 
@@ -21,7 +21,7 @@ namespace Game.Module
         
         public void OnNameChanged(string name)
         {
-            GameObject.name = $"{Entity.GetType().Name}: {name}";
+            GameObject.name = $"{NodeEntity.GetType().Name}: {name}";
         }
 
         public void OnAddComponent(EntityComponent entityComponent)
@@ -36,7 +36,7 @@ namespace Game.Module
             view.m_Components.Remove(entityComponent);
         }
 
-        public void OnAddChild(Entity child)
+        public void OnAddChild(NodeEntity child)
         {
             if (child.GetComponent<GameObjectComponent>() != null)
             {

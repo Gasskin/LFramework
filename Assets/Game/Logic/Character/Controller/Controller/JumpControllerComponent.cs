@@ -18,8 +18,8 @@ namespace Game.Logic
 
         public void Start(ECharacterState fromState)
         {
-            m_ControllerAttr ??= Entity.GetComponent<AttrComponent>();
-            m_ModelAttr ??= Entity.Parent.GetChild<CharacterModelEntity>().GetComponent<AttrComponent>();
+            m_ControllerAttr ??= NodeEntity.GetComponent<AttrComponent>();
+            m_ModelAttr ??= NodeEntity.Parent.GetChild<CharacterModelNodeEntity>().GetComponent<AttrComponent>();
             
             Enable = true;
             var moveDir = GameModule.Input.MoveDir;

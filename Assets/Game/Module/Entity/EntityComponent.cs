@@ -6,7 +6,7 @@ namespace Game.Module
     public abstract class EntityComponent
     {
         // 持有该组件的实体
-        public Entity Entity { get; set; }
+        public NodeEntity NodeEntity { get; set; }
 
         // 如果不为空，那么这个组件只能添加到这些Entity上
         public virtual List<Type> EntityLimit { get; set; }
@@ -31,9 +31,9 @@ namespace Game.Module
             }
         }
         
-        public T GetEntity<T>() where T : Entity
+        public T GetEntity<T>() where T : NodeEntity
         {
-            return Entity as T;
+            return NodeEntity as T;
         }
 
         public virtual void Awake()

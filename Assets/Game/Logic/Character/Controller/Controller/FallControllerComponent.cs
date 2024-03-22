@@ -20,7 +20,7 @@ namespace Game.Logic
 
         public override void Awake()
         {
-            m_ControllerAttr = Entity.GetComponent<AttrComponent>();
+            m_ControllerAttr = NodeEntity.GetComponent<AttrComponent>();
         }
 
         public override void Update()

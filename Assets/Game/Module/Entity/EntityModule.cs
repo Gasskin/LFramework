@@ -9,18 +9,18 @@ namespace Game.Module
         public override int Priority => (int)EModulePriority.None;
         public override async UniTask InitAsync()
         {
-            MasterEntity.Instance.Create();
+            MasterNodeEntity.Instance.Create();
             await UniTask.CompletedTask;
         }
 
         public override void Update(float delta)
         {
-            MasterEntity.Instance.Update();
+            MasterNodeEntity.Instance.Update();
         }
 
         public override void LateUpdate()
         {
-            MasterEntity.Instance.LateUpdate();
+            MasterNodeEntity.Instance.LateUpdate();
         }
 
         public override void FixedUpdate()
@@ -29,7 +29,7 @@ namespace Game.Module
 
         public override void ShutDown()
         {
-            MasterEntity.Instance.Destroy();
+            MasterNodeEntity.Instance.Destroy();
         }
 #endregion
     }

@@ -1,12 +1,11 @@
 ﻿using Game.Module;
 using UnityEngine;
 using UnityGameFramework.Runtime;
-using Entity = Game.Module.Entity;
 
 namespace Game.Logic
 {
     [DrawEntityProperty]
-    public class CharacterModelEntity: Entity
+    public class CharacterModelNodeEntity: NodeEntity
     {
         public GameObject Model { get; private set; }
 

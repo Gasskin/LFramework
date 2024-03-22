@@ -6,12 +6,12 @@
         
         public override void Update()
         {
-            Entity.Update();
+            NodeEntity.Update();
         }
 
         public override void LateUpdate()
         {
-            Entity.LateUpdate();
+            NodeEntity.LateUpdate();
         }
     }
 }

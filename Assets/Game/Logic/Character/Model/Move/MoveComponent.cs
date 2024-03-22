@@ -16,7 +16,7 @@ namespace Game.Logic
             m_MoveModuleDic.Add(EMoveMode.SpeedMove, new SpeedMove());
             m_MoveModuleDic.Add(EMoveMode.ParabolaMove, new ParabolaMove());
             foreach (var module in m_MoveModuleDic)
-                module.Value.SetHost(Entity);
+                module.Value.SetHost(NodeEntity);
         }
 
         public override void Update()
@@ -31,8 +31,8 @@ namespace Game.Logic
 
         private void PrepareComponent()
         {
-            m_ModelAttr ??= Entity.GetComponent<AttrComponent>();
-            m_ControllerAttr ??= Entity.Parent.GetChild<CharacterControllerEntity>().GetComponent<AttrComponent>();
+            m_ModelAttr ??= NodeEntity.GetComponent<AttrComponent>();
+            m_ControllerAttr ??= NodeEntity.Parent.GetChild<CharacterControllerNodeEntity>().GetComponent<AttrComponent>();
         }
     }
 }

@@ -56,7 +56,7 @@ namespace Game.Module
                 return;
             }
             var watcher = Activator.CreateInstance<T>();
-            watcher.SetHost(Entity);
+            watcher.SetHost(NodeEntity);
             for (int i = 0; i < watcher.WatchAttrIndex.Length; i++)
             {
                 var index = watcher.WatchAttrIndex[i];
