@@ -71,6 +71,8 @@ namespace Game.Logic
 
         public void DoMove(Vector3 movement)
         {
+            TryResolveOverlap();
+            DetectGround();
             m_CharacterMover.Move(movement, HasGround, GroundInfo, OverlapCount, Overlaps, MoveContacts, out var count);
             ContactCount = count;
         }

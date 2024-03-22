@@ -25,7 +25,6 @@ namespace Game.Logic
             }
             
             AddComponent<AttrComponent>();
-
             AddComponent<MoveComponent>();
             AddComponent<GroundCheckComponent>();
         }

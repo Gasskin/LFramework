@@ -14,9 +14,6 @@ namespace Game.Logic
             PrepareAttr();
             var dir = (Forward * m_MoveDir).normalized;
             var velocity = dir * m_MoveSpeed;
-            // velocity.y = 0;
-            // velocity.z = 0;
-            TryResolveOverlap();
             SetMoverMode(CharacterMover.Mode.Walk);
             DoMove(velocity * m_DeltaTime);
         }
