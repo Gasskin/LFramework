@@ -41,7 +41,7 @@ namespace Game.Module
 
                     async Task<ByteBuf> ByteLoader(string s)
                     {
-                        TextAsset textAsset = await GameComponent.Resource.LoadAssetAsync<TextAsset>($"Assets/AssetsPackage/LuBan/{s}.bytes");
+                        TextAsset textAsset = await GameComponent.Resource.LoadAssetAsync<TextAsset>($"Assets/Bundles/LuBan/{s}.bytes");
                         return new ByteBuf(textAsset.bytes);
                     }
 
@@ -52,7 +52,7 @@ namespace Game.Module
 
                     async Task<JSONNode> JsonLoader(string s)
                     {
-                        TextAsset textAsset = await GameComponent.Resource.LoadAssetAsync<TextAsset>($"Assets/AssetsPackage/LuBan/{s}.json");
+                        TextAsset textAsset = await GameComponent.Resource.LoadAssetAsync<TextAsset>($"Assets/Bundles/LuBan/{s}.json");
                         return JSON.Parse(textAsset.text);
                     }
 

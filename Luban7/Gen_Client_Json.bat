@@ -6,7 +6,7 @@ dotnet %LUBAN_DLL% ^
     -c cs-simple-json ^
     -d json ^
     --conf %CONF_ROOT%\luban.conf ^
-    -x outputCodeDir=..\Assets\Game\Module\Config\Generate ^
-    -x outputDataDir=..\Assets\AssetsPackage\LuBan ^
+    -x outputCodeDir=..\Assets\Game\GameDrivers\Config\Generate ^
+    -x outputDataDir=..\Assets\Bundles\LuBan ^
     -x l10n.textProviderFile=.\Datas\Client\L_Localization.xlsx
 pause

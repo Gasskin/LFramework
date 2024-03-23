@@ -6,7 +6,7 @@ dotnet %LUBAN_DLL% ^
     -c cs-bin ^
     -d bin  ^
     --conf %CONF_ROOT%\luban.conf ^
-    -x outputCodeDir=..\Assets\Game\Module\Config\Generate ^
-    -x outputDataDir=..\Assets\AssetsPackage\LuBan
+    -x outputCodeDir=..\Assets\Game\GameDriversGameDrivers\Config\Generate ^
+    -x outputDataDir=..\Assets\Bundles\LuBan
 
 pause
