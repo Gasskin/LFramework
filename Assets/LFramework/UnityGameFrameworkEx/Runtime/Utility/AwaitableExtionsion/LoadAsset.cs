@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using GameFramework;
 using GameFramework.Resource;
+using UnityGameFramework.CoroutineLock;
 
 namespace UnityGameFramework.Runtime
 {

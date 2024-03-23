@@ -1,10 +1,10 @@
 ﻿using Cysharp.Threading.Tasks;
 using GameFramework;
 using GameFramework.CoroutineLock;
+using UnityGameFramework.CoroutineLock;
 
 namespace UnityGameFramework.Runtime
 {
-    
     public class CoroutineLockComponent : GameFrameworkComponent
     {
         private ICoroutineLockManager m_Manager;

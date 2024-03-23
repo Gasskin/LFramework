@@ -1,38 +1,17 @@
 ﻿using GameFramework;
+using YooAsset;
 
-namespace UnityGameFramework.Runtime
+namespace UnityGameFramework.Asset
 {
-    public class AssetManager: GameFrameworkModule,IAssetManager
+    public class AssetManager : GameFrameworkModule, IAssetManager
     {
-        private string m_ReadOnlyPath;
-        public string ReadOnlyPath
-        {
-            get => m_ReadOnlyPath;
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    GameFrameworkLog.Error("AssetManager非法的只读路径");
-                    return;
-                }
-                m_ReadOnlyPath = value;
-            }
-        }
+        public string PackageName { get; set; } = "DefaultPackage";
 
-        private string m_ReadWritePath;
-        public string ReadWritePath
-        {
-            get => m_ReadWritePath;
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    GameFrameworkLog.Error("AssetManager非法的读写路径");
-                    return;
-                }
-                m_ReadWritePath = value;
-            }
-        }
+        public string ReadOnlyPath { get; set; }
+
+        public string ReadWritePath { get; set; }
+        public EPlayMode PlayMode { get; set; }
+        public string HostServerURL { get; set; }
 
         internal override void Update(float elapseSeconds, float realElapseSeconds)
         {
@@ -42,5 +21,24 @@ namespace UnityGameFramework.Runtime
         {
         }
 
+        public void Initialize()
+        {
+            // 初始化资源系统
+            YooAssets.Initialize(new YooAssetsLogger());
+
+            // 创建默认的资源包
+            string packageName = PackageName;
+            var defaultPackage = YooAssets.TryGetPackage(packageName);
+            if (defaultPackage == null)
+            {
+                defaultPackage = YooAssets.CreatePackage(packageName);
+                YooAssets.SetDefaultPackage(defaultPackage);
+            }
+        }
+
+        public InitializationOperation InitPackage()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -2,6 +2,7 @@
 using Cysharp.Threading.Tasks;
 using GameFramework;
 using GameFramework.Event;
+using UnityGameFramework.CoroutineLock;
 
 namespace UnityGameFramework.Runtime
 {
