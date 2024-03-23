@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 1669581393
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: package1_assets_bundles_luban.bundle
+      Dependencies: {}
+    Info_1:
+      Name: package1_assets_bundles_ui.bundle
+      Dependencies: {}

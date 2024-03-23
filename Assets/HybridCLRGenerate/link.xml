@@ -36,8 +36,6 @@
   <assembly fullname="UniTask">
     <type fullname="Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder" preserve="all" />
     <type fullname="Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskVoidMethodBuilder" preserve="all" />
-    <type fullname="Cysharp.Threading.Tasks.EnumeratorAsyncExtensions" preserve="all" />
-    <type fullname="Cysharp.Threading.Tasks.PlayerLoopTiming" preserve="all" />
     <type fullname="Cysharp.Threading.Tasks.UniTask" preserve="all" />
     <type fullname="Cysharp.Threading.Tasks.UniTask/Awaiter" preserve="all" />
     <type fullname="Cysharp.Threading.Tasks.UniTaskVoid" preserve="all" />
@@ -70,14 +68,9 @@
   </assembly>
   <assembly fullname="UnityGameFramework.Runtime">
     <type fullname="GameFramework.Event.GameEventArgs" preserve="all" />
-    <type fullname="GameFramework.Fsm.FsmState`1" preserve="all" />
-    <type fullname="GameFramework.Fsm.IFsm`1" preserve="all" />
     <type fullname="GameFramework.GameDriver.GameDriverBase" preserve="all" />
     <type fullname="GameFramework.Localization.Language" preserve="all" />
-    <type fullname="GameFramework.Procedure.IProcedureManager" preserve="all" />
-    <type fullname="GameFramework.Procedure.ProcedureBase" preserve="all" />
     <type fullname="GameFramework.ReferencePool" preserve="all" />
-    <type fullname="GameFramework.Resource.ResourceMode" preserve="all" />
     <type fullname="GameFramework.Variable" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.AssetComponent" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.AwaitableExtension" preserve="all" />
@@ -93,28 +86,18 @@
     <type fullname="UnityGameFramework.Runtime.ResourcesPathConfig" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.ResourcesPathConfig/Core" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.ResourcesPathConfig/ModelPrefabs" preserve="all" />
-    <type fullname="UnityGameFramework.Runtime.ResourcesPathConfig/Scene" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.SceneComponent" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.SettingComponent" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.SoundComponent" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.UIComponent" preserve="all" />
-    <type fullname="UnityGameFramework.Runtime.UIForm" preserve="all" />
-    <type fullname="UnityGameFramework.Runtime.UIFormLogic" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.VarBoolean" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.VarDouble" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.VarInt16" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.VarInt32" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.VarInt64" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.VarSingle" preserve="all" />
-    <type fullname="UnityGameFramework.Runtime.VarString" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.VarVector2" preserve="all" />
     <type fullname="UnityGameFramework.Runtime.VarVector3" preserve="all" />
-  </assembly>
-  <assembly fullname="YooAsset">
-    <type fullname="YooAsset.AsyncOperationBase" preserve="all" />
-    <type fullname="YooAsset.EOperationStatus" preserve="all" />
-    <type fullname="YooAsset.EPlayMode" preserve="all" />
-    <type fullname="YooAsset.InitializationOperation" preserve="all" />
   </assembly>
   <assembly fullname="netstandard">
     <type fullname="System.Action" preserve="all" />
@@ -146,14 +129,11 @@
     <type fullname="System.Exception" preserve="all" />
     <type fullname="System.Func`2" preserve="all" />
     <type fullname="System.IDisposable" preserve="all" />
-    <type fullname="System.IO.File" preserve="all" />
     <type fullname="System.Int32" preserve="all" />
     <type fullname="System.Int64" preserve="all" />
     <type fullname="System.Linq.Enumerable" preserve="all" />
     <type fullname="System.Math" preserve="all" />
     <type fullname="System.Object" preserve="all" />
-    <type fullname="System.Reflection.Assembly" preserve="all" />
-    <type fullname="System.Reflection.BindingFlags" preserve="all" />
     <type fullname="System.Reflection.DefaultMemberAttribute" preserve="all" />
     <type fullname="System.Reflection.MethodBase" preserve="all" />
     <type fullname="System.Reflection.MethodInfo" preserve="all" />
@@ -173,7 +153,6 @@
     <type fullname="System.RuntimeFieldHandle" preserve="all" />
     <type fullname="System.RuntimeTypeHandle" preserve="all" />
     <type fullname="System.String" preserve="all" />
-    <type fullname="System.Threading.CancellationToken" preserve="all" />
     <type fullname="System.Threading.Tasks.Task" preserve="all" />
     <type fullname="System.Threading.Tasks.Task`1" preserve="all" />
     <type fullname="System.Type" preserve="all" />
