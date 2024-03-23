@@ -15,7 +15,7 @@ namespace Game.Logic
         private static LocalizationDriver s_Localization;
         public static LocalizationDriver Localization => s_Localization ??= GameComponent.GameDriver.GetModule<LocalizationDriver>();
         
-        private static VirtualGameObjectDriver s_VirtualGameObject;
-        public static VirtualGameObjectDriver VirtualGameObject => s_VirtualGameObject ??= GameComponent.GameDriver.GetModule<VirtualGameObjectDriver>(); 
+        private static EntityComponentDriver s_EntityComponent;
+        public static EntityComponentDriver EntityComponent => s_EntityComponent ??= GameComponent.GameDriver.GetModule<EntityComponentDriver>(); 
     }
 }

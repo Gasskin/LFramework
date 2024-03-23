@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace Game.Module
 {
-    public abstract class VComponent
+    public abstract class ECComponent
     {
         // 持有该组件的实体
-        public VGameObject VGameObject { get; set; }
+        public ECEntity Entity { get; set; }
 
         // 如果不为空，那么这个组件只能添加到这些Entity上
-        public virtual List<Type> VGameObjectLimit { get; set; }
+        public virtual List<Type> EntityLimit { get; set; }
 
         // 是否释放
         public bool IsDisposed { get; set; }
@@ -31,9 +31,9 @@ namespace Game.Module
             }
         }
         
-        public T GetEntity<T>() where T : VGameObject
+        public T GetEntity<T>() where T : ECEntity
         {
-            return VGameObject as T;
+            return Entity as T;
         }
 
         public virtual void Awake()
@@ -72,11 +72,11 @@ namespace Game.Module
         }
 
 
-        public static void Destroy(VComponent vComponent)
+        public static void Destroy(ECComponent ecComponent)
         {
-            vComponent.Enable = false;
-            vComponent.OnDestroy();
-            vComponent.IsDisposed = true;
+            ecComponent.Enable = false;
+            ecComponent.OnDestroy();
+            ecComponent.IsDisposed = true;
         }
     }
 }

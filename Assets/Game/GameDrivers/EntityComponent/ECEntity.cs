@@ -4,7 +4,7 @@ using UnityGameFramework.Runtime;
 
 namespace Game.Module
 {
-    public abstract partial class VGameObject
+    public abstract partial class ECEntity
     {
         // ID
         public long Id { get; set; }
@@ -31,22 +31,22 @@ namespace Game.Module
         public bool IsDispose => InstanceId == 0;
 
         // 父实体
-        public VGameObject Parent { get; private set; }
+        public ECEntity Parent { get; private set; }
 
         // 孩子实体
-        public List<VGameObject> Children { get; private set; } = new List<VGameObject>();
-        public Dictionary<long, VGameObject> Id2Children { get; private set; } = new Dictionary<long, VGameObject>();
+        public List<ECEntity> Children { get; private set; } = new List<ECEntity>();
+        public Dictionary<long, ECEntity> Id2Children { get; private set; } = new Dictionary<long, ECEntity>();
 
-        public Dictionary<Type, List<VGameObject>> Type2Children { get; private set; } = new();
+        public Dictionary<Type, List<ECEntity>> Type2Children { get; private set; } = new();
 
         // 持有的组件
-        public Dictionary<Type, VComponent> Components { get; private set; } = new Dictionary<Type, VComponent>();
+        public Dictionary<Type, ECComponent> Components { get; private set; } = new Dictionary<Type, ECComponent>();
 
 
-        public VGameObject()
+        public ECEntity()
         {
 #if UNITY_EDITOR
-            if (this is MasterVGameObject)
+            if (this is MasterECEntity)
                 return;
             AddComponent<GameObjectComponent>();
 #endif
@@ -89,7 +89,7 @@ namespace Game.Module
             foreach (var component in Components.Values)
             {
                 component.Enable = false;
-                VComponent.Destroy(component);
+                ECComponent.Destroy(component);
             }
 
             Components.Clear();
@@ -100,15 +100,15 @@ namespace Game.Module
             }
         }
 
-        public T AddComponent<T>() where T : VComponent
+        public T AddComponent<T>() where T : ECComponent
         {
             var component = Activator.CreateInstance<T>();
-            if (component.VGameObjectLimit != null && !component.VGameObjectLimit.Contains(GetType()))
+            if (component.EntityLimit != null && !component.EntityLimit.Contains(GetType()))
             {
                 Log.Error($"can not add {typeof(T)} to {GetType()}");
                 return null;
             }
-            component.VGameObject = this;
+            component.Entity = this;
             component.IsDisposed = false;
             Components.Add(typeof(T), component);
             MasterNode.AllComponents.Add(component);
@@ -121,15 +121,15 @@ namespace Game.Module
             return component;
         }
 
-        public T AddComponent<T>(object initData) where T : VComponent
+        public T AddComponent<T>(object initData) where T : ECComponent
         {
             var component = Activator.CreateInstance<T>();
-            if (component.VGameObjectLimit != null && !component.VGameObjectLimit.Contains(GetType()))
+            if (component.EntityLimit != null && !component.EntityLimit.Contains(GetType()))
             {
                 Log.Error($"can not add {typeof(T)} to {GetType()}");
                 return null;
             }
-            component.VGameObject = this;
+            component.Entity = this;
             component.IsDisposed = false;
             Components.Add(typeof(T), component);
             MasterNode.AllComponents.Add(component);
@@ -141,11 +141,11 @@ namespace Game.Module
             return component;
         }
 
-        public void RemoveComponent<T>() where T : VComponent
+        public void RemoveComponent<T>() where T : ECComponent
         {
             var component = Components[typeof(T)];
             if (component.Enable) component.Enable = false;
-            VComponent.Destroy(component);
+            ECComponent.Destroy(component);
             Components.Remove(typeof(T));
 
 #if UNITY_EDITOR
@@ -153,7 +153,7 @@ namespace Game.Module
 #endif
         }
 
-        public T GetComponent<T>() where T : VComponent
+        public T GetComponent<T>() where T : ECComponent
         {
             if (Components.TryGetValue(typeof(T), out var component))
             {
@@ -163,12 +163,12 @@ namespace Game.Module
             return null;
         }
 
-        public bool HasComponent<T>() where T : VComponent
+        public bool HasComponent<T>() where T : ECComponent
         {
             return Components.TryGetValue(typeof(T), out var component);
         }
 
-        public T GetParent<T>() where T : VGameObject
+        public T GetParent<T>() where T : ECEntity
         {
             return Parent as T;
         }
@@ -179,7 +179,7 @@ namespace Game.Module
         }
 
 
-        public void RemoveChild(VGameObject child)
+        public void RemoveChild(ECEntity child)
         {
             Children.Remove(child);
             Id2Children.Remove(child.Id);
@@ -188,21 +188,21 @@ namespace Game.Module
         }
 
 
-        public T AddChild<T>() where T : VGameObject
+        public T AddChild<T>() where T : ECEntity
         {
             var entity = NewEntity(typeof(T));
             SetupEntity(entity, this);
             return entity as T;
         }
 
-        public T AddChild<T>(object initData) where T : VGameObject
+        public T AddChild<T>(object initData) where T : ECEntity
         {
             var entity = NewEntity(typeof(T));
             SetupEntity(entity, this, initData);
             return entity as T;
         }
 
-        public T GetChild<T>(int index = 0) where T : VGameObject
+        public T GetChild<T>(int index = 0) where T : ECEntity
         {
             if (Type2Children.ContainsKey(typeof(T)) == false)
             {
@@ -217,17 +217,17 @@ namespace Game.Module
             return Type2Children[typeof(T)][index] as T;
         }
 
-        public VGameObject[] GetChildren()
+        public ECEntity[] GetChildren()
         {
             return Children.ToArray();
         }
 
-        public T[] GetTypeChildren<T>() where T : VGameObject
+        public T[] GetTypeChildren<T>() where T : ECEntity
         {
             return Type2Children[typeof(T)].ConvertAll(x => x.As<T>()).ToArray();
         }
 
-        public VGameObject Find(string name)
+        public ECEntity Find(string name)
         {
             foreach (var item in Children)
             {
@@ -237,7 +237,7 @@ namespace Game.Module
             return null;
         }
 
-        public T Find<T>(string name) where T : VGameObject
+        public T Find<T>(string name) where T : ECEntity
         {
             if (Type2Children.TryGetValue(typeof(T), out var chidren))
             {

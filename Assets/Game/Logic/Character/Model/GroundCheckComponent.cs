@@ -6,18 +6,18 @@ using UnityEngine;
 
 namespace Game.Logic
 {
-    public class GroundCheckComponent : VComponent
+    public class GroundCheckComponent : ECComponent
     {
-        public override List<Type> VGameObjectLimit => m_EntityLimit;
+        public override List<Type> EntityLimit => m_EntityLimit;
 
         private readonly List<Type> m_EntityLimit = new()
         {
-            typeof(CharacterModelVGameObject),
+            typeof(CharacterModelEcEntity),
         };
 
         private Transform m_GroundCheck;
-        private CharacterModelVGameObject m_ModelVGameObject;
-        private CharacterControllerVGameObject m_ControllerVGameObject;
+        private CharacterModelEcEntity m_ModelEcEntity;
+        private CharacterControllerEcEntity m_ControllerEcEntity;
         private AttrComponent m_ModelAttr;
         private AttrComponent m_ControllerAttr;
 
@@ -25,19 +25,19 @@ namespace Game.Logic
 
         public override void Awake()
         {
-            m_ModelVGameObject = VGameObject as CharacterModelVGameObject;
-            if (m_ModelVGameObject == null)
+            m_ModelEcEntity = Entity as CharacterModelEcEntity;
+            if (m_ModelEcEntity == null)
                 return;
-            m_GroundCheck = m_ModelVGameObject.Model.transform.Find("GroundCheck");
+            m_GroundCheck = m_ModelEcEntity.Model.transform.Find("GroundCheck");
 
    
         }
 
         public override void Update()
         {
-            m_ModelAttr ??= VGameObject.GetComponent<AttrComponent>();
-            m_ControllerVGameObject ??= VGameObject.Parent.GetChild<CharacterControllerVGameObject>();
-            m_ControllerAttr ??= m_ControllerVGameObject.GetComponent<AttrComponent>();
+            m_ModelAttr ??= Entity.GetComponent<AttrComponent>();
+            m_ControllerEcEntity ??= Entity.Parent.GetChild<CharacterControllerEcEntity>();
+            m_ControllerAttr ??= m_ControllerEcEntity.GetComponent<AttrComponent>();
             
             var state = m_ControllerAttr.GetAttr<ECharacterState>((uint)EControllerAttr.CharacterState);
             switch (state)

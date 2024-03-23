@@ -34,7 +34,7 @@ namespace Game.Logic
             {
                 return;
             }
-            VGameObject.Create<PlayerVGameObject>();
+            ECEntity.Create<PlayerEcEntity>();
             // await UniTask.Yield();
             //
             // if (scene == ResourcesPathConfig.Scene.Main)

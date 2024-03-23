@@ -1,17 +1,17 @@
 ﻿namespace Game.Module
 {
-    public class UpdateComponent : VComponent
+    public class UpdateComponent : ECComponent
     {
         public override bool DefaultEnable { get; set; } = true;
         
         public override void Update()
         {
-            VGameObject.Update();
+            Entity.Update();
         }
 
         public override void LateUpdate()
         {
-            VGameObject.LateUpdate();
+            Entity.LateUpdate();
         }
     }
 }

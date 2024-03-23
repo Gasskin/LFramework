@@ -5,7 +5,7 @@ using UnityGameFramework.Runtime;
 namespace Game.Logic
 {
     [DrawEntityProperty]
-    public class CharacterModelVGameObject: VGameObject
+    public class CharacterModelEcEntity: ECEntity
     {
         public GameObject Model { get; private set; }
 

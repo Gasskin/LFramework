@@ -9,7 +9,7 @@ namespace Game.Module
 #if UNITY_EDITOR
     public class ComponentView : MonoBehaviour
     {
-        public readonly List<VComponent> m_Components = new();
+        public readonly List<ECComponent> m_Components = new();
 
         private readonly List<Vector3> m_Rgb = new()
         {
@@ -67,7 +67,7 @@ namespace Game.Module
             }
         }
 
-        private void DrawName(VComponent component)
+        private void DrawName(ECComponent component)
         {
             var type = component.GetType();
             var disable = component.Enable ? "" : " (Disabled)";
@@ -84,16 +84,16 @@ namespace Game.Module
             EditorGUILayout.EndHorizontal();
         }
 
-        private void DrawDes(VComponent component)
+        private void DrawDes(ECComponent component)
         {
             var type = component.GetType();
             // Go组件展示其Entity的属性，其他组件展示自身的属性
             if (type == typeof(GameObjectComponent))
             {
-                var entityType = component.VGameObject.GetType();
+                var entityType = component.Entity.GetType();
                 if (entityType.GetCustomAttribute<DrawEntityPropertyAttribute>() != null)
                 {
-                    EditorGUILayout.TextArea(component.VGameObject.ToString());
+                    EditorGUILayout.TextArea(component.Entity.ToString());
                 }
             }
             else

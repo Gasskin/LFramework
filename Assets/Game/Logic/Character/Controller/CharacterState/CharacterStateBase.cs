@@ -5,9 +5,9 @@ namespace Game.Logic
 {
     public abstract class CharacterStateBase
     {
-        public VGameObject Host { get; private set; }
+        public ECEntity Host { get; private set; }
 
-        public void SetHost(VGameObject host)
+        public void SetHost(ECEntity host)
         {
             Host = host;
         }

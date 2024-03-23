@@ -7,7 +7,7 @@ using UnityGameFramework.Runtime;
 namespace Game.Module
 {
     [DrawEntityProperty]
-    public class AttrComponent : VComponent
+    public class AttrComponent : ECComponent
     {
         private readonly Dictionary<uint, Variable> m_AttrDic = new();
         private readonly Dictionary<uint, List<AttrWatcher>> m_AttrWatcherDic = new();
@@ -56,7 +56,7 @@ namespace Game.Module
                 return;
             }
             var watcher = Activator.CreateInstance<T>();
-            watcher.SetHost(VGameObject);
+            watcher.SetHost(Entity);
             for (int i = 0; i < watcher.WatchAttrIndex.Length; i++)
             {
                 var index = watcher.WatchAttrIndex[i];

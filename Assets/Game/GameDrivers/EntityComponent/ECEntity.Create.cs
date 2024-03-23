@@ -3,68 +3,68 @@ using System.Collections.Generic;
 
 namespace Game.Module
 {
-    public abstract partial class VGameObject
+    public abstract partial class ECEntity
     {
-        private static MasterVGameObject MasterNode => MasterVGameObject.Instance;
+        private static MasterECEntity MasterNode => MasterECEntity.Instance;
 
-        private static VGameObject NewEntity(Type entityType, long id = 0)
+        private static ECEntity NewEntity(Type entityType, long id = 0)
         {
-            var entity = Activator.CreateInstance(entityType) as VGameObject;
+            var entity = Activator.CreateInstance(entityType) as ECEntity;
             if (entity == null)
                 return null;
             entity.InstanceId = IdFactory.NewInstanceId();
             entity.Id = id == 0 ? entity.InstanceId : id;
             if (!MasterNode.Entities.ContainsKey(entityType))
             {
-                MasterNode.Entities.Add(entityType, new List<VGameObject>());
+                MasterNode.Entities.Add(entityType, new List<ECEntity>());
             }
             MasterNode.Entities[entityType].Add(entity);
             return entity;
         }
 
-        public static T Create<T>() where T : VGameObject
+        public static T Create<T>() where T : ECEntity
         {
             var entity = NewEntity(typeof(T));
             SetupEntity(entity, MasterNode);
             return entity as T;
         }
 
-        public static T Create<T>(object initData) where T : VGameObject
+        public static T Create<T>(object initData) where T : ECEntity
         {
             var entity = NewEntity(typeof(T));
             SetupEntity(entity, MasterNode, initData);
             return entity as T;
         }
         
-        public static void Destroy(VGameObject vGameObject)
+        public static void Destroy(ECEntity ecEntity)
         {
-            vGameObject.OnDestroy();
-            vGameObject.Dispose();
+            ecEntity.OnDestroy();
+            ecEntity.Dispose();
         }
 
-        private static void SetupEntity(VGameObject vGameObject, VGameObject parent)
+        private static void SetupEntity(ECEntity ecEntity, ECEntity parent)
         {
-            parent.SetChild(vGameObject);
-            vGameObject.Awake();
+            parent.SetChild(ecEntity);
+            ecEntity.Awake();
         }
 
-        private static void SetupEntity(VGameObject vGameObject, VGameObject parent, object initData)
+        private static void SetupEntity(ECEntity ecEntity, ECEntity parent, object initData)
         {
-            parent.SetChild(vGameObject);
-            vGameObject.Awake(initData);
+            parent.SetChild(ecEntity);
+            ecEntity.Awake(initData);
         }
         
-        private void SetChild(VGameObject child)
+        private void SetChild(ECEntity child)
         {
             Children.Add(child);
             Id2Children.Add(child.Id, child);
             if (!Type2Children.ContainsKey(child.GetType())) 
-                Type2Children.Add(child.GetType(), new List<VGameObject>());
+                Type2Children.Add(child.GetType(), new List<ECEntity>());
             Type2Children[child.GetType()].Add(child);
             child.SetParent(this);
         }
         
-        private void SetParent(VGameObject parent)
+        private void SetParent(ECEntity parent)
         {
             var preParent = Parent;
             preParent?.RemoveChild(this);

@@ -17,7 +17,7 @@ namespace Game.Logic
             GameComponent.GameDriver.GetModule<ConfigDriver>();
             GameComponent.GameDriver.GetModule<LocalizationDriver>();
             GameComponent.GameDriver.GetModule<InputDriver>();
-            GameComponent.GameDriver.GetModule<VirtualGameObjectDriver>();
+            GameComponent.GameDriver.GetModule<EntityComponentDriver>();
 
             await GameComponent.GameDriver.InitAsync();
 

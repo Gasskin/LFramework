@@ -27,7 +27,7 @@ namespace Game.Logic
 
         public override bool AutoExit()
         {
-            var modelAttr = Host.Parent.GetChild<CharacterModelVGameObject>().GetComponent<AttrComponent>();
+            var modelAttr = Host.Parent.GetChild<CharacterModelEcEntity>().GetComponent<AttrComponent>();
             var isOnGround = modelAttr.GetAttr(EModelAttr.IsOnGround.ToUint(), false);
             return isOnGround;
         }

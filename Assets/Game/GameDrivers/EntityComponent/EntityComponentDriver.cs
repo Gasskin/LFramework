@@ -3,24 +3,24 @@ using GameFramework.GameUpdater;
 
 namespace Game.Module
 {
-    public class VirtualGameObjectDriver: GameDriverBase
+    public class EntityComponentDriver: GameDriverBase
     {
     #region Override
         public override int Priority => (int)EModulePriority.None;
         public override async UniTask InitAsync()
         {
-            MasterVGameObject.Instance.Create();
+            MasterECEntity.Instance.Create();
             await UniTask.CompletedTask;
         }
 
         public override void Update(float delta)
         {
-            MasterVGameObject.Instance.Update();
+            MasterECEntity.Instance.Update();
         }
 
         public override void LateUpdate()
         {
-            MasterVGameObject.Instance.LateUpdate();
+            MasterECEntity.Instance.LateUpdate();
         }
 
         public override void FixedUpdate()
@@ -29,7 +29,7 @@ namespace Game.Module
 
         public override void ShutDown()
         {
-            MasterVGameObject.Instance.Destroy();
+            MasterECEntity.Instance.Destroy();
         }
 #endregion
     }

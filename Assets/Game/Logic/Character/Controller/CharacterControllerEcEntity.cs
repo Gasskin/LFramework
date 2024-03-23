@@ -5,7 +5,7 @@ using GameFramework.Event;
 
 namespace Game.Logic
 {
-    public class CharacterControllerVGameObject : VGameObject
+    public class CharacterControllerEcEntity : ECEntity
     {
         private Dictionary<ECharacterState, CharacterStateBase> m_PlayerStateDic = new();
         private ECharacterState m_CurrentState = ECharacterState.None;

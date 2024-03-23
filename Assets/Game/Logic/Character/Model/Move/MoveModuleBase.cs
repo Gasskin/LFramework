@@ -7,7 +7,7 @@ namespace Game.Logic
 {
     public abstract class MoveModuleBase
     {
-        protected VGameObject Host { get; private set; }
+        protected ECEntity Host { get; private set; }
         protected AttrComponent ModelAttr { get; private set; }
         protected AttrComponent ControllerAttr { get; private set; }
 
@@ -25,11 +25,11 @@ namespace Game.Logic
 
         public abstract void Move();
 
-        public void SetHost(VGameObject host)
+        public void SetHost(ECEntity host)
         {
             Host = host;
 
-            if (Host is CharacterModelVGameObject modelEntity)
+            if (Host is CharacterModelEcEntity modelEntity)
             {
                 m_CharacterCapsule = modelEntity.Model.GetComponent<CharacterCapsule>();
                 m_CharacterMover = modelEntity.Model.GetComponent<CharacterMover>();
@@ -39,7 +39,7 @@ namespace Game.Logic
                     Log.Error("character prepare failed!");
 
                 ModelAttr = modelEntity.GetComponent<AttrComponent>();
-                ControllerAttr = modelEntity.Parent.GetChild<CharacterControllerVGameObject>().GetComponent<AttrComponent>();
+                ControllerAttr = modelEntity.Parent.GetChild<CharacterControllerEcEntity>().GetComponent<AttrComponent>();
             }
             else
             {

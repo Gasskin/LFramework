@@ -4,7 +4,7 @@
     {
         public bool Changed { get; private set; }
         public abstract uint[] WatchAttrIndex { get; }
-        public VGameObject Host { get; private set; }
+        public ECEntity Host { get; private set; }
 
         public abstract void OnCreate();
         public abstract void OnAttrChanged();
@@ -14,7 +14,7 @@
             Changed = change;
         }
         
-        public void SetHost(VGameObject host)
+        public void SetHost(ECEntity host)
         {
             Host = host;
         }

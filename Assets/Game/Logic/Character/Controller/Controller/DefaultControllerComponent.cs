@@ -3,7 +3,7 @@ using Game.Module;
 
 namespace Game.Logic
 {
-    public class DefaultControllerComponent: VComponent,ICharacterControllerComponent
+    public class DefaultControllerComponent: ECComponent,ICharacterControllerComponent
     {
         public override bool DefaultEnable => false;
         private AttrComponent m_ControllerAttr;
@@ -20,7 +20,7 @@ namespace Game.Logic
         
         public override void Awake()
         {
-            m_ControllerAttr = VGameObject.GetComponent<AttrComponent>();
+            m_ControllerAttr = Entity.GetComponent<AttrComponent>();
         }
 
         public override void Update()

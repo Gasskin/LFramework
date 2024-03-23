@@ -4,22 +4,22 @@ using Object = UnityEngine.Object;
 
 namespace Game.Module
 {
-    public class MasterVGameObject : VGameObject
+    public class MasterECEntity : ECEntity
     {
         // 记录所有的实体，和所有的组件
-        public Dictionary<Type, List<VGameObject>> Entities { get; private set; } = new();
-        public List<VComponent> AllComponents { get; private set; } = new();
+        public Dictionary<Type, List<ECEntity>> Entities { get; private set; } = new();
+        public List<ECComponent> AllComponents { get; private set; } = new();
 
         // 单例
-        private static MasterVGameObject s_Instance;
+        private static MasterECEntity s_Instance;
 
-        public static MasterVGameObject Instance
+        public static MasterECEntity Instance
         {
             get
             {
                 if (s_Instance==null)
                 {
-                    s_Instance = new MasterVGameObject();
+                    s_Instance = new MasterECEntity();
                     var go = s_Instance.AddComponent<GameObjectComponent>().GameObject;
                     Object.DontDestroyOnLoad(go);
                 }
@@ -30,7 +30,7 @@ namespace Game.Module
         }
 
         // 禁止实例化
-        private MasterVGameObject()
+        private MasterECEntity()
         {
             
         }
