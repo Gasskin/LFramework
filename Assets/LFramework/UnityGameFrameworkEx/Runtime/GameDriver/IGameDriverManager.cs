@@ -1,7 +1,7 @@
 
 using Cysharp.Threading.Tasks;
 
-namespace GameFramework.GameUpdater
+namespace GameFramework.GameDriver
 {
     public interface IGameDriverManager
     {

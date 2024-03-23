@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
-namespace GameFramework.GameUpdater
+namespace GameFramework.GameDriver
 {
     internal sealed class GameDriverManager : GameFrameworkModule, IGameDriverManager
     {

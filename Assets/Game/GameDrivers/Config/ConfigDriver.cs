@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using cfg;
 using Cysharp.Threading.Tasks;
 using Game.Logic;
-using GameFramework.GameUpdater;
+using GameFramework.GameDriver;
 using Luban;
 using SimpleJSON;
 using UnityEngine;

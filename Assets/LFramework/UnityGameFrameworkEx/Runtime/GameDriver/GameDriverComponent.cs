@@ -1,6 +1,6 @@
 using Cysharp.Threading.Tasks;
 using GameFramework;
-using GameFramework.GameUpdater;
+using GameFramework.GameDriver;
 using UnityEngine;
 
 namespace UnityGameFramework.Runtime
@@ -28,7 +28,7 @@ namespace UnityGameFramework.Runtime
             m_Initialized = true;
         }
 
-        public T GetModule<T>() where T : GameDriverBase
+        public T GetModule<T>() where T: GameDriverBase
         {
             return m_GameDriverManager.GetModule<T>();
         }

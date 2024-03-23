@@ -1,6 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using Game.Logic;
-using GameFramework.GameUpdater;
+using GameFramework.GameDriver;
 using GameFramework.Localization;
 using UnityEngine;
 using UnityGameFramework.Runtime;

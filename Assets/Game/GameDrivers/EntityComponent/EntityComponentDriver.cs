@@ -1,5 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
-using GameFramework.GameUpdater;
+using GameFramework.GameDriver;
 
 namespace Game.Module
 {

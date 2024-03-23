@@ -5,7 +5,7 @@ using Game.Logic;
 using Game.Logic;
 using Game.Logic;
 using Game.Module;
-using GameFramework.GameUpdater;
+using GameFramework.GameDriver;
 using Rewired;
 using UnityEngine;
 using UnityGameFramework.Runtime;
