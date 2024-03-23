@@ -1,0 +1,78 @@
+ManifestFileVersion: 0
+CRC: 1279776282
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2beaa0234e0bb6f27908c52dde203195
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9e5bf58396c45389b417dcf7a4aae23c
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 2beaa0234e0bb6f27908c52dde203195
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: c077a6f38fb7aec4288caf4defbc5fb6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b3a8db41c7a2fd0489c87be8ed7d7e45, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7891d45af59ea86488119e7d5bc93b8b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 13ba4849f4c890f44947978c76596fb2, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1a5a6afaf80069348aa068ae586fb3ab, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Bundles/ModelPrefabs/Level.prefab
+- Assets/Bundles/ModelPrefabs/RPG_Character.prefab
+- Assets/Bundles/ModelPrefabs/Player.prefab
+- Assets/Bundles/ModelPrefabs/Tree_Stump.prefab
+- Assets/Bundles/ModelPrefabs/Target.prefab
+- Assets/Bundles/ModelPrefabs/Camera.prefab
+- Assets/Bundles/ModelPrefabs/RPG_Player.prefab
+- Assets/Bundles/ModelPrefabs/Nav.prefab
+- Assets/Bundles/ModelPrefabs/Rock.prefab
+Dependencies:
+- E:/__Develop__Unity/LFramework/Bundles/StandaloneWindows64/Package1/OutputCache/package1_share_assets_bundles_animationcontroller.bundle
+- E:/__Develop__Unity/LFramework/Bundles/StandaloneWindows64/Package1/OutputCache/package1_share_assets_bundles_material.bundle
+- E:/__Develop__Unity/LFramework/Bundles/StandaloneWindows64/Package1/OutputCache/package1_share_assets_bundles_model.bundle
+- E:/__Develop__Unity/LFramework/Bundles/StandaloneWindows64/Package1/OutputCache/package1_share_assets_bundles_model_weapon.bundle

@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 3190085063
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: edb0114b08af607092face3091620ffc
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bedd121dc7bfbba8ac93006210ab03cb
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: edb0114b08af607092face3091620ffc
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Bundles/Animations/1Hand-Pistol/RPG-Character@Pistol-Attack-Dual3.FBX
+- Assets/Bundles/Animations/1Hand-Pistol/RPG-Character@Pistol-Reload-R1.FBX
+- Assets/Bundles/Animations/1Hand-Pistol/RPG-Character@Pistol-Attack-R2.FBX
+- Assets/Bundles/Animations/1Hand-Pistol/RPG-Character@Pistol-Attack-Dual1.FBX
+- Assets/Bundles/Animations/1Hand-Pistol/RPG-Character@Pistol-Attack-Dual2.FBX
+- Assets/Bundles/Animations/1Hand-Pistol/RPG-Character@Pistol-Attack-R1.FBX
+- Assets/Bundles/Animations/1Hand-Pistol/RPG-Character@Pistol-Attack-L1.FBX
+- Assets/Bundles/Animations/1Hand-Pistol/RPG-Character@Pistol-Attack-R3.FBX
+- Assets/Bundles/Animations/1Hand-Pistol/RPG-Character@Pistol-Reload-L1.FBX
+- Assets/Bundles/Animations/1Hand-Pistol/RPG-Character@Pistol-Attack-L3.FBX
+- Assets/Bundles/Animations/1Hand-Pistol/RPG-Character@Pistol-Attack-L2.FBX
+Dependencies:
+- E:/__Develop__Unity/LFramework/Bundles/StandaloneWindows64/Package1/OutputCache/package1_share_assets_bundles_model.bundle

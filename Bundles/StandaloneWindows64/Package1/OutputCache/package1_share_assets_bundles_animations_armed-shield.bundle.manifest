@@ -1,0 +1,65 @@
+ManifestFileVersion: 0
+CRC: 3359769688
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: bcb05924ba8c7c38fd1ebfc174a6e64a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bedd121dc7bfbba8ac93006210ab03cb
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: bcb05924ba8c7c38fd1ebfc174a6e64a
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Turn-Right-90.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Run-Left.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Idle.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Turn-Left-180.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Boost1.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Run-Backward-Right.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Knockback-Back1.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Knockback-Back2.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Sheath-ToRelax.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Idle-Crouch.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Run-Forward-Right.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Walk-Injured.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Strafe-Backward-Right.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Run-Forward-Left.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Strafe-Forward-Right.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Block.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Revive1.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Run-Backward.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Sheath-ToArmed.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Turn-Right-180.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Unsheath-FromUnarmed.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Run-Right.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Strafe-Backward.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Idle-Injured1.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Block-GetHit2.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Pickup.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Run-Forward.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Strafe-Left.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Sheath-ToUnarmed.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Activate.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Run-Backward-Left.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Strafe-Forward.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Death1.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Run-Forward-Charge.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Attack1.fbx
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Strafe-Right.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Turn-Left-90.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Strafe-Backward-Left.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Unsheath-FromRelax.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Strafe-Forward-Left.FBX
+- Assets/Bundles/Animations/Armed-Shield/RPG-Character@Shield-Unsheath-FromArmed.FBX
+Dependencies:
+- E:/__Develop__Unity/LFramework/Bundles/StandaloneWindows64/Package1/OutputCache/package1_share_assets_bundles_model.bundle

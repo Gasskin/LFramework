@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 2206530624
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 66f3935a079a480125b14632680fabde
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bedd121dc7bfbba8ac93006210ab03cb
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 66f3935a079a480125b14632680fabde
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Bundles/Animations/Swimming/RPG-Character@Swim-Ascend.fbx
+- Assets/Bundles/Animations/Swimming/RPG-Character@Swim-Descend.fbx
+- Assets/Bundles/Animations/Swimming/RPG-Character@Swim1.fbx
+- Assets/Bundles/Animations/Swimming/RPG-Character@Swim1-Fast.fbx
+- Assets/Bundles/Animations/Swimming/RPG-Character@Swim-TreadWater.fbx
+Dependencies:
+- E:/__Develop__Unity/LFramework/Bundles/StandaloneWindows64/Package1/OutputCache/package1_share_assets_bundles_model.bundle

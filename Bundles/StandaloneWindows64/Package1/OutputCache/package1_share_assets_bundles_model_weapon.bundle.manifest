@@ -1,0 +1,59 @@
+ManifestFileVersion: 0
+CRC: 357335545
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7ace14f1e37637ff9569212789a46801
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 95746f9d0aaa97e49e0e246d8f970597
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 7ace14f1e37637ff9569212789a46801
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Bundles/Model/Weapon/Shield.FBX
+- Assets/Bundles/Model/Weapon/Sword.FBX
+- Assets/Bundles/Model/Weapon/Dagger.FBX
+- Assets/Bundles/Model/Weapon/Spear.FBX
+- Assets/Bundles/Model/Weapon/2Hand-Crossbow.FBX
+- Assets/Bundles/Model/Weapon/2Hand-Bow.FBX
+- Assets/Bundles/Model/Weapon/Knife.FBX
+- Assets/Bundles/Model/Weapon/Nav.FBX
+- Assets/Bundles/Model/Weapon/2Hand-Spear.FBX
+- Assets/Bundles/Model/Weapon/2Hand-Axe.FBX
+- Assets/Bundles/Model/Weapon/2Hand-Sword.FBX
+- Assets/Bundles/Model/Weapon/2Hand-Rifle.FBX
+- Assets/Bundles/Model/Weapon/Ladder.FBX
+- Assets/Bundles/Model/Weapon/Pistol.FBX
+- Assets/Bundles/Model/Weapon/Mace.FBX
+- Assets/Bundles/Model/Weapon/Rock.FBX
+- Assets/Bundles/Model/Weapon/2Hand-Staff.FBX
+Dependencies:
+- E:/__Develop__Unity/LFramework/Bundles/StandaloneWindows64/Package1/OutputCache/package1_share_assets_bundles_textures.bundle

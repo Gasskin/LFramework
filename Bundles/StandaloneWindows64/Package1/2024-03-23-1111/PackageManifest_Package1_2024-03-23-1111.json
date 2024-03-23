@@ -1,0 +1,446 @@
+{
+    "FileVersion": "2.0.0",
+    "EnableAddressable": false,
+    "LocationToLower": false,
+    "IncludeAssetGUID": false,
+    "OutputNameStyle": 0,
+    "BuildPipeline": "BuiltinBuildPipeline",
+    "PackageName": "Package1",
+    "PackageVersion": "2024-03-23-1111",
+    "AssetList": [
+        {
+            "Address": "",
+            "AssetPath": "Assets/Bundles/ModelPrefabs/Camera.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Bundles/ModelPrefabs/Level.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Bundles/ModelPrefabs/Nav.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Bundles/ModelPrefabs/Player.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Bundles/ModelPrefabs/Rock.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Bundles/ModelPrefabs/RPG_Character.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Bundles/ModelPrefabs/RPG_Player.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Bundles/ModelPrefabs/Target.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Bundles/ModelPrefabs/Tree_Stump.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        }
+    ],
+    "BundleList": [
+        {
+            "BundleName": "package1_assets_bundles_modelprefabs.bundle",
+            "UnityCRC": 1279776282,
+            "FileHash": "5da42e8a78a05faded98eb5420098dcb",
+            "FileCRC": "e9437a1f",
+            "FileSize": 91612,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                26,
+                22,
+                19,
+                25,
+                20,
+                17,
+                21,
+                13,
+                11,
+                5,
+                14,
+                7,
+                9,
+                12,
+                4,
+                6,
+                10,
+                18,
+                15,
+                16,
+                8,
+                24,
+                2,
+                23,
+                3,
+                1
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_textures.bundle",
+            "UnityCRC": 1919861164,
+            "FileHash": "aa57b5d909806c56b9942788a03dfca4",
+            "FileCRC": "5134f51f",
+            "FileSize": 36090,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_material.bundle",
+            "UnityCRC": 2385002528,
+            "FileHash": "f769af7aae4e1f384c4bf4a3fc6005d0",
+            "FileCRC": "705920be",
+            "FileSize": 60637,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                1
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_model_weapon.bundle",
+            "UnityCRC": 357335545,
+            "FileHash": "8b81a7efd85661d676c2f4193d314ceb",
+            "FileCRC": "827b51c8",
+            "FileSize": 141213,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                1
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_armed-shield.bundle",
+            "UnityCRC": 3359769688,
+            "FileHash": "454a68e1b4b955c3fcce70f3f8bc9158",
+            "FileCRC": "9151c780",
+            "FileSize": 1773512,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_2hand-crossbow.bundle",
+            "UnityCRC": 3539211214,
+            "FileHash": "6dec2a1a361a0b8dac7fbfdbfb8b39e1",
+            "FileCRC": "c2dec1d3",
+            "FileSize": 4831142,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                24,
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_armed.bundle",
+            "UnityCRC": 370298907,
+            "FileHash": "ca09a24614091598a647028a155f178c",
+            "FileCRC": "6fa74428",
+            "FileSize": 7725029,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_2hand-spear.bundle",
+            "UnityCRC": 101698310,
+            "FileHash": "4b1152c72caf3ae65009e772746705e8",
+            "FileCRC": "63779f67",
+            "FileSize": 4239859,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                24,
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_unarmed.bundle",
+            "UnityCRC": 1106940983,
+            "FileHash": "bf9b469d51b80a4a3fd29c8dc809afa7",
+            "FileCRC": "f349d985",
+            "FileSize": 2488352,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_2hand-staff.bundle",
+            "UnityCRC": 878535699,
+            "FileHash": "68e12e61412adf2cde8460ea26acfb18",
+            "FileCRC": "0925d658",
+            "FileSize": 2670732,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_climb-ladder.bundle",
+            "UnityCRC": 2412648029,
+            "FileHash": "ce5f4b0a8ed1d736505cf29c0c0f938a",
+            "FileCRC": "2f3e4e89",
+            "FileSize": 369643,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_2hand-bow.bundle",
+            "UnityCRC": 2164740592,
+            "FileHash": "4757fd331ec003acbb554db1d7322aa0",
+            "FileCRC": "26ed7776",
+            "FileSize": 3224491,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                24,
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_2hand-sword.bundle",
+            "UnityCRC": 3408958432,
+            "FileHash": "a557d804706f8f8c617d29b3d271af9c",
+            "FileCRC": "2b8a4fd5",
+            "FileSize": 5171862,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_2hand-axe.bundle",
+            "UnityCRC": 2073400164,
+            "FileHash": "e12c4368d3e70057a4a0525c769c7b48",
+            "FileCRC": "ba3c7625",
+            "FileSize": 2368532,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                24,
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_2hand-shooting.bundle",
+            "UnityCRC": 3310210464,
+            "FileHash": "119523cdfbb7416fafbfb0de84073c8f",
+            "FileCRC": "9e21da81",
+            "FileSize": 3653128,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                24,
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_relax.bundle",
+            "UnityCRC": 686421006,
+            "FileHash": "fbb674bb249e6912ddbb719e93fac407",
+            "FileCRC": "c64e1012",
+            "FileSize": 3041990,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_swimming.bundle",
+            "UnityCRC": 2206530624,
+            "FileHash": "c0e446ff527a5279755c7b4328079c99",
+            "FileCRC": "f3329f92",
+            "FileSize": 103036,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_1hand-spear.bundle",
+            "UnityCRC": 1499423896,
+            "FileHash": "9c6f3b5cb129773b191ef3450689d16e",
+            "FileCRC": "6457da1e",
+            "FileSize": 415976,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_crawl.bundle",
+            "UnityCRC": 683072921,
+            "FileHash": "977e1af74ce8ad409ceab424daca7b77",
+            "FileCRC": "fb43b664",
+            "FileSize": 83297,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_1hand-item.bundle",
+            "UnityCRC": 2407717579,
+            "FileHash": "c265e61329cc8f6cb97d8506dfd2819f",
+            "FileCRC": "923ba860",
+            "FileSize": 577506,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_1hand-pistol.bundle",
+            "UnityCRC": 3190085063,
+            "FileHash": "8bb2b9e4e19b2e4ed107781bcc7f0611",
+            "FileCRC": "0a861491",
+            "FileSize": 858384,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_1hand-sword.bundle",
+            "UnityCRC": 3492955116,
+            "FileHash": "df88767087a1d12f0fa4561935bc65fc",
+            "FileCRC": "3e54b9be",
+            "FileSize": 803773,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_1hand-dagger.bundle",
+            "UnityCRC": 4005251306,
+            "FileHash": "55037d9108226862916558913c985b89",
+            "FileCRC": "6dc1f9c3",
+            "FileSize": 412179,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_model.bundle",
+            "UnityCRC": 3539556488,
+            "FileHash": "4d99b8f4c0fa8d4c49da6404dd0e8782",
+            "FileCRC": "1d8ff1a8",
+            "FileSize": 1366154,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_avatars.bundle",
+            "UnityCRC": 1032024384,
+            "FileHash": "1c7cd74414f0a5b5cb1c8ba692c97e26",
+            "FileCRC": "eb26f654",
+            "FileSize": 1903,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animations_1hand-mace.bundle",
+            "UnityCRC": 3037938001,
+            "FileHash": "c7b445a25271487193613d1d4f8718b9",
+            "FileCRC": "0898ba33",
+            "FileSize": 341932,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                23
+            ]
+        },
+        {
+            "BundleName": "package1_share_assets_bundles_animationcontroller.bundle",
+            "UnityCRC": 2555598032,
+            "FileHash": "5ac162083c486b39ca07012f90ff738b",
+            "FileCRC": "42678645",
+            "FileSize": 170073,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                22,
+                19,
+                25,
+                20,
+                17,
+                21,
+                13,
+                11,
+                5,
+                14,
+                7,
+                9,
+                12,
+                4,
+                6,
+                10,
+                18,
+                15,
+                16,
+                8,
+                24,
+                23
+            ]
+        }
+    ]
+}

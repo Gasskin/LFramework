@@ -4,6 +4,77 @@
         <name>Rewired_Windows</name>
     </assembly>
     <members>
+        <member name="T:Rewired.Platforms.Microsoft.WindowsGamingInput.DeviceType">
+            <summary>
+            Windows Gaming Input device type.
+            </summary>
+        </member>
+        <member name="F:Rewired.Platforms.Microsoft.WindowsGamingInput.DeviceType.Unknown">
+            <summary>
+            Unknown device type.
+            </summary>
+        </member>
+        <member name="F:Rewired.Platforms.Microsoft.WindowsGamingInput.DeviceType.Gamepad">
+            <summary>
+            Gamepad device type.
+            </summary>
+        </member>
+        <member name="T:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension">
+            <summary>
+            Provides information about a Windows Gaming Input device.
+            </summary>
+        </member>
+        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.deviceType">
+            <summary>
+            Windows Gaming Input device type.
+            </summary>
+        </member>
+        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.nativePointer">
+            <summary>
+            Native pointer to the device object.
+            Note: This will always return IntPtr.Zero on UWP when using .NET scripting backend.
+            </summary>
+        </member>
+        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.nonRoamableId">
+            <summary>
+            Non roamable id.
+            </summary>
+        </member>
+        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.isWireless">
+            <summary>
+            Determines if the device is wireless.
+            </summary>
+        </member>
+        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.productName">
+            <summary>
+            HID product name string.
+            </summary>
+        </member>
+        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.Rewired#ControllerExtensions#IHIDControllerExtension#manufacturer">
+            <summary>
+            HID manufacturer string.
+            </summary>
+        </member>
+        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.vendorId">
+            <summary>
+            HID vendor id.
+            </summary>
+        </member>
+        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.productId">
+            <summary>
+            HID product id.
+            </summary>
+        </member>
+        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.Rewired#ControllerExtensions#IHIDControllerExtension#usagePage">
+            <summary>
+            HID usage page.
+            </summary>
+        </member>
+        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.Rewired#ControllerExtensions#IHIDControllerExtension#usage">
+            <summary>
+            HID usage.
+            </summary>
+        </member>
         <member name="T:Rewired.Platforms.Windows.DirectInput.DirectInputDeviceType">
             <summary>
             Direct Input device type.
@@ -317,77 +388,6 @@
         <member name="P:Rewired.Platforms.Windows.XInput.XInputControllerExtension.deviceSubType">
             <summary>
             Device sub type.
-            </summary>
-        </member>
-        <member name="T:Rewired.Platforms.Microsoft.WindowsGamingInput.DeviceType">
-            <summary>
-            Windows Gaming Input device type.
-            </summary>
-        </member>
-        <member name="F:Rewired.Platforms.Microsoft.WindowsGamingInput.DeviceType.Unknown">
-            <summary>
-            Unknown device type.
-            </summary>
-        </member>
-        <member name="F:Rewired.Platforms.Microsoft.WindowsGamingInput.DeviceType.Gamepad">
-            <summary>
-            Gamepad device type.
-            </summary>
-        </member>
-        <member name="T:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension">
-            <summary>
-            Provides information about a Windows Gaming Input device.
-            </summary>
-        </member>
-        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.deviceType">
-            <summary>
-            Windows Gaming Input device type.
-            </summary>
-        </member>
-        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.nativePointer">
-            <summary>
-            Native pointer to the device object.
-            Note: This will always return IntPtr.Zero on UWP when using .NET scripting backend.
-            </summary>
-        </member>
-        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.nonRoamableId">
-            <summary>
-            Non roamable id.
-            </summary>
-        </member>
-        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.isWireless">
-            <summary>
-            Determines if the device is wireless.
-            </summary>
-        </member>
-        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.productName">
-            <summary>
-            HID product name string.
-            </summary>
-        </member>
-        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.Rewired#ControllerExtensions#IHIDControllerExtension#manufacturer">
-            <summary>
-            HID manufacturer string.
-            </summary>
-        </member>
-        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.vendorId">
-            <summary>
-            HID vendor id.
-            </summary>
-        </member>
-        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.productId">
-            <summary>
-            HID product id.
-            </summary>
-        </member>
-        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.Rewired#ControllerExtensions#IHIDControllerExtension#usagePage">
-            <summary>
-            HID usage page.
-            </summary>
-        </member>
-        <member name="P:Rewired.Platforms.Microsoft.WindowsGamingInput.WindowsGamingInputControllerExtension.Rewired#ControllerExtensions#IHIDControllerExtension#usage">
-            <summary>
-            HID usage.
             </summary>
         </member>
     </members>

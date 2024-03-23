@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1aca128dd3fa7b844a559e8b8c9451c6
+guid: eb6c38b0a1d769e4d812595f2fd5431a
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -16,16 +16,14 @@ PluginImporter:
     second:
       enabled: 0
       settings:
+        Exclude Android: 1
         Exclude Editor: 0
-        Exclude GameCoreScarlett: 1
-        Exclude GameCoreXboxOne: 1
         Exclude Linux64: 0
         Exclude OSXUniversal: 0
-        Exclude Stadia: 1
         Exclude Switch: 1
-        Exclude WebGL: 1
         Exclude Win: 1
         Exclude Win64: 0
+        Exclude WindowsStoreApps: 1
   - first:
       : Linux
     second:
@@ -63,7 +61,7 @@ PluginImporter:
     second:
       enabled: 0
       settings:
-        CPU: AnyCPU
+        CPU: ARMv7
   - first:
       Any: 
     second:
@@ -107,9 +105,10 @@ PluginImporter:
       enabled: 0
       settings:
         CPU: AnyCPU
-        DontProcess: False
+        DontProcess: false
         PlaceholderPath: 
         SDK: AnySDK
+        ScriptingBackend: AnyScriptingBackend
   - first:
       iPhone: iOS
     second:

@@ -1,0 +1,104 @@
+ManifestFileVersion: 0
+CRC: 3408958432
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4b3156d99398624523392d942212a447
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bedd121dc7bfbba8ac93006210ab03cb
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 4b3156d99398624523392d942212a447
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack2.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack-Kick-R1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Unsheath-Back-Unarmed.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack-Kick-L1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Air-Attack1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Run-Backward.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Run-Left.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Run-Backward-Right.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Idle-Crouch.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Roll-Backward.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Jump.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Knockback-Back2.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack7.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Turn-Left-90.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Boost1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Idle-Injured1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack9.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Run-Forward-Attack1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Knockdown1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack11.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Pickup.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Unsheath-Hips-Unarmed.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Fall.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack-Kick-R2.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Turn-Right-180.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Dodge-Right.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Activate.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack5.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Strafe-Forward-Left.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Roll-Right.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Walk-Injured.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Jump-Flip.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Strafe-Left.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Strafe-Forward-Right.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Block-GetHit1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Revive1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Strafe-Forward.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-GetHit-F2.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Strafe-Backward.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Roll-Left.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Unsheath-Hips-Relax.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Block-GetHit2.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Block.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Getup1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Stunned.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack4.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-GetHit-R1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Roll-Forward.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-DiveRoll-Forward1.max.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Sheath-Back-Relax.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack8.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack-Kick-L2.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack3.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Strafe-Right.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Run-Forward-Right.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Run-Right.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Turn-Left-180.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Sheath-Hips-Unarmed.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Idle.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Sheath-Back-Unarmed.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-GetHit-F1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Unsheath-Back-Relax.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Knockback-Back1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Turn-Right-90.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Strafe-Backward-Right.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack10.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Death1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Special1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Strafe-Backward-Left.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Attack6.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Run-Backward-Left.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-GetHit-L1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Dodge-Left.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Run-Forward.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Sheath-Hips-Relax.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Land.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Idle-Alert1.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-Run-Forward-Left.FBX
+- Assets/Bundles/Animations/2Hand-Sword/RPG-Character@2Hand-Sword-GetHit-B1.FBX
+Dependencies:
+- E:/__Develop__Unity/LFramework/Bundles/StandaloneWindows64/Package1/OutputCache/package1_share_assets_bundles_model.bundle

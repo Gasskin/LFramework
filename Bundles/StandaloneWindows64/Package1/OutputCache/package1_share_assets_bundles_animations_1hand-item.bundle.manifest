@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 2407717579
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 779fa9482dfb9404c6a88d8ab2f04ef7
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bedd121dc7bfbba8ac93006210ab03cb
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 779fa9482dfb9404c6a88d8ab2f04ef7
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Bundles/Animations/1Hand-Item/RPG-Character@Item-Attack-R2.FBX
+- Assets/Bundles/Animations/1Hand-Item/RPG-Character@Item-Attack-R3.FBX
+- Assets/Bundles/Animations/1Hand-Item/RPG-Character@Item-Attack-L4.FBX
+- Assets/Bundles/Animations/1Hand-Item/RPG-Character@Item-Attack-R1.FBX
+- Assets/Bundles/Animations/1Hand-Item/RPG-Character@Item-Attack-L2.FBX
+- Assets/Bundles/Animations/1Hand-Item/RPG-Character@Item-Attack-L1.FBX
+- Assets/Bundles/Animations/1Hand-Item/RPG-Character@Item-Attack-L3.FBX
+- Assets/Bundles/Animations/1Hand-Item/RPG-Character@Item-Attack-R4.FBX
+Dependencies:
+- E:/__Develop__Unity/LFramework/Bundles/StandaloneWindows64/Package1/OutputCache/package1_share_assets_bundles_model.bundle

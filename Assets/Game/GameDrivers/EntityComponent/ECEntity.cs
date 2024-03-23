@@ -46,8 +46,6 @@ namespace Game.Module
         public ECEntity()
         {
 #if UNITY_EDITOR
-            if (this is MasterECEntity)
-                return;
             AddComponent<GameObjectComponent>();
 #endif
         }

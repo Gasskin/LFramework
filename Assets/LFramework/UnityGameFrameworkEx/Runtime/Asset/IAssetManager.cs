@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using YooAsset;
 
-namespace UnityGameFramework.Asset
+namespace GameFramework.Asset
 {
     public interface IAssetManager
     {

@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 3037938001
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2fe770a2253a6ea71da697efac21af17
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bedd121dc7bfbba8ac93006210ab03cb
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 2fe770a2253a6ea71da697efac21af17
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Bundles/Animations/1Hand-Mace/RPG-Character@Mace-Attack-L2.FBX
+- Assets/Bundles/Animations/1Hand-Mace/RPG-Character@Mace-Attack-R2.FBX
+- Assets/Bundles/Animations/1Hand-Mace/RPG-Character@Mace-Attack-R1.FBX
+- Assets/Bundles/Animations/1Hand-Mace/RPG-Character@Mace-Attack-R3.FBX
+- Assets/Bundles/Animations/1Hand-Mace/RPG-Character@Mace-Attack-L1.FBX
+- Assets/Bundles/Animations/1Hand-Mace/RPG-Character@Mace-Attack-L3.FBX
+Dependencies:
+- E:/__Develop__Unity/LFramework/Bundles/StandaloneWindows64/Package1/OutputCache/package1_share_assets_bundles_model.bundle

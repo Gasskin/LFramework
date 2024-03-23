@@ -1,7 +1,6 @@
-﻿using GameFramework;
-using YooAsset;
+﻿using YooAsset;
 
-namespace UnityGameFramework.Asset
+namespace GameFramework.Asset
 {
     public class AssetManager : GameFrameworkModule, IAssetManager
     {

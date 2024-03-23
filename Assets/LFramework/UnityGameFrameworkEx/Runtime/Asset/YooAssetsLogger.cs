@@ -1,28 +1,28 @@
 ﻿using System;
 using YooAsset;
 
-namespace UnityGameFramework.Asset
+namespace GameFramework.Asset
 {
     public class YooAssetsLogger:ILogger
     {
         public void Log(string message)
         {
-            Runtime.Log.Info(message);
+            GameFrameworkLog.Info(message);
         }
 
         public void Warning(string message)
         {
-            Runtime.Log.Warning(message);
+            GameFrameworkLog.Warning(message);
         }
 
         public void Error(string message)
         {
-            Runtime.Log.Error(message);
+            GameFrameworkLog.Error(message);
         }
 
         public void Exception(Exception exception)
         {
-            Runtime.Log.Fatal(exception.Message);
+            GameFrameworkLog.Fatal(exception.Message);
         }
     }
 }

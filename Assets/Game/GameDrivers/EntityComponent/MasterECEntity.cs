@@ -20,8 +20,10 @@ namespace Game.Module
                 if (s_Instance==null)
                 {
                     s_Instance = new MasterECEntity();
-                    var go = s_Instance.AddComponent<GameObjectComponent>().GameObject;
+#if UNITY_EDITOR
+                    var go = s_Instance.GetComponent<GameObjectComponent>().GameObject;
                     Object.DontDestroyOnLoad(go);
+#endif
                 }
 
                 return s_Instance;

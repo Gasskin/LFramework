@@ -1,0 +1,98 @@
+ManifestFileVersion: 0
+CRC: 3310210464
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e9057f51b56ceba64e7cc0324cf7fb14
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bedd121dc7bfbba8ac93006210ab03cb
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: e9057f51b56ceba64e7cc0324cf7fb14
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Dodge-Left.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Attack-Kick-R2.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Walk-Right.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Revive1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Run-Backward.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Turn-Left-90.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Knockdown1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Walk-Forward-Left.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Sheath-Hips-Relax.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Turn-Right-180.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Run-Backward-Right.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-GetHit-F1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Attack1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Block.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-GetHit-F2.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Run-Forward.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Walk-Backward.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Unsheath-Back-Relax.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Block-GetHit2.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Walk-Forward-Right.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Activate.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Walk-Forward.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Reload-Rifle.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Pickup.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Attack-Kick-L1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Fire-Rifle2.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Run-Forward-Right.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Roll-Forward.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Fall.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Block-GetHit1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-GetHit-L1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Aiming-Fire.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Sheath-Hips-Unarmed.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-DiveRoll-Forward1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Idle-Crouch.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Idle-Alert1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Getup1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Idle.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Sheath-Back-Relax.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Unsheath-Back-Unarmed.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-GetHit-R1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Pain1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Attack2.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Walk-Left.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Run-Left.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Death1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Walk-Backward-Left.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Jump-Flip.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Fire-Rifle1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Knockback-Back2.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Run-Right.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Turn-Left-180.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-GetHit-B1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Run-Forward-Left.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Attack-Kick-R1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Run-Backward-Left.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Knockback-Back1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Unsheath-Hips-Relax.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Roll-Backward.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Walk-Backward-Right.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Idle-Injured1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Aiming.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Boost1.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Roll-Left.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Attack-Kick-L2.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Dodge-Right.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Jump.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Turn-Right-90.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Sheath-Back-Unarmed.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Unsheath-Hips-Unarmed.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Walk-Injured.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Land.FBX
+- Assets/Bundles/Animations/2Hand-Shooting/RPG-Character@Shooting-Roll-Right.FBX
+Dependencies:
+- E:/__Develop__Unity/LFramework/Bundles/StandaloneWindows64/Package1/OutputCache/package1_share_assets_bundles_avatars.bundle
+- E:/__Develop__Unity/LFramework/Bundles/StandaloneWindows64/Package1/OutputCache/package1_share_assets_bundles_model.bundle
