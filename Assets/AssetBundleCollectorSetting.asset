@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185f6993d5150494d98da50e26cb1c25, type: 3}
   m_Name: AssetBundleCollectorSetting
   m_EditorClassIdentifier: 
-  ShowPackageView: 1
+  ShowPackageView: 0
   ShowEditorAlias: 0
   UniqueBundleName: 1
   Packages:
@@ -31,6 +31,32 @@ MonoBehaviour:
       Collectors:
       - CollectPath: Assets/Bundles/ModelPrefabs
         CollectorGUID: a8b3adbcc65d3854ba271b9e9756a57c
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: LuBan
+      GroupDesc: "\u914D\u8868"
+      AssetTags: 
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/Bundles/LuBan
+        CollectorGUID: 0d31bfddb4c6e9c419b4f749f017f95e
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: UI
+      GroupDesc: UI
+      AssetTags: 
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/Bundles/UI
+        CollectorGUID: b1bfc679b1d17c346850ec729157324a
         CollectorType: 0
         AddressRuleName: AddressByFileName
         PackRuleName: PackDirectory

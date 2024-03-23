@@ -62,3 +62,9 @@ Assets/Example
 Assets/Example.meta
 ProjectSettings
 UserSettings
+HybridCLRData/AssembliesPostIl2CppStrip
+HybridCLRData/LocalIl2CppData-WindowsEditor
+Bundles
+HybridCLRData/hybridclr_repo
+HybridCLRData/il2cpp_plus_repo
+HybridCLRData/StrippedAOTDllsTempProj

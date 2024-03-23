@@ -1,10 +1,12 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
-using Game.Module;
-
+using Cysharp.Threading.Tasks;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
+using UnityEngine;
+using UnityGameFramework.Runtime;
 
 namespace Game.Logic
 {
@@ -13,7 +15,9 @@ namespace Game.Logic
         protected override async void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
             base.OnEnter(procedureOwner);
-
+            Log.Debug("进入流程：CreateModuleProcedure");
+            var init = GameComponent.Asset.InitPackage();
+            await init.ToUniTask();
             // Editor环境下，HotUpdate.dll.bytes已经被自动加载，不需要加载，重复加载反而会出问题。
 #if !UNITY_EDITOR
         Assembly hotUpdateAss = Assembly.Load(File.ReadAllBytes($"{Application.streamingAssetsPath}/HotUpdate.dll.bytes"));

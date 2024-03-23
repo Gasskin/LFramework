@@ -1,4 +1,5 @@
-﻿using YooAsset;
+﻿using UnityEngine;
+using YooAsset;
 
 namespace GameFramework.Asset
 {
@@ -66,6 +67,11 @@ namespace GameFramework.Asset
             }
 
             return initializationOperation;
+        }
+
+        public AssetHandle LoadAssetAsync<T>(string path) where T : Object
+        {
+            return YooAssets.LoadAssetAsync<T>(path);
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using Cysharp.Threading.Tasks;
 using GameFramework;
 using GameFramework.Asset;
 using Sirenix.OdinInspector;
@@ -11,7 +14,7 @@ using YooAsset.Editor;
 
 namespace UnityGameFramework.Runtime
 {
-    public class AssetComponent: GameFrameworkComponent
+    public class AssetComponent : GameFrameworkComponent
     {
         [LabelText("资源模式")]
         public EPlayMode m_PlayMode;
@@ -20,10 +23,12 @@ namespace UnityGameFramework.Runtime
         [ValueDropdown("GetPackages")]
         [LabelText("默认包")]
         public string m_DefaultPackageName;
+
         private IAssetManager m_AssetManager;
-        
+
         protected override void Awake()
         {
+            base.Awake();
             m_AssetManager = GameFrameworkEntry.GetModule<IAssetManager>();
 #if !UNITY_EDITOR
             if (m_PlayMode == EPlayMode.EditorSimulateMode)
@@ -48,6 +53,26 @@ namespace UnityGameFramework.Runtime
         public InitializationOperation InitPackage()
         {
             return m_AssetManager.InitPackage();
+        }
+
+        public async UniTask<T> LoadAssetAsync<T>(string path) where T : UnityEngine.Object
+        {
+#if UNITY_EDITOR || DEBUG
+            var watcher = ReferencePool.Acquire<LoadWatcher>();
+            watcher.Start();
+#endif
+            var handle = m_AssetManager.LoadAssetAsync<T>(path);
+            await handle.ToUniTask(this);
+#if UNITY_EDITOR || DEBUG
+            watcher.Stop();
+            Log.Info("<color=#00FF35>加载资源耗时：</color>{0}ms  {1}", watcher.ElapsedMilliseconds , path);
+            ReferencePool.Release(watcher);
+#endif
+            if (handle.Status == EOperationStatus.Succeed)
+            {
+                return handle.AssetObject as T;
+            }
+            return null;
         }
 
     #region Ondin

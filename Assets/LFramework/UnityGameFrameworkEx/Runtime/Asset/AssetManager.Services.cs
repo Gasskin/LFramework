@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using YooAsset;
 
@@ -6,26 +7,22 @@ namespace GameFramework.Asset
 {
     public partial class AssetManager
     {
-        private class QueryServices: IBuildinQueryServices
+        private class QueryServices : IBuildinQueryServices
         {
-            private readonly bool m_CompareFileCRC = false;
-            
+            private Dictionary<string, bool> m_Cache = new();
+
             public bool Query(string packageName, string fileName, string fileCRC)
             {
-                var filePath = Path.Combine(Application.streamingAssetsPath, "bundles", packageName, fileName);
-                if (File.Exists(filePath))
+                var filePath = Path.Combine(Application.streamingAssetsPath, "Bundles", packageName, fileName);
+                if (!m_Cache.TryGetValue(filePath, out var value))
                 {
-                    if (m_CompareFileCRC)
-                    {
-                        string crc32 = YooAsset.Editor.EditorTools.GetFileCRC32(filePath);
-                        return crc32 == fileCRC;
-                    }
-                    return true;
+                    value = File.Exists(filePath);
+                    m_Cache.Add(filePath, value);
                 }
-                return false;
+                return value;
             }
         }
-        
+
         private class RemoteServices : IRemoteServices
         {
             private readonly string m_DefaultHostServer;
@@ -36,16 +33,18 @@ namespace GameFramework.Asset
                 m_DefaultHostServer = defaultHostServer;
                 m_FallbackHostServer = fallbackHostServer;
             }
+
             string IRemoteServices.GetRemoteMainURL(string fileName)
             {
                 return $"{m_DefaultHostServer}/{fileName}";
             }
+
             string IRemoteServices.GetRemoteFallbackURL(string fileName)
             {
                 return $"{m_FallbackHostServer}/{fileName}";
             }
         }
-        
+
         private string GetHostServerURL()
         {
             //string hostServerIP = "http://10.0.2.2"; //安卓模拟器地址
