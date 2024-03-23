@@ -29,7 +29,7 @@ namespace Game.Logic
         {
             Host = host;
 
-            if (Host is CharacterModelEcEntity modelEntity)
+            if (Host is CharacterModelECEntity modelEntity)
             {
                 m_CharacterCapsule = modelEntity.Model.GetComponent<CharacterCapsule>();
                 m_CharacterMover = modelEntity.Model.GetComponent<CharacterMover>();

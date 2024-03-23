@@ -12,11 +12,11 @@ namespace Game.Logic
 
         private readonly List<Type> m_EntityLimit = new()
         {
-            typeof(CharacterModelEcEntity),
+            typeof(CharacterModelECEntity),
         };
 
         private Transform m_GroundCheck;
-        private CharacterModelEcEntity m_ModelEcEntity;
+        private CharacterModelECEntity m_ModelEcEntity;
         private CharacterControllerEcEntity m_ControllerEcEntity;
         private AttrComponent m_ModelAttr;
         private AttrComponent m_ControllerAttr;
@@ -25,7 +25,7 @@ namespace Game.Logic
 
         public override void Awake()
         {
-            m_ModelEcEntity = Entity as CharacterModelEcEntity;
+            m_ModelEcEntity = Entity as CharacterModelECEntity;
             if (m_ModelEcEntity == null)
                 return;
             m_GroundCheck = m_ModelEcEntity.Model.transform.Find("GroundCheck");

@@ -8,7 +8,7 @@ namespace Game.Logic
     {
         public override void Awake()
         {
-            AddChild<CharacterModelEcEntity>(ResourcesPathConfig.ModelPrefabs.RPG_Player);
+            AddChild<CharacterModelECEntity>(ResourcesPathConfig.ModelPrefabs.RPG_Player);
             AddChild<CharacterControllerEcEntity>();
         }
     }

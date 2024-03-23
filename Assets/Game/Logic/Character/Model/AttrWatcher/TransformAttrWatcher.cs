@@ -14,7 +14,7 @@ namespace Game.Logic
 
         public override void OnCreate()
         {
-            if (Host is CharacterModelEntity model)
+            if (Host is CharacterModelECEntity model)
             {
                 model.Model.transform.position = Vector3.zero;
                 model.Model.transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
@@ -23,7 +23,7 @@ namespace Game.Logic
 
         public override void OnAttrChanged()
         {
-            if (Host is not CharacterModelEntity model)
+            if (Host is not CharacterModelECEntity model)
                 return;
             var attr = Host.GetComponent<AttrComponent>();
             var position = attr.GetAttr<Vector3>((uint)EModelAttr.Position);
