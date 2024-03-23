@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using Game.GlobalDefinition;
 using Game.Module;
 using UnityEngine;
-using EntityComponent = Game.Module.EntityComponent;
 
 namespace Game.Logic
 {
-    public class GroundCheckComponent : EntityComponent
+    public class GroundCheckComponent : VComponent
     {
-        public override List<Type> EntityLimit => m_EntityLimit;
+        public override List<Type> VGameObjectLimit => m_EntityLimit;
 
         private readonly List<Type> m_EntityLimit = new()
         {
-            typeof(CharacterModelNodeEntity),
+            typeof(CharacterModelVGameObject),
         };
 
         private Transform m_GroundCheck;
-        private CharacterModelNodeEntity m_ModelNodeEntity;
-        private CharacterControllerNodeEntity m_ControllerNodeEntity;
+        private CharacterModelVGameObject m_ModelVGameObject;
+        private CharacterControllerVGameObject m_ControllerVGameObject;
         private AttrComponent m_ModelAttr;
         private AttrComponent m_ControllerAttr;
 
@@ -26,19 +25,19 @@ namespace Game.Logic
 
         public override void Awake()
         {
-            m_ModelNodeEntity = NodeEntity as CharacterModelNodeEntity;
-            if (m_ModelNodeEntity == null)
+            m_ModelVGameObject = VGameObject as CharacterModelVGameObject;
+            if (m_ModelVGameObject == null)
                 return;
-            m_GroundCheck = m_ModelNodeEntity.Model.transform.Find("GroundCheck");
+            m_GroundCheck = m_ModelVGameObject.Model.transform.Find("GroundCheck");
 
    
         }
 
         public override void Update()
         {
-            m_ModelAttr ??= NodeEntity.GetComponent<AttrComponent>();
-            m_ControllerNodeEntity ??= NodeEntity.Parent.GetChild<CharacterControllerNodeEntity>();
-            m_ControllerAttr ??= m_ControllerNodeEntity.GetComponent<AttrComponent>();
+            m_ModelAttr ??= VGameObject.GetComponent<AttrComponent>();
+            m_ControllerVGameObject ??= VGameObject.Parent.GetChild<CharacterControllerVGameObject>();
+            m_ControllerAttr ??= m_ControllerVGameObject.GetComponent<AttrComponent>();
             
             var state = m_ControllerAttr.GetAttr<ECharacterState>((uint)EControllerAttr.CharacterState);
             switch (state)

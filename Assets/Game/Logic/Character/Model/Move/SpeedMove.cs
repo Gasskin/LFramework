@@ -20,7 +20,7 @@ namespace Game.Logic
 
         private void PrepareAttr()
         {
-            m_DeltaTime = GameComponent.GameUpdater.DeltaTime;
+            m_DeltaTime = GameComponent.GameDriver.DeltaTime;
             m_MoveDir = ControllerAttr.GetAttr<float>(EControllerAttr.MoveDir.ToUint());
             m_MoveSpeed = ControllerAttr.GetAttr<float>(EControllerAttr.MoveSpeed.ToUint());
         }

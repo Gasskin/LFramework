@@ -10,8 +10,8 @@ namespace Game.Logic
         private static ResourceComponent s_Resource;
         public static ResourceComponent Resource => s_Resource ??= GameEntry.GetComponent<ResourceComponent>();
         
-        private static GameUpdaterComponent s_GameUpdater;
-        public static GameUpdaterComponent GameUpdater => s_GameUpdater ??= GameEntry.GetComponent<GameUpdaterComponent>();
+        private static GameDriverComponent s_GameDriver;
+        public static GameDriverComponent GameDriver => s_GameDriver ??= GameEntry.GetComponent<GameDriverComponent>();
         
         private static CoroutineLockComponent s_CoroutineLock;
         public static CoroutineLockComponent CoroutineLock => s_CoroutineLock ??= GameEntry.GetComponent<CoroutineLockComponent>();

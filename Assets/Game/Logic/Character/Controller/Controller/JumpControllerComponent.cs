@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Logic
 {
-    public class JumpControllerComponent : EntityComponent, ICharacterControllerComponent
+    public class JumpControllerComponent : VComponent, ICharacterControllerComponent
     {
         public override bool DefaultEnable => false;
         private Vector2 m_EnterVelocity;
@@ -18,8 +18,8 @@ namespace Game.Logic
 
         public void Start(ECharacterState fromState)
         {
-            m_ControllerAttr ??= NodeEntity.GetComponent<AttrComponent>();
-            m_ModelAttr ??= NodeEntity.Parent.GetChild<CharacterModelNodeEntity>().GetComponent<AttrComponent>();
+            m_ControllerAttr ??= VGameObject.GetComponent<AttrComponent>();
+            m_ModelAttr ??= VGameObject.Parent.GetChild<CharacterModelVGameObject>().GetComponent<AttrComponent>();
             
             Enable = true;
             var moveDir = GameModule.Input.MoveDir;
@@ -45,7 +45,7 @@ namespace Game.Logic
         public override void Update()
         {
             var jumpG = 10f;
-            m_EnterVelocity.y -= jumpG * GameComponent.GameUpdater.DeltaTime;
+            m_EnterVelocity.y -= jumpG * GameComponent.GameDriver.DeltaTime;
             if (m_EnterVelocity.y <= 0f)
                 m_EnterVelocity.y = 0f;
             m_ControllerAttr.SetAttr(EControllerAttr.MoveMode.ToUint(), EMoveMode.ParabolaMove);

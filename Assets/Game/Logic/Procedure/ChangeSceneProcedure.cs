@@ -34,7 +34,7 @@ namespace Game.Logic
             {
                 return;
             }
-            NodeEntity.Create<PlayerNodeEntity>();
+            VGameObject.Create<PlayerVGameObject>();
             // await UniTask.Yield();
             //
             // if (scene == ResourcesPathConfig.Scene.Main)

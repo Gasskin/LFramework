@@ -4,7 +4,7 @@ using Game.Module;
 
 namespace Game.Logic
 {
-    public class MoveComponent : EntityComponent
+    public class MoveComponent : VComponent
     {
         private readonly Dictionary<EMoveMode, MoveModuleBase> m_MoveModuleDic = new();
         private EMoveMode m_CurrentMoveMode;
@@ -16,7 +16,7 @@ namespace Game.Logic
             m_MoveModuleDic.Add(EMoveMode.SpeedMove, new SpeedMove());
             m_MoveModuleDic.Add(EMoveMode.ParabolaMove, new ParabolaMove());
             foreach (var module in m_MoveModuleDic)
-                module.Value.SetHost(NodeEntity);
+                module.Value.SetHost(VGameObject);
         }
 
         public override void Update()
@@ -31,8 +31,8 @@ namespace Game.Logic
 
         private void PrepareComponent()
         {
-            m_ModelAttr ??= NodeEntity.GetComponent<AttrComponent>();
-            m_ControllerAttr ??= NodeEntity.Parent.GetChild<CharacterControllerNodeEntity>().GetComponent<AttrComponent>();
+            m_ModelAttr ??= VGameObject.GetComponent<AttrComponent>();
+            m_ControllerAttr ??= VGameObject.Parent.GetChild<CharacterControllerVGameObject>().GetComponent<AttrComponent>();
         }
     }
 }

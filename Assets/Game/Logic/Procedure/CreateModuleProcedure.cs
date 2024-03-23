@@ -14,12 +14,12 @@ namespace Game.Logic
         {
             base.OnEnter(procedureOwner);
 
-            GameComponent.GameUpdater.GetModule<ConfigModule>();
-            GameComponent.GameUpdater.GetModule<LocalizationModule>();
-            GameComponent.GameUpdater.GetModule<InputModule>();
-            GameComponent.GameUpdater.GetModule<EntityModule>();
+            GameComponent.GameDriver.GetModule<ConfigDriver>();
+            GameComponent.GameDriver.GetModule<LocalizationDriver>();
+            GameComponent.GameDriver.GetModule<InputDriver>();
+            GameComponent.GameDriver.GetModule<VirtualGameObjectDriver>();
 
-            await GameComponent.GameUpdater.InitAsync();
+            await GameComponent.GameDriver.InitAsync();
 
             ChangeState<LaunchProcedure>(procedureOwner);
         }
