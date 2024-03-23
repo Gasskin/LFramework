@@ -187,6 +187,18 @@ PrefabInstance:
       propertyPath: m_AvailableProcedureTypeNames.Array.data[0]
       value: Game.Logic.CreateModuleProcedure
       objectReference: {fileID: 0}
+    - target: {fileID: 3301680243006474011, guid: a6e4c5ee7f186134bbeb70f56dee48f3, type: 3}
+      propertyPath: m_AvailableProcedureTypeNames.Array.data[1]
+      value: Game.Logic.CreateModuleProcedure
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301680243006474011, guid: a6e4c5ee7f186134bbeb70f56dee48f3, type: 3}
+      propertyPath: m_AvailableProcedureTypeNames.Array.data[2]
+      value: Game.Logic.InitPackageProcedure
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301680243006474011, guid: a6e4c5ee7f186134bbeb70f56dee48f3, type: 3}
+      propertyPath: m_AvailableProcedureTypeNames.Array.data[3]
+      value: Game.Logic.MenuProcedure
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

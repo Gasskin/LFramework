@@ -45,6 +45,11 @@ namespace UnityGameFramework.Runtime
             return "";
         }
 
+        public InitializationOperation InitPackage()
+        {
+            return m_AssetManager.InitPackage();
+        }
+
     #region Ondin
 #if UNITY_EDITOR
         private static List<string> GetPackages()

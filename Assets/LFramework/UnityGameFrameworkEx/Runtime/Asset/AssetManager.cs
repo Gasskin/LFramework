@@ -2,7 +2,7 @@
 
 namespace GameFramework.Asset
 {
-    public class AssetManager : GameFrameworkModule, IAssetManager
+    public partial class AssetManager : GameFrameworkModule, IAssetManager
     {
         public string PackageName { get; set; } = "DefaultPackage";
 
@@ -26,18 +26,46 @@ namespace GameFramework.Asset
             YooAssets.Initialize(new YooAssetsLogger());
 
             // 创建默认的资源包
-            string packageName = PackageName;
-            var defaultPackage = YooAssets.TryGetPackage(packageName);
+            var defaultPackage = YooAssets.TryGetPackage(PackageName);
             if (defaultPackage == null)
             {
-                defaultPackage = YooAssets.CreatePackage(packageName);
+                defaultPackage = YooAssets.CreatePackage(PackageName);
                 YooAssets.SetDefaultPackage(defaultPackage);
             }
         }
 
         public InitializationOperation InitPackage()
         {
-            throw new System.NotImplementedException();
+            var package = YooAssets.TryGetPackage(PackageName);
+            
+            // 编辑器下的模拟模式
+            InitializationOperation initializationOperation = null;
+            if (PlayMode == EPlayMode.EditorSimulateMode)
+            {
+                var createParameters = new EditorSimulateModeParameters();
+                createParameters.SimulateManifestFilePath = EditorSimulateModeHelper.SimulateBuild(EDefaultBuildPipeline.BuiltinBuildPipeline,PackageName);
+                initializationOperation = package.InitializeAsync(createParameters);
+            }
+
+            // 单机运行模式
+            if (PlayMode == EPlayMode.OfflinePlayMode)
+            {
+                var createParameters = new OfflinePlayModeParameters();
+                initializationOperation = package.InitializeAsync(createParameters);
+            }
+
+            // 联机运行模式
+            if (PlayMode == EPlayMode.HostPlayMode)
+            {
+                var createParameters = new HostPlayModeParameters();
+                createParameters.BuildinQueryServices = new QueryServices();
+                var defaultHostServer = GetHostServerURL();
+                var fallbackHostServer = GetHostServerURL();
+                createParameters.RemoteServices = new RemoteServices(defaultHostServer, fallbackHostServer);
+                initializationOperation = package.InitializeAsync(createParameters);
+            }
+
+            return initializationOperation;
         }
     }
 }
