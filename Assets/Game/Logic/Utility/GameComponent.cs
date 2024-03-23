@@ -37,5 +37,8 @@ namespace Game.Logic
         
         private static ObjectPoolComponent s_ObjectPool;
         public static ObjectPoolComponent ObjectPool => s_ObjectPool ??= GameEntry.GetComponent<ObjectPoolComponent>();
+
+        private static AssetComponent s_Asset;
+        public static AssetComponent Asset => s_Asset ??= GameEntry.GetComponent<AssetComponent>();
     }
 }
