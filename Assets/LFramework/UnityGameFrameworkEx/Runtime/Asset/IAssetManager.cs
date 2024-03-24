@@ -68,5 +68,6 @@ namespace GameFramework.Asset
         UniTask<UpdatePackageVersionOperation> UpdatePackageVersion();
         UniTask<UpdatePackageManifestOperation> UpdatePackageManifest();
         ResourceDownloaderOperation CreateResourceDownloader(int downloadingMaxNumber, int failedTryAgain);
+        UniTask<ClearUnusedCacheFilesOperation> ClearUnusedCacheFilesAsync();
     }
 }

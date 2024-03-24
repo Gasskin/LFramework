@@ -5,6 +5,7 @@ using GameFramework.Fsm;
 using GameFramework.Procedure;
 using UnityEngine;
 using UnityGameFramework.Runtime;
+using YooAsset;
 
 namespace Game.Runtime
 {
@@ -13,12 +14,22 @@ namespace Game.Runtime
         protected override async void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
             base.OnEnter(procedureOwner);
+            var asset = GameEntry.GetComponent<AssetComponent>();
+            var playMode = asset.m_PlayMode;
+
+            Assembly hotFix;
 #if UNITY_EDITOR
-            var hotUpdateAss = System.AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "HotFix");
-#else
-            var hotUpdateAss = Assembly.Load(await File.ReadAllBytesAsync($"{Application.streamingAssetsPath}/HotFix.dll.bytes"));
+            if (playMode == EPlayMode.EditorSimulateMode)
+            {
+                hotFix = System.AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "HotFix");
+            }
+            else
 #endif
-            var cls = hotUpdateAss.GetType("Game.HotFix.HotFixEntry");
+            {
+                var dll = await asset.LoadAssetAsync<TextAsset>("Assets/Bundles/DLL/HotFix.dll.bytes");
+                hotFix = Assembly.Load(dll.bytes);
+            }
+            var cls = hotFix.GetType("Game.HotFix.HotFixEntry");
             if (cls != null)
             {
                 var method = cls.GetMethod("Start", BindingFlags.Public | BindingFlags.Static);

@@ -114,6 +114,11 @@ namespace UnityGameFramework.Runtime
         {
             return m_AssetManager.CreateResourceDownloader(max, tryAgainCount);
         }
+        
+        public async UniTask<ClearUnusedCacheFilesOperation> ClearUnusedCacheFilesAsync()
+        {
+            return await m_AssetManager.ClearUnusedCacheFilesAsync();
+        }
     #endregion
 
     #region Odin

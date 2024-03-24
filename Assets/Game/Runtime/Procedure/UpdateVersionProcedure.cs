@@ -26,7 +26,7 @@ namespace Game.Runtime
             if (operation.Status == EOperationStatus.Succeed)
             {
                 var assetComp = GameEntry.GetComponent<AssetComponent>();
-                assetComp.SetPackageVersion("", operation.PackageVersion);                
+                assetComp.SetPackageVersion("", operation.PackageVersion);         
                 ChangeState<UpdateManifestProcedure>(procedureOwner);
             }
             else

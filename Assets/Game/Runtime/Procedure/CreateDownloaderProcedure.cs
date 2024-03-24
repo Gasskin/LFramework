@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
 using UnityGameFramework.Runtime;
+using YooAsset;
 
 namespace Game.Runtime
 {
@@ -22,7 +23,8 @@ namespace Game.Runtime
             if (downloader.TotalDownloadCount == 0)
             {
                 Log.Info("没有需要更新文件");
-                // ChangeState<ProcedureDownloadOver>(procedureOwner);
+                await assetComponent.ClearUnusedCacheFilesAsync();
+                ChangeState<LoadAssemblyProcedure>(procedureOwner);
             }
             else
             {
@@ -36,6 +38,10 @@ namespace Game.Runtime
                 var totalSizeMb = sizeMb.ToString("f1");
 
                 Log.Info("需要下载的文件数量：{0}，总计大小：{1}mb", count, totalSizeMb);
+
+                var data = GameEntry.GetComponent<DataNodeComponent>();
+                data.SetData("downloader", (VarAsyncOperationBase)downloader);
+                ChangeState<DownloadFileProcedure>(procedureOwner);
             }
         }
     }

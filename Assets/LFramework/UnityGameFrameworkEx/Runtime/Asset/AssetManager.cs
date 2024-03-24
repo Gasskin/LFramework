@@ -123,6 +123,14 @@ namespace GameFramework.Asset
             var package = YooAssets.GetPackage(PackageName);
             return package.CreateResourceDownloader(downloadingMaxNumber,failedTryAgain);
         }
+
+        public async UniTask<ClearUnusedCacheFilesOperation> ClearUnusedCacheFilesAsync()
+        {
+            var package = YooAssets.TryGetPackage(PackageName);
+            var operate = package.ClearUnusedCacheFilesAsync();
+            await operate.ToUniTask();
+            return operate;
+        }
     #endregion
     }
 }
