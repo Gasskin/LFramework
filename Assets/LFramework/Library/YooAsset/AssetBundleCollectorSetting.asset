@@ -16,7 +16,7 @@ MonoBehaviour:
   ShowEditorAlias: 0
   UniqueBundleName: 1
   Packages:
-  - PackageName: Package1
+  - PackageName: Package
     PackageDesc: "\u9ED8\u8BA4\u8D44\u6E90\u5305"
     EnableAddressable: 0
     LocationToLower: 0

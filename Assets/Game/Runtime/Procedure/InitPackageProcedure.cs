@@ -18,6 +18,9 @@ namespace Game.Runtime
             await operation.ToUniTask();
             if (operation.Status == EOperationStatus.Succeed)
             {
+                // 设置本地资源版本
+                assetComp.SetPackageVersion(operation.PackageVersion);
+
                 // 编辑器模式。
                 if (assetComp.m_PlayMode == EPlayMode.EditorSimulateMode)
                 {
@@ -31,15 +34,16 @@ namespace Game.Runtime
                 // 可更新模式。
                 else if (assetComp.m_PlayMode == EPlayMode.HostPlayMode)
                 {
-                    // 打开启动UI。
-            
-                    Log.Info("Updatable resource mode detected.");
-                    // ChangeState<ProcedureUpdateVersion>(procedureOwner);
+                    ChangeState<UpdateVersionProcedure>(procedureOwner);
                 }
                 else
                 {
-                    Log.Error("UnKnow resource mode detected Please check???");
+                    Log.Error("资源模式异常");
                 }
+            }
+            else
+            {
+                Log.Fatal(operation.Error);
             }
         }
     }

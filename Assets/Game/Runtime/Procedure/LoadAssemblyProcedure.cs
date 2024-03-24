@@ -4,6 +4,7 @@ using System.Reflection;
 using GameFramework.Fsm;
 using GameFramework.Procedure;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 namespace Game.Runtime
 {
@@ -14,7 +15,10 @@ namespace Game.Runtime
             base.OnEnter(procedureOwner);
 #if UNITY_EDITOR
             var hotUpdateAss = System.AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "HotFix");
-            var cls = hotUpdateAss.GetType("Game.HotFix.Logic.HotFixEntry");
+#else
+            var hotUpdateAss = Assembly.Load(await File.ReadAllBytesAsync($"{Application.streamingAssetsPath}/HotFix.dll.bytes"));
+#endif
+            var cls = hotUpdateAss.GetType("Game.HotFix.HotFixEntry");
             if (cls != null)
             {
                 var method = cls.GetMethod("Start", BindingFlags.Public | BindingFlags.Static);
@@ -22,10 +26,15 @@ namespace Game.Runtime
                 {
                     method.Invoke(null, null);
                 }
+                else
+                {
+                    Log.Fatal("加载HotFix.dll失败，不存在入口方法");
+                }
             }
-#else
-            var hotUpdateAss = Assembly.Load(File.ReadAllBytes($"{Application.streamingAssetsPath}/HotFix.dll.bytes"));
-#endif
+            else
+            {
+                Log.Fatal("加载HotFix.dll失败，不存在入口类");
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ using Game.HotFix.GameDrivers;
 using Game.HotFix.Utility;
 using UnityEngine;
 using UnityGameFramework.Runtime;
+using Object = UnityEngine.Object;
 
 namespace Game.HotFix
 {
@@ -27,9 +28,9 @@ namespace Game.HotFix
             await s_Instance.InitAsync();
             
             GameComponent.GameDriver.SetUpdateAction(s_Instance.Update);
-            GameComponent.GameDriver.SetUpdateAction(s_Instance.LateUpdate);
-            GameComponent.GameDriver.SetUpdateAction(s_Instance.FixedUpdate);
-            GameComponent.GameDriver.SetUpdateAction(s_Instance.ShutDown);
+            GameComponent.GameDriver.SetLateUpdateAction(s_Instance.LateUpdate);
+            GameComponent.GameDriver.SetFixedUpdateAction(s_Instance.FixedUpdate);
+            GameComponent.GameDriver.SetShutDownAction(s_Instance.ShutDown);
         }
 
         public static T GetDriver<T>() where T : GameDriverBase
@@ -53,11 +54,16 @@ namespace Game.HotFix
             {
                 m_GameDriverDic.Add(gameDriver.GetType(), gameDriver);
             }
+            
+            // StartGame
+            var asset = await GameComponent.Asset.LoadAssetAsync<GameObject>("Assets/Bundles/UI/Canvas");
+            Object.Instantiate(asset);
         }
 
         
         private void Update()
         {
+            Log.Info("Update");
             TimeUtility.DeltaTime = Time.deltaTime;
             foreach (var gameDriver in m_GameDrivers)
             {

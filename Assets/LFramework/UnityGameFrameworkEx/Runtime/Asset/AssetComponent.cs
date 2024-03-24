@@ -40,14 +40,8 @@ namespace UnityGameFramework.Runtime
             m_AssetManager.ReadWritePath = Application.persistentDataPath;
             m_AssetManager.PackageName = m_DefaultPackageName;
             m_AssetManager.PlayMode = m_PlayMode;
-            m_AssetManager.HostServerURL = GetHostServerURL();
             m_AssetManager.Initialize();
             Log.Info($"AssetsComponent Run Mode：{m_PlayMode}");
-        }
-
-        private string GetHostServerURL()
-        {
-            return "";
         }
 
         public InitializationOperation InitPackage()
@@ -55,27 +49,74 @@ namespace UnityGameFramework.Runtime
             return m_AssetManager.InitPackage();
         }
 
+        public void SetPackageVersion(string local = "", string remote = "")
+        {
+            if (!string.IsNullOrEmpty(local))
+            {
+                m_AssetManager.LocalPackageVersion = local;
+            }
+            if (!string.IsNullOrEmpty(remote))
+            {
+                m_AssetManager.RemotePackageVersion = remote;
+            }
+        }
+
+    #region 资源加载/卸载
         public async UniTask<T> LoadAssetAsync<T>(string path) where T : UnityEngine.Object
         {
 #if UNITY_EDITOR || DEBUG
-            var watcher = ReferencePool.Acquire<LoadWatcher>();
+            var watcher = ReferencePool.Acquire<TimeWatcher>();
             watcher.Start();
 #endif
             var handle = m_AssetManager.LoadAssetAsync<T>(path);
             await handle.ToUniTask(this);
 #if UNITY_EDITOR || DEBUG
             watcher.Stop();
-            Log.Info("<color=#00FF35>加载资源耗时：</color>{0}ms  {1}", watcher.ElapsedMilliseconds , path);
+            Log.Info("<color=#00FF35>加载资源耗时：</color>{0}ms  {1}", watcher.ElapsedMilliseconds, path);
             ReferencePool.Release(watcher);
 #endif
             if (handle.Status == EOperationStatus.Succeed)
             {
                 return handle.AssetObject as T;
             }
+
             return null;
         }
 
-    #region Ondin
+        public void UnLoadAsset(string path)
+        {
+            m_AssetManager.UnLoadAsset(path);
+        }
+
+        public void UnLoadAllUnusedAsset()
+        {
+            m_AssetManager.UnLoadAllUnusedAsset();
+        }
+
+        public void ForceUnLoadAllAsset()
+        {
+            m_AssetManager.ForceUnLoadAllAsset();
+        }
+    #endregion
+
+    #region 资源更新
+        public async UniTask<UpdatePackageVersionOperation> UpdatePackageVersion()
+        {
+            return await m_AssetManager.UpdatePackageVersion();
+        }
+
+        public async UniTask<UpdatePackageManifestOperation> UpdatePackageManifest()
+        {
+            return await m_AssetManager.UpdatePackageManifest();
+        }
+
+        public ResourceDownloaderOperation CreateResourceDownloader(int max, int tryAgainCount)
+        {
+            return m_AssetManager.CreateResourceDownloader(max, tryAgainCount);
+        }
+    #endregion
+
+    #region Odin
 #if UNITY_EDITOR
         private static List<string> GetPackages()
         {

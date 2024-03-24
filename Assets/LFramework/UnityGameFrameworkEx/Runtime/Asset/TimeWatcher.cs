@@ -2,7 +2,7 @@
 
 namespace GameFramework.Asset
 {
-    public class LoadWatcher : Stopwatch, IReference
+    public class TimeWatcher : Stopwatch, IReference
     {
         public void Clear()
         {

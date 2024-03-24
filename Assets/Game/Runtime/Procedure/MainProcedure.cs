@@ -3,7 +3,7 @@ using GameFramework.Procedure;
 
 namespace Game.Runtime
 {
-    public class EnterProcedure : ProcedureBase
+    public class MainProcedure : ProcedureBase
     {
         protected override async void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
