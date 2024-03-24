@@ -1,4 +1,5 @@
 ﻿using Game.HotFix.GlobalDefinition;
+using Game.HotFix.Utility;
 using MenteBacata.ScivoloCharacterController;
 
 namespace Game.HotFix.Logic
@@ -20,7 +21,7 @@ namespace Game.HotFix.Logic
 
         private void PrepareAttr()
         {
-            m_DeltaTime = GameComponent.GameDriver.DeltaTime;
+            m_DeltaTime = TimeUtility.DeltaTime;
             m_MoveDir = ControllerAttr.GetAttr<float>(EControllerAttr.MoveDir.ToUint());
             m_MoveSpeed = ControllerAttr.GetAttr<float>(EControllerAttr.MoveSpeed.ToUint());
         }

@@ -3,8 +3,7 @@ using System.Threading.Tasks;
 using cfg;
 using Cysharp.Threading.Tasks;
 using Game.HotFix.GlobalDefinition;
-using Game.HotFix.Logic;
-using GameFramework.GameDriver;
+using Game.HotFix.Utility;
 using Luban;
 using SimpleJSON;
 using UnityEngine;
@@ -65,7 +64,7 @@ namespace Game.HotFix.GameDrivers
             
         }
 
-        public override void Update(float delta)
+        public override void Update()
         {
             
         }

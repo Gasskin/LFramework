@@ -1,16 +1,12 @@
-using Cysharp.Threading.Tasks;
+using System;
 using GameFramework;
 using GameFramework.GameDriver;
-using UnityEngine;
 
 namespace UnityGameFramework.Runtime
 {
     public class GameDriverComponent: GameFrameworkComponent
     {
-        public float DeltaTime { get; private set; }
-        
         private IGameDriverManager m_GameDriverManager;
-        private bool m_Initialized;
 
         protected override void Awake()
         {
@@ -18,44 +14,39 @@ namespace UnityGameFramework.Runtime
             m_GameDriverManager = GameFrameworkEntry.GetModule<IGameDriverManager>();
         }
 
-        public async UniTask InitAsync()
-        {
-            if (m_Initialized)
-            {
-                return;
-            }
-            await m_GameDriverManager.InitAsync();
-            m_Initialized = true;
-        }
-
-        public T GetModule<T>() where T: GameDriverBase
-        {
-            return m_GameDriverManager.GetModule<T>();
-        }
-        
         private void Update()
         {
-            if (m_Initialized)
-            {
-                DeltaTime = Time.deltaTime;
-                m_GameDriverManager.Update(DeltaTime);
-            }
+            m_GameDriverManager.OnUpdate?.Invoke();
         }
 
         private void LateUpdate()
         {
-            if (m_Initialized)
-            {
-                m_GameDriverManager.LateUpdate();
-            }
+            m_GameDriverManager.OnLateUpdate?.Invoke();
         }
 
         private void FixedUpdate()
         {
-            if (m_Initialized)
-            {
-                m_GameDriverManager.FixedUpdate();
-            }
+            m_GameDriverManager.OnFixedUpdate?.Invoke();
+        }
+        
+        public void SetUpdateAction(Action action)
+        {
+            m_GameDriverManager.SetUpdateAction(action);
+        }
+
+        public void SetLateUpdateAction(Action action)
+        {
+            m_GameDriverManager.SetLateUpdateAction(action);
+        }
+
+        public void SetFixedUpdateAction(Action action)
+        {
+            m_GameDriverManager.SetFixedUpdateAction(action);
+        }
+        
+        public void SetShutDownAction(Action action)
+        {
+            m_GameDriverManager.SetShutDownAction(action);
         }
     }
 }

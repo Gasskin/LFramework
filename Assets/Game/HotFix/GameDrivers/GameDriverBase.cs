@@ -1,6 +1,6 @@
 using Cysharp.Threading.Tasks;
 
-namespace GameFramework.GameDriver
+namespace Game.HotFix.GameDrivers
 {
     public abstract class GameDriverBase
     {
@@ -8,7 +8,7 @@ namespace GameFramework.GameDriver
 
         public abstract UniTask InitAsync();
 
-        public abstract void Update(float delta);
+        public abstract void Update();
 
         public abstract void LateUpdate();
 

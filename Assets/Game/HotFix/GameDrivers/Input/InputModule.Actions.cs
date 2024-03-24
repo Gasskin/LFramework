@@ -1,6 +1,6 @@
 ﻿using System;
 using Game.HotFix.GlobalDefinition;
-using Game.HotFix.Logic;
+using Game.HotFix.Utility;
 
 namespace Game.HotFix.GameDrivers
 {

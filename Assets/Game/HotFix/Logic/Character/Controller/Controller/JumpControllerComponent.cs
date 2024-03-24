@@ -1,5 +1,6 @@
 ﻿using Game.HotFix.GlobalDefinition;
 using Game.HotFix.GameDrivers;
+using Game.HotFix.Utility;
 using UnityEngine;
 
 namespace Game.HotFix.Logic
@@ -22,7 +23,9 @@ namespace Game.HotFix.Logic
             m_ModelAttr ??= Entity.Parent.GetChild<CharacterModelECEntity>().GetComponent<AttrComponent>();
             
             Enable = true;
-            var moveDir = GameModule.Input.MoveDir;
+
+            var input = HotFixEntry.GetDriver<InputDriver>();
+            var moveDir = input.MoveDir;
             var velocityY = 8f;
             var velocityX = 0f;
 
@@ -45,7 +48,7 @@ namespace Game.HotFix.Logic
         public override void Update()
         {
             var jumpG = 10f;
-            m_EnterVelocity.y -= jumpG * GameComponent.GameDriver.DeltaTime;
+            m_EnterVelocity.y -= jumpG * TimeUtility.DeltaTime;
             if (m_EnterVelocity.y <= 0f)
                 m_EnterVelocity.y = 0f;
             m_ControllerAttr.SetAttr(EControllerAttr.MoveMode.ToUint(), EMoveMode.ParabolaMove);

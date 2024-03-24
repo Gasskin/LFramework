@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using Game.HotFix.Logic;
+using Game.HotFix.Utility;
 using GameFramework.GameDriver;
 using GameFramework.Localization;
 using UnityEngine;
@@ -17,7 +18,7 @@ namespace Game.HotFix.GameDrivers
             await UniTask.CompletedTask;
         }
 
-        public override void Update(float delta)
+        public override void Update()
         {
         }
 

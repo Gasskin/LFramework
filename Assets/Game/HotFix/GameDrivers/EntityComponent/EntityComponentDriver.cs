@@ -14,7 +14,7 @@ namespace Game.HotFix.GameDrivers
             await UniTask.CompletedTask;
         }
 
-        public override void Update(float delta)
+        public override void Update()
         {
             MasterECEntity.Instance.Update();
         }

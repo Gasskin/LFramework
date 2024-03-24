@@ -25,7 +25,8 @@ namespace Game.HotFix.Logic
 
         public override void Update()
         {
-            var moveDir = GameModule.Input.MoveDir;
+            var input = HotFixEntry.GetDriver<InputDriver>();
+            var moveDir = input.MoveDir;
             if (moveDir == 0f)
             {
                 m_ControllerAttr.SetAttr(EControllerAttr.MoveMode.ToUint(), EMoveMode.None);

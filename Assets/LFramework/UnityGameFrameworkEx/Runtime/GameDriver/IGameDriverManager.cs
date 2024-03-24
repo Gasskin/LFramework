@@ -1,18 +1,20 @@
-
-using Cysharp.Threading.Tasks;
+using System;
 
 namespace GameFramework.GameDriver
 {
     public interface IGameDriverManager
     {
-        public UniTask InitAsync();
-
-        public T GetModule<T>() where T : GameDriverBase;
+        Action OnUpdate { get;  set; }
         
-        public void Update(float delta);
-
-        public void LateUpdate();
-
-        public void FixedUpdate();
+        Action OnLateUpdate { get;  set; }
+        
+        Action OnFixedUpdate { get;  set; }
+        
+        Action OnShutDown { get; set; }
+        
+        void SetUpdateAction(Action action);
+        void SetLateUpdateAction(Action action);
+        void SetFixedUpdateAction(Action action);
+        void SetShutDownAction(Action action);
     }
 }

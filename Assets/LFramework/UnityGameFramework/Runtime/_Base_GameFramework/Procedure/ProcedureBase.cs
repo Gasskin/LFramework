@@ -6,6 +6,7 @@
 //------------------------------------------------------------
 
 using GameFramework.Fsm;
+using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 
 namespace GameFramework.Procedure
@@ -31,6 +32,7 @@ namespace GameFramework.Procedure
         protected internal override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
+            Log.Info("进入流程：{0}",GetType().Name);
         }
 
         /// <summary>
@@ -52,6 +54,7 @@ namespace GameFramework.Procedure
         protected internal override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
         {
             base.OnLeave(procedureOwner, isShutdown);
+            Log.Info("离开流程：{0}",GetType().Name);
         }
 
         /// <summary>

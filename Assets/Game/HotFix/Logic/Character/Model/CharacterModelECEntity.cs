@@ -16,12 +16,12 @@ namespace Game.HotFix.Logic
                 return;
             }
 
-            var asset = await GameComponent.Resource.LoadAssetAsync<GameObject>(path);
-            if (asset != null)
-            {
-                Model = Object.Instantiate(asset);
-                GameComponent.Resource.UnloadAsset(asset);
-            }
+            // var asset = await GameComponent.Resource.LoadAssetAsync<GameObject>(path);
+            // if (asset != null)
+            // {
+                // Model = Object.Instantiate(asset);
+                // GameComponent.Resource.UnloadAsset(asset);
+            // }
             
             AddComponent<AttrComponent>();
             AddComponent<MoveComponent>();

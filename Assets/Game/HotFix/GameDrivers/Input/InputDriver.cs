@@ -1,7 +1,6 @@
 using Cysharp.Threading.Tasks;
 using Game.HotFix.GlobalDefinition;
-using Game.HotFix.Logic;
-using GameFramework.GameDriver;
+using Game.HotFix.Utility;
 using Rewired;
 using UnityEngine;
 using UnityGameFramework.Runtime;
@@ -31,7 +30,7 @@ namespace Game.HotFix.GameDrivers
             await InitMapEnabler();
         }
 
-        public override void Update(float delta)
+        public override void Update()
         {
             var dir = GetMoveDir();
             Move(dir);

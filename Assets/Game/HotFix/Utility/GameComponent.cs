@@ -1,6 +1,6 @@
 using UnityGameFramework.Runtime;
 
-namespace Game.HotFix.Logic
+namespace Game.HotFix.Utility
 {
     public static class GameComponent
     {
